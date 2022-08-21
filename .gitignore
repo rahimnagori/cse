@@ -1,0 +1,4 @@
+dev/application/config/config.php
+dev/application/config/database.php
+.htaccess
+dev/vendor
