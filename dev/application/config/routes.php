@@ -69,3 +69,15 @@ $route['Update-Admin-Password'] = 'Admin_Dashboard/update_password';
 $route['Admin-Login'] = 'Admin/login';
 $route['Dashboard'] = 'Admin_Dashboard';
 $route['Admin-Profile'] = 'Admin_Dashboard/profile';
+
+$route['Admin-Courses'] = 'Admin_Courses';
+$route['Admin-Courses/Add'] = 'Admin_Courses/add_course';
+$route['Admin-Courses/delete'] = 'Admin_Courses/delete_course';
+$route['Admin-Courses/Get/(:any)'] = 'Admin_Courses/get_course/$1';
+$route['Admin-Courses/Update'] = 'Admin_Courses/update_course';
+
+$route['Course-Categories'] = 'Admin_Courses/categories';
+$route['Admin-Category/Add'] = 'Admin_Courses/add_category';
+$route['Admin-Category/delete'] = 'Admin_Courses/delete_category';
+$route['Admin-Category/Get/(:any)'] = 'Admin_Courses/get_category/$1';
+$route['Admin-Category/Update'] = 'Admin_Courses/update_category';
