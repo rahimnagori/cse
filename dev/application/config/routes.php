@@ -55,9 +55,9 @@ $route['translate_uri_dashes'] = FALSE;
 
 /* Static Route */
 $route['About'] = 'Home/about';
-$route['Newses'] = 'Home/newses';
-$route['News/(:any)'] = 'Home/news/$1';
-$route['Work'] = 'Home/work';
+$route['Terms'] = 'Home/terms';
+$route['Privacy-Policy'] = 'Home/privacy';
+$route['Refund-Policy'] = 'Home/refund';
 
 $route['Change-Password'] = 'Users/password';
 $route['Logout'] = 'Users/logout';

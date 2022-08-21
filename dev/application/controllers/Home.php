@@ -19,4 +19,40 @@ class Home extends CI_Controller
     $this->load->view('site/index', $pageData);
     $this->load->view('site/include/footer', $pageData);
   }
+
+  public function about()
+  {
+    $pageData = $this->Common_Model->get_userdata();
+
+    $this->load->view('site/include/header', $pageData);
+    $this->load->view('site/about', $pageData);
+    $this->load->view('site/include/footer', $pageData);
+  }
+
+  public function terms()
+  {
+    $pageData = $this->Common_Model->get_userdata();
+
+    $this->load->view('site/include/header', $pageData);
+    $this->load->view('site/terms', $pageData);
+    $this->load->view('site/include/footer', $pageData);
+  }
+
+  public function privacy()
+  {
+    $pageData = $this->Common_Model->get_userdata();
+
+    $this->load->view('site/include/header', $pageData);
+    $this->load->view('site/privacy', $pageData);
+    $this->load->view('site/include/footer', $pageData);
+  }
+
+  public function refund()
+  {
+    $pageData = $this->Common_Model->get_userdata();
+
+    $this->load->view('site/include/header', $pageData);
+    $this->load->view('site/refund', $pageData);
+    $this->load->view('site/include/footer', $pageData);
+  }
 }
