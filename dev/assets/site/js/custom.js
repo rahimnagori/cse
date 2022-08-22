@@ -115,3 +115,16 @@ btn2.on('click', function(e) {
   $('html, body').animate({scrollTop:0}, '300');
 });
  /*back to top*/
+
+ /*slider*/
+ $('#slider3').slick({
+  dots: true,
+  arrows: false,
+  autoplay: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  adaptiveHeight: true,
+  autoplaySpeed: 1500
+ });
+ 
+  /*slider close*/
