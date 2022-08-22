@@ -101,12 +101,16 @@ class Admin_Courses extends CI_Controller
     {
         $response['status'] = 0;
         $response['responseMessage'] = $this->Common_Model->error('Something went wrong.');
-        $this->form_validation->set_rules('delete_category_id', 'delete_category_id', 'required');
+        $this->form_validation->set_rules('delete_course_id', 'delete_course_id', 'required');
         if ($this->form_validation->run()) {
-            $where['id'] = $this->input->post('delete_category_id');
-            if ($this->Common_Model->delete('categories', $where)) {
+            $where['id'] = $this->input->post('delete_course_id');
+            $courseDetails = $this->Common_Model->fetch_records('courses', $where, false, true);
+            if($courseDetails['thumbnail_type'] == 1){
+                if(file_exists($courseDetails['thumbnail'])) unlink($courseDetails['thumbnail']);
+            }
+            if ($this->Common_Model->delete('courses', $where)) {
                 $response['status'] = 1;
-                $response['responseMessage'] = $this->Common_Model->success('Category deleted successfully.');
+                $response['responseMessage'] = $this->Common_Model->success('Course deleted successfully.');
             }
         } else {
             $response['status'] = 2;
