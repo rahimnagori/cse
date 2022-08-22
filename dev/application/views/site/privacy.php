@@ -16,7 +16,7 @@
     <p>
       
 
-Any study material as provided by CSEP Racticals is confidential and is not liable to uploaded on any 3rd party website / gdrive or Posted on social media platform without prior permissions from CSEP Racticals
+Any study material as provided by CSEPracticals is confidential and is not liable to uploaded on any 3rd party website / gdrive or Posted on social media platform without prior permissions from CSEPracticals
 
     </p>
     <p>

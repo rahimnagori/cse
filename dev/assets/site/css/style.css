@@ -723,7 +723,10 @@ textarea.form-control {
 /*textmonial*/
 
 .testimonial2 {
-    text-align: center;
+	padding: 15px;
+	background: #fff;
+	border: 1px solid #e1e1e1;
+	border-radius: 4px;
 }
 
 .testimonial2 i {
@@ -749,17 +752,20 @@ textarea.form-control {
     font-family: "RobotR";
     color: var(--blue);
 }
-
-.use_im2a {
-    width: 120px;
-    height: 120px;
-    border-radius: 100%;
-    border: 2px solid var(--blue);
-    padding: 6px;
-    margin: 0 auto;
-    margin-bottom: 20px;
+.user_immg {
+	position: relative;
+	padding-left: 105px;
+	min-height: 85px;
 }
-
+.use_im2a {
+	width: 85px;
+	height: 85px;
+	border-radius: 100%;
+	border: 2px solid var(--blue);
+	padding: 4px;
+	position: absolute;
+	left: 0;
+}
 .use_im2a img {
     width: 100% !important;
     height: 100%;
@@ -1368,11 +1374,11 @@ textarea.form-control {
     opacity: 0.6;
 }
 
-.slihh_min {
+/* .slihh_min {
     max-width: 750px;
     width: 100%;
     margin: 0 auto;
-}
+} */
 
 .img_con {
     padding: 0 16px;
@@ -1678,7 +1684,10 @@ top: 20px;
 	border-radius: 15px;
 	background: #fff;
 }
-.bors_img img {
+.bors_img img,
+.bors_img iframe
+
+{
 	width: 100%;
 	height: 210px;
 	object-fit: cover;

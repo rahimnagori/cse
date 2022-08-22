@@ -25,11 +25,11 @@
     <div class="row d_flex a_t">
       <div class="col-sm-6" data-aos="fade-right"  data-aos-duration="1000" data-aos-easing="linear">
         <div class="conten_set des_c1">
-        <h4 class="bg_hed">Wel come CSEP Racticals </h4>
+        <h4 class="bg_hed">Wel come CSEPracticals </h4>
         <h1>
           India's #1 <br>
          
-          Problem Solving CSEP Racticals  
+          Problem Solving CSEPracticals  
           Professionals
         </h1>
   <p>
@@ -130,7 +130,7 @@
               About Us
             </h1>
            <p>
-           Welcome to CSEP Racticals, an OnlineCourse offering Website in the field of Operating Systems, Networking, Linux System Programming and Several Coding Projects. We offer only Development based Projects, no DS/ALGO/CP.
+           Welcome to CSEPracticals, an OnlineCourse offering Website in the field of Operating Systems, Networking, Linux System Programming and Several Coding Projects. We offer only Development based Projects, no DS/ALGO/CP.
 
            </p>
 
@@ -172,8 +172,9 @@
     <div class="col-sm-3 element-item cat-1" data-category="cat-1">
     <div class="box_cos1">
           <div class="bors_img">
-          <img class="" src="<?= site_url('assets/site/'); ?>img/course/img1.webp">
-          </div> 
+          <!-- <img class="" src="<?= site_url('assets/site/'); ?>img/course/img1.webp"> -->
+          <iframe width="100%"  src="https://www.youtube.com/embed/BBr_J4ntzWE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div> 
          <div class="conten_b">
          <h4>Operation sys</h4>
           <p>
@@ -810,18 +811,19 @@ for
    <div class="slihh_min arrow_set  ">
    <div class=" slider_arrrw" id="slider3">
 
-<div class="item">
+   <div class="item">
 <div class="testimonial2">
         <div class="testimonial-content2">
-          <div class="use_im2a">
-            <img src="<?= site_url('assets/site/'); ?>img/u1.jpg" alt="">
-          </div>
+         
           <p class="description">
 
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled. 
           </p>
         </div>
         <div class="user_immg">
+        <div class="use_im2a">
+            <img src="<?= site_url('assets/site/'); ?>img/u1.jpg" alt="">
+          </div>
           <h4>
 
             Ankita Choudhary
@@ -834,15 +836,16 @@ for
 <div class="item">
 <div class="testimonial2">
         <div class="testimonial-content2">
-          <div class="use_im2a">
-            <img src="<?= site_url('assets/site/'); ?>img/u1.jpg" alt="">
-          </div>
+         
           <p class="description">
 
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled. 
           </p>
         </div>
         <div class="user_immg">
+        <div class="use_im2a">
+            <img src="<?= site_url('assets/site/'); ?>img/u1.jpg" alt="">
+          </div>
           <h4>
 
             Ankita Choudhary
@@ -855,15 +858,16 @@ for
 <div class="item">
 <div class="testimonial2">
         <div class="testimonial-content2">
-          <div class="use_im2a">
-            <img src="<?= site_url('assets/site/'); ?>img/u1.jpg" alt="">
-          </div>
+         
           <p class="description">
 
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled. 
           </p>
         </div>
         <div class="user_immg">
+        <div class="use_im2a">
+            <img src="<?= site_url('assets/site/'); ?>img/u1.jpg" alt="">
+          </div>
           <h4>
 
             Ankita Choudhary
@@ -876,15 +880,16 @@ for
 <div class="item">
 <div class="testimonial2">
         <div class="testimonial-content2">
-          <div class="use_im2a">
-            <img src="<?= site_url('assets/site/'); ?>img/u1.jpg" alt="">
-          </div>
+         
           <p class="description">
 
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled. 
           </p>
         </div>
         <div class="user_immg">
+        <div class="use_im2a">
+            <img src="<?= site_url('assets/site/'); ?>img/u1.jpg" alt="">
+          </div>
           <h4>
 
             Ankita Choudhary
@@ -893,6 +898,7 @@ for
         </div>
       </div>
 </div>
+
 
 
 

@@ -16,13 +16,13 @@
       <p>
         
 
-Purchase of the courses are refundable only under exceptional conditions, the CSEP Racticals shall have full authority to decide if refund request is legitimate and need to be processed.
+Purchase of the courses are refundable only under exceptional conditions, the CSEPracticals shall have full authority to decide if refund request is legitimate and need to be processed.
 
       </p>
       <p>
         
 
-Illegal copy or distribution of the courses is strictly prohibited, if found indulge in any such activities shall cancel your subscription from any future services being delivered by CSEP Racticals
+Illegal copy or distribution of the courses is strictly prohibited, if found indulge in any such activities shall cancel your subscription from any future services being delivered by CSEPracticals
 
       </p>
       <p>

@@ -119,12 +119,37 @@ btn2.on('click', function(e) {
  /*slider*/
  $('#slider3').slick({
   dots: true,
-  arrows: false,
-  autoplay: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
+  // arrows: false,
+  // autoplay: true,
+  slidesToShow: 2,
+  slidesToScroll: 2,
   adaptiveHeight: true,
-  autoplaySpeed: 1500
+  autoplaySpeed: 1500,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
  });
  
   /*slider close*/
