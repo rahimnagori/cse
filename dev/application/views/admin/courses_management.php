@@ -169,9 +169,9 @@
 <!-- Modal close-->
 
 <!-- Modal -->
-<div class="modal fade" id="deleteJobModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="deleteCourseModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
-    <form id="deleteForm" name="deleteForm" onsubmit="delete_job(event);">
+    <form id="deleteForm" name="deleteForm" onsubmit="delete_course(event);">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Confirmation</h4>
@@ -181,7 +181,7 @@
         <div class="modal-body">
           <div class="optio_raddipo">
             <div class="form-group">
-              <label> Are you sure you want to delete this Job? </label>
+              <label> Are you sure you want to delete this Course? </label>
               <input type="hidden" name="delete_course_id" id="delete_course_id" />
             </div>
             <div class="row">
@@ -248,14 +248,14 @@
 
   function open_delete_modal(id) {
     $("#delete_course_id").val(id);
-    $("#deleteJobModal").modal("show");
+    $("#deleteCourseModal").modal("show");
   }
 
-  function delete_job(e) {
+  function delete_course(e) {
     e.preventDefault();
     $.ajax({
       type: 'POST',
-      url: BASE_URL + 'Admin-Jobs/delete',
+      url: BASE_URL + 'Admin-Courses/delete',
       data: new FormData($('#deleteForm')[0]),
       dataType: 'JSON',
       processData: false,
