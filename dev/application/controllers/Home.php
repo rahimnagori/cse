@@ -14,6 +14,8 @@ class Home extends CI_Controller
   public function index()
   {
     $pageData = $this->Common_Model->get_userdata();
+    $pageData['courses'] = $this->Common_Model->fetch_records('courses');
+    $pageData['categories'] = $this->Common_Model->fetch_records('categories');
 
     $this->load->view('site/include/header', $pageData);
     $this->load->view('site/index', $pageData);
