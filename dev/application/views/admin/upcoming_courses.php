@@ -2,7 +2,7 @@
 
 <div class="conten_web">
   <h4 class="heading">
-    <?=$courseTitle;?> <small>Management</small>
+    <?= $courseTitle; ?> <small>Management</small>
     <span><button class="btn btn_theme2" data-toggle="modal" data-target="#addCourseModal">Add</button></span>
   </h4>
   <div class="white_box">
@@ -15,11 +15,11 @@
               <th>S.No.</th>
               <th>Title</th>
               <?php
-                if($courseType == 1){
+              if ($courseType == 1) {
               ?>
-                  <th>URL</th>
+                <th>URL</th>
               <?php
-                }
+              }
               ?>
               <th>Action</th>
             </tr>
@@ -32,11 +32,11 @@
                 <td><?= $serialNumber + 1; ?></td>
                 <td><?= $course['title']; ?></td>
                 <?php
-                  if($courseType == 1){
+                if ($courseType == 1) {
                 ?>
-                    <th><?= $course['url']; ?></th>
+                  <th><?= $course['url']; ?></th>
                 <?php
-                  }
+                }
                 ?>
                 <td>
                   <button onclick="edit_course(<?= $course['id'] ?>)" class="btn btn-info btn-xs">Edit</button>
@@ -59,7 +59,7 @@
     <form id="addForm" name="addForm" onsubmit="add_course(event);">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Add New <?=$courseTitle;?></h4>
+          <h4 class="modal-title">Add New <?= $courseTitle; ?></h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="la la-times-circle"></i></span></button>
         </div>
 
@@ -68,17 +68,17 @@
             <div class="form-group">
               <label> Title </label>
               <input type="text" name="title" class="form-control" required="" />
-              <input type="hidden" name="type" value="<?=$courseType;?>" required="" />
+              <input type="hidden" name="type" value="<?= $courseType; ?>" required="" />
             </div>
             <?php
-              if($courseType == 1){
+            if ($courseType == 1) {
             ?>
-                <div class="form-group">
-                  <label> URL </label>
-                  <input type="text" name="url" class="form-control" required="" />
-                </div>
+              <div class="form-group">
+                <label> URL </label>
+                <input type="text" name="url" class="form-control" required="" />
+              </div>
             <?php
-              }
+            }
             ?>
             <div class="row">
               <div class="col-sm-12" class="responseMessage" id="responseMessage"></div>
@@ -109,7 +109,7 @@
             <div class="form-group">
               <label> Are you sure you want to delete? </label>
               <input type="hidden" name="delete_course_id" id="delete_course_id" />
-              <input type="hidden" name="course_type" value="<?=$courseType;?>" />
+              <input type="hidden" name="course_type" value="<?= $courseType; ?>" />
             </div>
             <div class="row">
               <!-- <div class="col-sm-12" class="responseMessage" id="responseMessage"></div> -->

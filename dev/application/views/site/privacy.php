@@ -2,7 +2,7 @@
   <div class="container">
     <h1>Privacy Policy</h1>
     <ul class="ul_set">
-      <li><a href="<?=site_url();?>">Home</a></li>
+      <li><a href="<?= site_url(); ?>">Home</a></li>
       <li><span>Privacy Policy</span></li>
     </ul>
   </div>

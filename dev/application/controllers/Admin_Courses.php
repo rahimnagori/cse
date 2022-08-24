@@ -24,7 +24,7 @@ class Admin_Courses extends CI_Controller
         $pageData['courses'] = $this->Common_Model->fetch_records('courses', false, false, false, 'id');
         $pageData['categories'] = [];
         $categories = $this->Common_Model->fetch_records('categories');
-        foreach($categories as $category){
+        foreach ($categories as $category) {
             $pageData['categories'][$category['id']] = $category;
         }
 
@@ -48,7 +48,7 @@ class Admin_Courses extends CI_Controller
         if ($this->form_validation->run()) {
             $insert = $this->create_course();
             $insert['created'] = date('Y-m-d H:i:s');
-            if($insert['thumbnail_type'] == 1){
+            if ($insert['thumbnail_type'] == 1) {
                 if ($_FILES['thumbnail']['error'] == 0) {
                     $config['upload_path'] = "assets/site/thumbnails/";
                     $config['allowed_types'] = 'jpeg|gif|jpg|png';
@@ -60,15 +60,15 @@ class Admin_Courses extends CI_Controller
                         $response['responseMessage'] = $this->Common_Model->error($this->upload->display_errors());
                     }
                 }
-            }else if($insert['thumbnail_type'] == 2){
+            } else if ($insert['thumbnail_type'] == 2) {
                 $insert['thumbnail'] = $this->input->post('thumbnail');
             }
-            if($insert['thumbnail'] != null || $insert['thumbnail'] != ''){
+            if ($insert['thumbnail'] != null || $insert['thumbnail'] != '') {
                 if ($this->Common_Model->insert('courses', $insert)) {
                     $response['status'] = 1;
                     $response['responseMessage'] = $this->Common_Model->success('Course added successfully.');
                 }
-            }else{
+            } else {
                 $response['status'] = 2;
                 $response['responseMessage'] = $this->Common_Model->error('Thumbnail is missing.');
             }
@@ -81,7 +81,8 @@ class Admin_Courses extends CI_Controller
         echo json_encode($response);
     }
 
-    private function create_course(){
+    private function create_course()
+    {
         return $insert = [
             'title' => $this->input->post('title'),
             'type' => $this->input->post('type'),
@@ -105,8 +106,8 @@ class Admin_Courses extends CI_Controller
         if ($this->form_validation->run()) {
             $where['id'] = $this->input->post('delete_course_id');
             $courseDetails = $this->Common_Model->fetch_records('courses', $where, false, true);
-            if($courseDetails['thumbnail_type'] == 1){
-                if(file_exists($courseDetails['thumbnail'])) unlink($courseDetails['thumbnail']);
+            if ($courseDetails['thumbnail_type'] == 1) {
+                if (file_exists($courseDetails['thumbnail'])) unlink($courseDetails['thumbnail']);
             }
             if ($this->Common_Model->delete('courses', $where)) {
                 $response['status'] = 1;
@@ -127,7 +128,7 @@ class Admin_Courses extends CI_Controller
         $pageData['courseDetails'] = $this->Common_Model->fetch_records('courses', $where, false, true);
         $pageData['categories'] = [];
         $categories = $this->Common_Model->fetch_records('categories');
-        foreach($categories as $category){
+        foreach ($categories as $category) {
             $pageData['categories'][$category['id']] = $category;
         }
 
@@ -151,7 +152,7 @@ class Admin_Courses extends CI_Controller
         if ($this->form_validation->run()) {
             $update = $this->create_course();
             $where['id'] = $this->input->post('course_id');
-            if($update['thumbnail_type'] == 1){
+            if ($update['thumbnail_type'] == 1) {
                 if ($_FILES['thumbnail']['error'] == 0) {
                     $config['upload_path'] = "assets/site/thumbnails/";
                     $config['allowed_types'] = 'jpeg|gif|jpg|png';
@@ -163,15 +164,15 @@ class Admin_Courses extends CI_Controller
                         $response['responseMessage'] = $this->Common_Model->error($this->upload->display_errors());
                     }
                 }
-            }else if($update['thumbnail_type'] == 2){
+            } else if ($update['thumbnail_type'] == 2) {
                 $update['thumbnail'] = $this->input->post('thumbnail');
             }
-            if($update['thumbnail'] != null || $update['thumbnail'] != ''){
+            if ($update['thumbnail'] != null || $update['thumbnail'] != '') {
                 if ($this->Common_Model->update('courses', $where, $update)) {
                     $response['status'] = 1;
                     $response['responseMessage'] = $this->Common_Model->success('Course updated successfully.');
                 }
-            }else{
+            } else {
                 $response['status'] = 2;
                 $response['responseMessage'] = $this->Common_Model->error('Thumbnail is missing.');
             }

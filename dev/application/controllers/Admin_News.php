@@ -53,7 +53,7 @@ class Admin_News extends CI_Controller
       if ($this->upload->do_upload('image')) {
         $newsImage = $this->upload->data("file_name");
 
-        $insert['image'] = "assets/site/img/" .$newsImage;
+        $insert['image'] = "assets/site/img/" . $newsImage;
       } else {
         $response['responseMessage'] = $this->Common_Model->error($this->upload->display_errors());
       }
@@ -71,8 +71,8 @@ class Admin_News extends CI_Controller
     $response['status'] = 0;
     $where['id'] = $this->input->post('delete_news_id');
     $newsDetails = $this->Common_Model->fetch_records('newses', $where, false, true);
-    if($newsDetails['image'] != '' || $newsDetails['image'] != null){
-      if(file_exists($newsDetails['image'])) unlink($newsDetails['image']);
+    if ($newsDetails['image'] != '' || $newsDetails['image'] != null) {
+      if (file_exists($newsDetails['image'])) unlink($newsDetails['image']);
     }
     $update['is_deleted'] = 1;
     if ($this->Common_Model->delete('newses', $where)) {
@@ -95,8 +95,8 @@ class Admin_News extends CI_Controller
     $where['id'] = $this->input->post('news_id');
     if ($_FILES['image']['error'] == 0) {
       $newsDetails = $this->Common_Model->fetch_records('newses', $where, false, true);
-      if($newsDetails['image'] != '' || $newsDetails['image'] != null){
-        if(file_exists($newsDetails['image'])) unlink($newsDetails['image']);
+      if ($newsDetails['image'] != '' || $newsDetails['image'] != null) {
+        if (file_exists($newsDetails['image'])) unlink($newsDetails['image']);
       }
       $config['upload_path'] = "assets/site/img/";
       $config['allowed_types'] = 'jpeg|gif|jpg|png';
@@ -105,7 +105,7 @@ class Admin_News extends CI_Controller
       if ($this->upload->do_upload('image')) {
         $newsImage = $this->upload->data("file_name");
 
-        $update['image'] = "assets/site/img/" .$newsImage;
+        $update['image'] = "assets/site/img/" . $newsImage;
       } else {
         $response['responseMessage'] = $this->Common_Model->error($this->upload->display_errors());
       }

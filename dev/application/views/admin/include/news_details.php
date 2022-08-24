@@ -23,11 +23,11 @@
     </div>
     <div class="col-sm-4" id="preview_edit_image">
       <?php
-        if($newsDetails['image']){
+      if ($newsDetails['image']) {
       ?>
-          <img src="<?=site_url($newsDetails['image']);?>" width="100" >
+          <img src="<?= site_url($newsDetails['image']); ?>" width="100" >
       <?php
-        }
+      }
       ?>
     </div>
   </div> -->

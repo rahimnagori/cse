@@ -33,7 +33,7 @@
                 <td><?= $news['title']; ?></td>
                 <td><?= $description; ?></td>
                 <!-- <td>
-                  <img src="<?=site_url(($news['image']) ? $news['image'] : 'assets/site/img/default-news.png');?>" width="100" >
+                  <img src="<?= site_url(($news['image']) ? $news['image'] : 'assets/site/img/default-news.png'); ?>" width="100" >
                 </td>
                 <td><?= $news['link']; ?></td>
                 <td><?= $news['comment']; ?></td> -->
@@ -72,19 +72,19 @@
             </div>
             <div class="form-group">
               <label> Image </label>
-              <input type="file" name="image" onchange="preview_image(this, 'preview_add_image');" accept="image/*" >
+              <input type="file" name="image" onchange="preview_image(this, 'preview_add_image');" accept="image/*">
             </div>
             <div class="row">
               <div class="col-sm-4">
                 <div class="form-group">
                   <label> Link </label>
-                  <input type="url" name="link" class="form-control" >
+                  <input type="url" name="link" class="form-control">
                 </div>
               </div>
               <div class="col-sm-4">
                 <div class="form-group">
                   <label> Comment </label>
-                  <input type="text" name="comment" class="form-control" >
+                  <input type="text" name="comment" class="form-control">
                 </div>
               </div>
               <div class="col-sm-4" id="preview_add_image"></div>

@@ -31,7 +31,7 @@
                 <td><?= $review['designation']; ?></td>
                 <td><?= $review['review']; ?></td>
                 <td>
-                  <img src="<?= site_url( ($review['image']) ? $review['image'] : 'assets/site/img/img_3.png'); ?>" width="100" >
+                  <img src="<?= site_url(($review['image']) ? $review['image'] : 'assets/site/img/img_3.png'); ?>" width="100">
                 </td>
                 <td><?= date("d M, Y", strtotime($review['created'])); ?></td>
                 <td>
@@ -77,7 +77,7 @@
               <div class="col-sm-8">
                 <div class="form-group">
                   <label> Image </label>
-                  <input type="file" name="image" accept="image/*" onchange="preview_image(this, 'preview_image');" >
+                  <input type="file" name="image" accept="image/*" onchange="preview_image(this, 'preview_image');">
                 </div>
               </div>
               <div class="col-sm-4" id="preview_image"></div>

@@ -18,7 +18,7 @@
             <div class="row align-items-center">
                 <div class="col-sm-7">
                     <p>
-                        © Copyright 2022 | <?=$this->config->item('PROJECT');?>. | All Rights Reserved
+                        © Copyright 2022 | <?= $this->config->item('PROJECT'); ?>. | All Rights Reserved
 
                     </p>
                 </div>

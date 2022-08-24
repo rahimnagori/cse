@@ -26,16 +26,17 @@ class Admin_Emails extends CI_Controller
     $this->load->view('admin/emails_management', $pageData);
   }
 
-  public function update_email(){
+  public function update_email()
+  {
     $response['status'] = 0;
     $response['responseMessage'] = $this->Common_Model->error('Something went wrong.');
     $emails  = $this->Common_Model->fetch_records('emails', false, 'default_email, contact_email', true);
-    foreach($emails as $key => $email){
+    foreach ($emails as $key => $email) {
       $this->form_validation->set_rules($key, $key, 'required');
       $update[$key] = $this->input->post($key);
     }
     if ($this->form_validation->run()) {
-      if($this->Common_Model->update('emails', array('id' => 1), $update)){
+      if ($this->Common_Model->update('emails', array('id' => 1), $update)) {
         $response['status'] = 1;
         $response['responseMessage'] = $this->Common_Model->success('Emails updated successfully.');
       }
@@ -45,5 +46,4 @@ class Admin_Emails extends CI_Controller
     }
     echo json_encode($response);
   }
-
 }

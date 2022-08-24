@@ -19,7 +19,7 @@
   <div class="man_nav" data-aos="fade-down">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="<?=site_url();?>">
+        <a class="navbar-brand" href="<?= site_url(); ?>">
           <img src="<?= site_url('assets/site/'); ?>img/logo.png">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@
           <ul class="navbar-nav ml-auto">
 
             <li class="nav-item">
-              <a class="nav-link" href="<?=site_url();?>">Home</a>
+              <a class="nav-link" href="<?= site_url(); ?>">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<?= site_url('About'); ?>">About Us</a>

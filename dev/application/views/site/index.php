@@ -82,82 +82,82 @@
 </section>
 
 <?php
-  if(count($courses)){
+if (count($courses)) {
 ?>
-    <section class="sec_pad  sec_3 slide_set" id="OurCourse" data-js="hero-demo">
-      <div class="container">
-        <div class="heading text-center " data-aos="slide-right" data-aos-duration="1000">
-          <h1>
-            Best Selling Courses
-          </h1>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled.
-          </p>
-        </div>
-        <div class="fiter_set">
-          <ul class="filters  js-radio-button-group ul_set clearfix">
-            <button data-filter="*" class="button is-checked">All</button>
-            <button data-filter=".course-free" class="button">Free Course</button>
-            <button data-filter=".course-paid" class="button">Paid Course</button>
-            <?php
-            foreach ($categories as $category) {
-            ?>
-              <button data-filter=".cat-<?= $category['id']; ?>" class="button"><?= $category['category_name']; ?></button>
-            <?php
-            }
-            ?>
-          </ul>
-        </div>
-        <div class="row grid">
+  <section class="sec_pad  sec_3 slide_set" id="OurCourse" data-js="hero-demo">
+    <div class="container">
+      <div class="heading text-center " data-aos="slide-right" data-aos-duration="1000">
+        <h1>
+          Best Selling Courses
+        </h1>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled.
+        </p>
+      </div>
+      <div class="fiter_set">
+        <ul class="filters  js-radio-button-group ul_set clearfix">
+          <button data-filter="*" class="button is-checked">All</button>
+          <button data-filter=".course-free" class="button">Free Course</button>
+          <button data-filter=".course-paid" class="button">Paid Course</button>
           <?php
-          foreach ($courses as $course) {
-            $youTubeUrl = '';
-            if ($course['thumbnail_type'] == 2) {
-              $youTubeEmbed = explode("v=", $course['thumbnail']);
-              $youTubeUrl = $youTubeEmbed[1];
-            }
+          foreach ($categories as $category) {
           ?>
-            <div class="col-sm-3 element-item course-<?= ($course['type']) ? 'paid' : 'free'; ?> cat-<?= $course['category']; ?>" data-category="cat-<?= $course['category']; ?>">
-              <div class="box_cos1">
-                <div class="bors_img">
-                  <?php
-                  if ($course['thumbnail_type'] == 1) {
-                  ?>
-                    <img class="" src="<?= site_url($course['thumbnail']); ?>">
-                  <?php
-                  } else {
-                  ?>
-                    <iframe width="100%" src="https://www.youtube.com/embed/<?= $youTubeUrl; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                  <?php
-                  }
-                  ?>
-                </div>
-                <div class="conten_b">
-                  <h4><?= $course['title']; ?></h4>
-                  <p>
-                    <?= $course['short_description']; ?>
-                  </p>
-                  <h5>
-                    <span class="or1">Students: <?= $course['students']; ?></span>
-                    <span class="or2">Enrolled: <?= $course['enrolled']; ?></span>
-                  </h5>
-                  <h6>
-                    <span class="or1">Price: $<?= $course['price']; ?></span>
-                    <span class="or2">
-                      <button type="button" onclick="get_course_details(<?= $course['id']; ?>);" class="btn btn_theme2 btn_r">Content </button>
-                    </span>
-                  </h6>
-                </div>
-              </div>
-            </div>
+            <button data-filter=".cat-<?= $category['id']; ?>" class="button"><?= $category['category_name']; ?></button>
           <?php
           }
           ?>
-        </div>
+        </ul>
       </div>
-    </section>
+      <div class="row grid">
+        <?php
+        foreach ($courses as $course) {
+          $youTubeUrl = '';
+          if ($course['thumbnail_type'] == 2) {
+            $youTubeEmbed = explode("v=", $course['thumbnail']);
+            $youTubeUrl = $youTubeEmbed[1];
+          }
+        ?>
+          <div class="col-sm-3 element-item course-<?= ($course['type']) ? 'paid' : 'free'; ?> cat-<?= $course['category']; ?>" data-category="cat-<?= $course['category']; ?>">
+            <div class="box_cos1">
+              <div class="bors_img">
+                <?php
+                if ($course['thumbnail_type'] == 1) {
+                ?>
+                  <img class="" src="<?= site_url($course['thumbnail']); ?>">
+                <?php
+                } else {
+                ?>
+                  <iframe width="100%" src="https://www.youtube.com/embed/<?= $youTubeUrl; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <?php
+                }
+                ?>
+              </div>
+              <div class="conten_b">
+                <h4><?= $course['title']; ?></h4>
+                <p>
+                  <?= $course['short_description']; ?>
+                </p>
+                <h5>
+                  <span class="or1">Students: <?= $course['students']; ?></span>
+                  <span class="or2">Enrolled: <?= $course['enrolled']; ?></span>
+                </h5>
+                <h6>
+                  <span class="or1">Price: $<?= $course['price']; ?></span>
+                  <span class="or2">
+                    <button type="button" onclick="get_course_details(<?= $course['id']; ?>);" class="btn btn_theme2 btn_r">Content </button>
+                  </span>
+                </h6>
+              </div>
+            </div>
+          </div>
+        <?php
+        }
+        ?>
+      </div>
+    </div>
+  </section>
 <?php
-  }
+}
 ?>
 
 <section class="sec_pad sec_5">
@@ -496,46 +496,46 @@
 </section>
 
 <?php
-  if(count($reviews)){
+if (count($reviews)) {
 ?>
-    <section class="sec_pad sec_4 text_monial" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="1000">
-      <div class="container">
-        <div class="heading text-center">
-          <h1>
-            Users Reviews
-          </h1>
-        </div>
-        <div class="slihh_min arrow_set  ">
-          <div class=" slider_arrrw" id="slider3">
-            <?php
-            foreach ($reviews as $review) {
-            ?>
-              <div class="item">
-                <div class="testimonial2">
-                  <div class="testimonial-content2">
-                    <p class="description">
-                      <?=$review['review'];?>
-                    </p>
+  <section class="sec_pad sec_4 text_monial" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="1000">
+    <div class="container">
+      <div class="heading text-center">
+        <h1>
+          Users Reviews
+        </h1>
+      </div>
+      <div class="slihh_min arrow_set  ">
+        <div class=" slider_arrrw" id="slider3">
+          <?php
+          foreach ($reviews as $review) {
+          ?>
+            <div class="item">
+              <div class="testimonial2">
+                <div class="testimonial-content2">
+                  <p class="description">
+                    <?= $review['review']; ?>
+                  </p>
+                </div>
+                <div class="user_immg">
+                  <div class="use_im2a">
+                    <img src="<?= site_url(($review['image']) ? $review['image'] : 'assets/site/img/img_3.png'); ?>" alt="<?= $review['name']; ?>">
                   </div>
-                  <div class="user_immg">
-                    <div class="use_im2a">
-                      <img src="<?= site_url( ($review['image']) ? $review['image'] : 'assets/site/img/img_3.png'); ?>" alt="<?=$review['name'];?>" >
-                    </div>
-                    <h4>
-                      <?=$review['name'];?><span><?=$review['designation'];?></span>
-                    </h4>
-                  </div>
+                  <h4>
+                    <?= $review['name']; ?><span><?= $review['designation']; ?></span>
+                  </h4>
                 </div>
               </div>
-            <?php
-            }
-            ?>
-          </div>
+            </div>
+          <?php
+          }
+          ?>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 <?php
-  }
+}
 ?>
 <script>
   $('.count').each(function() {

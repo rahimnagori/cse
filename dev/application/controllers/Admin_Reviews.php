@@ -39,39 +39,41 @@ class Admin_Reviews extends CI_Controller
       $config['encrypt_name'] = true;
       $this->load->library("upload", $config);
       if ($this->upload->do_upload('image')) {
-          $insert['image'] = $config['upload_path'] . $this->upload->data("file_name");
+        $insert['image'] = $config['upload_path'] . $this->upload->data("file_name");
       } else {
-          $response['responseMessage'] = $this->Common_Model->error($this->upload->display_errors());
+        $response['responseMessage'] = $this->Common_Model->error($this->upload->display_errors());
       }
     }
     if ($this->Common_Model->insert('reviews', $insert)) {
       $response['status'] = 1;
-      $response['responseMessage'] = $this->Common_Model->success( 'Review added successfully');
+      $response['responseMessage'] = $this->Common_Model->success('Review added successfully');
     }
 
     $this->session->set_flashdata('responseMessage', $response['responseMessage']);
     echo json_encode($response);
   }
 
-  public function get_review($id){
+  public function get_review($id)
+  {
     $where['id'] = $id;
     $pageData['reviewDetails'] = $this->Common_Model->fetch_records('reviews', $where, false, true);
-    if(!empty($pageData['reviewDetails'])){
+    if (!empty($pageData['reviewDetails'])) {
       $this->load->view('admin/include/review_details', $pageData);
-    }else{
+    } else {
       echo "<p>Review not found</p>";
     }
   }
 
-  public function delete_review(){
+  public function delete_review()
+  {
     $response['status'] = 0;
     $response['responseMessage'] = $this->Common_Model->error('Something went wrong.');
     $where['id'] = $this->input->post('delete_review_id');
     $reviewDetails = $this->Common_Model->fetch_records('reviews', $where, false, true);
-    if($reviewDetails['image']){
-      if(file_exists($reviewDetails['image'])) unlink($reviewDetails['image']);
+    if ($reviewDetails['image']) {
+      if (file_exists($reviewDetails['image'])) unlink($reviewDetails['image']);
     }
-    if($this->Common_Model->delete('reviews', $where)){
+    if ($this->Common_Model->delete('reviews', $where)) {
       $response['status'] = 1;
       $response['responseMessage'] = $this->Common_Model->success('Review deleted successfully.');
     }
@@ -80,7 +82,8 @@ class Admin_Reviews extends CI_Controller
     echo json_encode($response);
   }
 
-  public function update_review(){
+  public function update_review()
+  {
     $response['status'] = 0;
     $response['responseMessage'] = $this->Common_Model->error('Something went wrong.');
     $update['name'] = $this->input->post('name');
@@ -94,17 +97,17 @@ class Admin_Reviews extends CI_Controller
       $config['encrypt_name'] = true;
       $this->load->library("upload", $config);
       if ($this->upload->do_upload('image')) {
-          $update['image'] = $config['upload_path'] . $this->upload->data("file_name");
-          if($reviewDetails['image']){
-            if(file_exists($reviewDetails['image'])) unlink($reviewDetails['image']);
-          }
+        $update['image'] = $config['upload_path'] . $this->upload->data("file_name");
+        if ($reviewDetails['image']) {
+          if (file_exists($reviewDetails['image'])) unlink($reviewDetails['image']);
+        }
       } else {
-          $response['responseMessage'] = $this->Common_Model->error($this->upload->display_errors());
+        $response['responseMessage'] = $this->Common_Model->error($this->upload->display_errors());
       }
     }
     if ($this->Common_Model->update('reviews', $where, $update)) {
       $response['status'] = 1;
-      $response['responseMessage'] = $this->Common_Model->success( 'Review updated successfully');
+      $response['responseMessage'] = $this->Common_Model->success('Review updated successfully');
     }
 
     $this->session->set_flashdata('responseMessage', $response['responseMessage']);

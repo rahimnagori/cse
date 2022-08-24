@@ -11,16 +11,16 @@
       <div class="row">
         <form id="emailForm" name="emailForm" method="post" onsubmit="update_email(event);">
           <?php
-            foreach($emails as $key => $email){
+          foreach ($emails as $key => $email) {
           ?>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label><?=str_replace('_', ' ', ucwords($key));?></label>
-                  <input class="form-control" type="email" name="<?=$key;?>" value="<?=$email;?>" required=""  />
-                </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label><?= str_replace('_', ' ', ucwords($key)); ?></label>
+                <input class="form-control" type="email" name="<?= $key; ?>" value="<?= $email; ?>" required="" />
               </div>
+            </div>
           <?php
-            }
+          }
           ?>
           <div class="col-sm-6">
             <button type="submit" class="btn btn-success btn_submit">Update</button>
