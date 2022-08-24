@@ -2,8 +2,8 @@
 
 <div class="conten_web">
   <h4 class="heading">
-    News <small>Management</small>
-    <span><button class="btn btn_theme2" data-toggle="modal" data-target="#addNewsModal">Add</button></span>
+    <?=$courseTitle;?> <small>Management</small>
+    <span><button class="btn btn_theme2" data-toggle="modal" data-target="#addCourseModal">Add</button></span>
   </h4>
   <div class="white_box">
     <?= $this->session->flashdata('responseMessage'); ?>
@@ -14,34 +14,33 @@
             <tr>
               <th>S.No.</th>
               <th>Title</th>
-              <th>Description</th>
-              <!-- <th>Image</th>
-              <th>URL</th>
-              <th>Comment</th> -->
-              <th>Created</th>
-              <th>Updated</th>
+              <?php
+                if($courseType == 1){
+              ?>
+                  <th>URL</th>
+              <?php
+                }
+              ?>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             <?php
-            foreach ($newses as $serialNumber => $news) {
-              $description = strip_tags(substr($news['description'], 0, 120));
+            foreach ($upcomingCourses as $serialNumber => $course) {
             ?>
               <tr>
                 <td><?= $serialNumber + 1; ?></td>
-                <td><?= $news['title']; ?></td>
-                <td><?= $description; ?></td>
-                <!-- <td>
-                  <img src="<?=site_url(($news['image']) ? $news['image'] : 'assets/site/img/default-news.png');?>" width="100" >
-                </td>
-                <td><?= $news['link']; ?></td>
-                <td><?= $news['comment']; ?></td> -->
-                <td><?= date("d M, Y", strtotime($news['created'])); ?></td>
-                <td><?= date("d M, Y", strtotime($news['updated'])); ?></td>
+                <td><?= $course['title']; ?></td>
+                <?php
+                  if($courseType == 1){
+                ?>
+                    <th><?= $course['url']; ?></th>
+                <?php
+                  }
+                ?>
                 <td>
-                  <button onclick="edit_news(<?= $news['id'] ?>)" class="btn btn-info btn-sm">Edit</button>
-                  <button class="btn btn-danger btn-sm" onclick="open_delete_modal(<?= $news['id'] ?>)">Delete</button>
+                  <button onclick="edit_course(<?= $course['id'] ?>)" class="btn btn-info btn-xs">Edit</button>
+                  <button class="btn btn-danger btn-xs" onclick="open_delete_modal(<?= $course['id'] ?>)">Delete</button>
                 </td>
               </tr>
             <?php
@@ -55,12 +54,12 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="addNewsModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
-    <form id="addForm" name="addForm" onsubmit="add_news(event);">
+    <form id="addForm" name="addForm" onsubmit="add_course(event);">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Add News</h4>
+          <h4 class="modal-title">Add New <?=$courseTitle;?></h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="la la-times-circle"></i></span></button>
         </div>
 
@@ -68,33 +67,24 @@
           <div class="optio_raddipo">
             <div class="form-group">
               <label> Title </label>
-              <input type="text" name="title" class="form-control" required="">
+              <input type="text" name="title" class="form-control" required="" />
+              <input type="hidden" name="type" value="<?=$courseType;?>" required="" />
             </div>
-            <div class="form-group">
-              <label> Image </label>
-              <input type="file" name="image" onchange="preview_image(this, 'preview_add_image');" accept="image/*" >
-            </div>
+            <?php
+              if($courseType == 1){
+            ?>
+                <div class="form-group">
+                  <label> URL </label>
+                  <input type="text" name="url" class="form-control" required="" />
+                </div>
+            <?php
+              }
+            ?>
             <div class="row">
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label> Link </label>
-                  <input type="url" name="link" class="form-control" >
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label> Comment </label>
-                  <input type="text" name="comment" class="form-control" >
-                </div>
-              </div>
-              <div class="col-sm-4" id="preview_add_image"></div>
+              <div class="col-sm-12" class="responseMessage" id="responseMessage"></div>
             </div>
             <div class="form-group">
-              <label> Description </label>
-              <textarea class="form-control textarea" name="description" required=""></textarea>
-            </div>
-            <div class="form-group">
-              <button class="btn btn_theme2 btn-lg btn_submit">Add</button>
+              <button class="btn btn_theme2 btn-lg btn_submit" type="submit">Add</button>
             </div>
           </div>
         </div>
@@ -105,9 +95,9 @@
 <!-- Modal close-->
 
 <!-- Modal -->
-<div class="modal fade" id="deleteNewsModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="deleteCourseModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
-    <form id="deleteForm" name="deleteForm" onsubmit="delete_news(event);">
+    <form id="deleteForm" name="deleteForm" onsubmit="delete_course(event);">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Confirmation</h4>
@@ -117,11 +107,12 @@
         <div class="modal-body">
           <div class="optio_raddipo">
             <div class="form-group">
-              <label> Are you sure you want to delete this News? </label>
-              <input type="hidden" name="delete_news_id" id="delete_news_id" />
+              <label> Are you sure you want to delete? </label>
+              <input type="hidden" name="delete_course_id" id="delete_course_id" />
+              <input type="hidden" name="course_type" value="<?=$courseType;?>" />
             </div>
             <div class="row">
-              <div class="col-sm-12" class="responseMessage" id="responseMessage"></div>
+              <!-- <div class="col-sm-12" class="responseMessage" id="responseMessage"></div> -->
             </div>
             <div class="form-group">
               <button class="btn btn_theme2 btn-lg btn_submit">Yes</button>
@@ -136,12 +127,12 @@
 <!-- Modal close-->
 
 <!-- Modal -->
-<div class="modal fade" id="editNewsModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="editJobModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
-    <form id="editForm" name="editForm" onsubmit="update_news(event);">
+    <form id="editForm" name="editForm" onsubmit="update_course(event);">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Edit News</h4>
+          <h4 class="modal-title">Edit Job</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="la la-times-circle"></i></span></button>
         </div>
 
@@ -155,14 +146,13 @@
 <!-- Modal close-->
 
 <?php include 'include/footer.php'; ?>
-<?php include 'include/tinymce.php'; ?>
 
 <script>
-  function add_news(e) {
+  function add_course(e) {
     e.preventDefault();
     $.ajax({
       type: 'POST',
-      url: BASE_URL + 'Admin-News/Add',
+      url: BASE_URL + 'Playlist/Add',
       data: new FormData($('#addForm')[0]),
       dataType: 'JSON',
       processData: false,
@@ -177,21 +167,23 @@
       success: function(response) {
         $(".btn_submit").prop('disabled', false);
         $(".btn_submit").html(' Add ');
+        $("#responseMessage").html(response.responseMessage);
+        $("#responseMessage").show();
         if (response.status == 1) location.reload();
       }
     });
   }
 
   function open_delete_modal(id) {
-    $("#delete_news_id").val(id);
-    $("#deleteNewsModal").modal("show");
+    $("#delete_course_id").val(id);
+    $("#deleteCourseModal").modal("show");
   }
 
-  function delete_news(e) {
+  function delete_course(e) {
     e.preventDefault();
     $.ajax({
       type: 'POST',
-      url: BASE_URL + 'Admin-News/delete',
+      url: BASE_URL + 'Playlist/Delete',
       data: new FormData($('#deleteForm')[0]),
       dataType: 'JSON',
       processData: false,
@@ -211,27 +203,26 @@
     });
   }
 
-  function edit_news(job_id) {
+  function edit_course(course_id) {
     $.ajax({
       type: 'GET',
-      url: BASE_URL + 'Admin-News/Get/' + job_id,
+      url: BASE_URL + 'Playlist/Get/' + course_id,
       dataType: 'HTML',
       beforeSend: function(xhr) {
         $("#editModal").html("<i class='fa fa-spin fa-spinner' aria-hidden='true'></i>")
-        $("#editNewsModal").modal("show");
+        $("#editJobModal").modal("show");
       },
       success: function(response) {
         $("#editModal").html(response);
-        update_tiny('textarea-edit');
       }
     });
   }
 
-  function update_news(e) {
+  function update_course(e) {
     e.preventDefault();
     $.ajax({
       type: 'POST',
-      url: BASE_URL + 'Admin-News/Update',
+      url: BASE_URL + 'Playlist/Update',
       data: new FormData($('#editForm')[0]),
       dataType: 'JSON',
       processData: false,
@@ -240,8 +231,8 @@
       beforeSend: function(xhr) {
         $(".btn_submit").attr('disabled', true);
         $(".btn_submit").html(LOADING);
-        $("#responseMessage").html('');
-        $("#responseMessage").hide();
+        $("#updateResponseMessage").html('');
+        $("#updateResponseMessage").hide();
       },
       success: function(response) {
         $(".btn_submit").prop('disabled', false);
@@ -249,16 +240,5 @@
         if (response.status == 1) location.reload();
       }
     });
-  }
-
-  function preview_image(input, previewId) {
-    if (input.files && input.files[0]) {
-      let reader = new FileReader();
-      reader.onload = function(e) {
-        let imageFile = `<img src="${e.target.result}" width="100" > `;
-        $('#' + previewId).html(imageFile);
-      }
-      reader.readAsDataURL(input.files[0]);
-    }
   }
 </script>

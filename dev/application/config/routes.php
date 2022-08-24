@@ -62,6 +62,9 @@ $route['Refund-Policy'] = 'Home/refund';
 $route['Change-Password'] = 'Users/password';
 $route['Logout'] = 'Users/logout';
 
+
+$route['Contact-Request'] = 'Home/contact_request';
+
 /* Admin Routes */
 $route['Admin'] = 'Admin';
 $route['Update-Admin'] = 'Admin_Dashboard/update_profile';
@@ -87,3 +90,14 @@ $route['Admin-News/Get/(:any)'] = 'Admin_News/get_news/$1';
 $route['Admin-News/Add'] = 'Admin_News/add_news';
 $route['Admin-News/delete'] = 'Admin_News/delete_news';
 $route['Admin-News/Update'] = 'Admin_News/update_news';
+
+$route['Emails-Management'] = 'Admin_Emails';
+$route['Admin-Emails/Update'] = 'Admin_Emails/update_email';
+
+$route['Playlist-Management/(:any)'] = 'Admin_Playlist/index/$1';
+$route['Playlist/Add'] = 'Admin_Playlist/add_course';
+$route['Playlist/Delete'] = 'Admin_Playlist/delete_course';
+$route['Playlist/Get/(:any)'] = 'Admin_Playlist/get/$1';
+$route['Playlist/Update'] = 'Admin_Playlist/update_course';
+
+$route['Admin-Contact'] = 'Admin_Contacts';

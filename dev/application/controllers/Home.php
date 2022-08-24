@@ -57,4 +57,32 @@ class Home extends CI_Controller
     $this->load->view('site/refund', $pageData);
     $this->load->view('site/include/footer', $pageData);
   }
+
+  public function contact_request()
+  {
+    $response['status'] = 0;
+    $response['responseMessage'] = $this->Common_Model->error('Something went wrong.');
+    $this->load->helper(array('form', 'url'));
+
+    $this->load->library('form_validation');
+    $this->form_validation->set_rules('full_name', 'full_name', 'required');
+    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+    $this->form_validation->set_rules('phone', 'phone', 'required');
+    $this->form_validation->set_rules('message', 'message', 'required');
+    if ($this->form_validation->run()) {
+      $insert = $this->input->post();
+      $insert['created'] = $insert['updated'] = date("Y-m-d H:i:s");
+      $contactId = $this->Common_Model->insert('contact_requests', $insert);
+      if ($contactId) {
+        // $this->Common_Model->send_contact_form_to_admin($contactId);
+        $response['status'] = 1;
+        $response['responseMessage'] = $this->Common_Model->success('Message sent successfully.');
+      }
+    } else {
+      $response['status'] = 2;
+      $response['responseMessage'] = $this->Common_Model->error(validation_errors());
+    }
+    $this->session->set_flashdata('responseMessage', $response['responseMessage']);
+    echo json_encode($response);
+  }
 }

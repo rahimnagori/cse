@@ -356,7 +356,7 @@
           <h1>What is Lorem Ipsum? </h1>
 
           <p>
-            Pls send email to <a href="#">csepracticals@gmail.com</a> after payment, telling us which Courses you want. You will be given lifetime access to Courses. Use Partial Payment links below in case you need to pay us an arbitrary amount after negotiation.
+            Pls send email to <a href="mailto:<?=$emails['default_email'];?>"><?=$emails['default_email'];?></a> after payment, telling us which Courses you want. You will be given lifetime access to Courses. Use Partial Payment links below in case you need to pay us an arbitrary amount after negotiation.
           </p>
         </div>
         <div class="des_c2">
@@ -446,38 +446,33 @@
             </div>
             <div class="col-md-6">
               <!-- <form action="#" method="post" id="myemailform"> -->
-              <form method="post" id="myemailform">
+              <form method="post" id="contactForm" onsubmit="send_contact_request(event);" >
                 <div class="form-group">
                   <label for="name">Name</label>
                   <div class="ion_in">
                     <i class="fa fa-user-o"></i>
-                    <input type="text" class="form-control" placeholder="Full Name" name="full_name" id="name">
+                    <input type="text" class="form-control" placeholder="Full Name" name="full_name" required="" >
                   </div>
-                  <p class=" text-danger" style="display:none" id="alte_name2">Sorry first space is not allowed</p>
                 </div>
                 <div class="form-group">
                   <label for="">Phone Number</label>
                   <div class="ion_in">
                     <i class="fa fa-phone"></i>
-                    <input type="text" class="form-control" placeholder="Phone Number" name="phone" id="phone" maxlength="12">
+                    <input type="text" class="form-control" placeholder="Phone Number" name="phone" required="" >
                   </div>
-                  <p class=" text-danger" style="display:none" id="alte_phone">ddddddddddd</p>
-                  <p class=" text-danger" style="display:none" id="alte_phone2">Sorry first space is not allowed</p>
                 </div>
                 <div class="form-group">
                   <label for="">Email</label>
                   <div class="ion_in">
                     <i class="fa fa-envelope-o"></i>
-                    <input type="text" class="form-control" placeholder="Email" name="email" id="email">
+                    <input type="email" class="form-control" placeholder="Email" name="email" required="" >
                   </div>
-                  <p class=" text-danger" style="display:none" id="alte_email2">Sorry first space is not allowed</p>
                 </div>
-
                 <div class="form-group">
                   <label for="">Subject</label>
                   <div class="ion_in">
                     <i class="fa fa-info-circle"></i>
-                    <input type="text" class="form-control" placeholder="Subject" name="subject_v" id="subject">
+                    <input type="text" class="form-control" placeholder="Subject" name="subject" required="" >
                   </div>
                   <p class=" text-danger" style="display:none" id="alte_subject2">Sorry first space is not allowed</p>
                 </div>
@@ -485,18 +480,16 @@
                   <label for="">Leave us a message...</label>
                   <div class="ion_in">
                     <i class="fa fa-edit"></i>
-                    <textarea id="" class="form-control" placeholder="Message" name="description"></textarea>
+                    <textarea class="form-control" placeholder="Message" name="message" required="" ></textarea>
                   </div>
                 </div>
-
+                <div id="responseMessage"></div>
                 <div class="form-group ">
-                  <button class="btn btn_theme2 btn-lg btn_r fb" type="submit">Submit</button>
+                  <button type="submit" class="btn btn_theme2 btn-lg btn_r fb btn_submit" type="submit">Submit</button>
                 </div>
-
               </form>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -638,6 +631,34 @@
       }
     });
   }
+
+  function send_contact_request(e) {
+      e.preventDefault();
+      $.ajax({
+         type: 'POST',
+         url: BASE_URL + 'Contact-Request',
+         data: new FormData($('#contactForm')[0]),
+         dataType: 'JSON',
+         processData: false,
+         contentType: false,
+         cache: false,
+         beforeSend: function(xhr) {
+            $(".btn_submit").attr('disabled', true);
+            $(".btn_submit").html(LOADING);
+            $("#responseMessage").html('');
+            $("#responseMessage").hide();
+         },
+         success: function(response) {
+            $(".btn_submit").prop('disabled', false);
+            $(".btn_submit").html(' Send ');
+            $("#responseMessage").html(response.responseMessage);
+            $("#responseMessage").show();
+            if(response.status == 1){
+              $("#contactForm")[0].reset();
+            }
+         }
+      });
+   }
 </script>
 
 
