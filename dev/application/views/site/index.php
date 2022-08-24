@@ -81,85 +81,84 @@
   </div>
 </section>
 
-<section class="sec_pad  sec_3 slide_set" id="OurCourse" data-js="hero-demo">
-  <div class="container">
-    <div class="heading text-center " data-aos="slide-right" data-aos-duration="1000">
-      <h1>
-        Best Selling Courses
-      </h1>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled.
-      </p>
-    </div>
-
-
-    <div class="fiter_set">
-      <ul class="filters  js-radio-button-group ul_set clearfix">
-        <button data-filter="*" class="button is-checked">All</button>
-        <button data-filter=".course-free" class="button">Free Course</button>
-        <button data-filter=".course-paid" class="button">Paid Course</button>
-        <?php
-        foreach ($categories as $category) {
-        ?>
-          <button data-filter=".cat-<?= $category['id']; ?>" class="button"><?= $category['category_name']; ?></button>
-        <?php
-        }
-        ?>
-      </ul>
-    </div>
-
-
-    <div class="row grid">
-      <?php
-      foreach ($courses as $course) {
-        $youTubeUrl = '';
-        if ($course['thumbnail_type'] == 2) {
-          $youTubeEmbed = explode("v=", $course['thumbnail']);
-          $youTubeUrl = $youTubeEmbed[1];
-        }
-      ?>
-        <div class="col-sm-3 element-item course-<?= ($course['type']) ? 'paid' : 'free'; ?> cat-<?= $course['category']; ?>" data-category="cat-<?= $course['category']; ?>">
-          <div class="box_cos1">
-            <div class="bors_img">
-              <?php
-              if ($course['thumbnail_type'] == 1) {
-              ?>
-                <img class="" src="<?= site_url($course['thumbnail']); ?>">
-              <?php
-              } else {
-              ?>
-                <iframe width="100%" src="https://www.youtube.com/embed/<?= $youTubeUrl; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              <?php
-              }
-              ?>
-            </div>
-            <div class="conten_b">
-              <h4><?= $course['title']; ?></h4>
-              <p>
-                <?= $course['short_description']; ?>
-              </p>
-              <h5>
-                <span class="or1">Students: <?= $course['students']; ?></span>
-                <span class="or2">Enrolled: <?= $course['enrolled']; ?></span>
-              </h5>
-              <h6>
-                <span class="or1">Price: $<?= $course['price']; ?></span>
-                <span class="or2">
-                  <button type="button" onclick="get_course_details(<?= $course['id']; ?>);" class="btn btn_theme2 btn_r">Content </button>
-                </span>
-              </h6>
-            </div>
-          </div>
+<?php
+  if(count($courses)){
+?>
+    <section class="sec_pad  sec_3 slide_set" id="OurCourse" data-js="hero-demo">
+      <div class="container">
+        <div class="heading text-center " data-aos="slide-right" data-aos-duration="1000">
+          <h1>
+            Best Selling Courses
+          </h1>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled.
+          </p>
         </div>
-      <?php
-      }
-      ?>
-    </div>
-
-
-
-  </div>
-</section>
+        <div class="fiter_set">
+          <ul class="filters  js-radio-button-group ul_set clearfix">
+            <button data-filter="*" class="button is-checked">All</button>
+            <button data-filter=".course-free" class="button">Free Course</button>
+            <button data-filter=".course-paid" class="button">Paid Course</button>
+            <?php
+            foreach ($categories as $category) {
+            ?>
+              <button data-filter=".cat-<?= $category['id']; ?>" class="button"><?= $category['category_name']; ?></button>
+            <?php
+            }
+            ?>
+          </ul>
+        </div>
+        <div class="row grid">
+          <?php
+          foreach ($courses as $course) {
+            $youTubeUrl = '';
+            if ($course['thumbnail_type'] == 2) {
+              $youTubeEmbed = explode("v=", $course['thumbnail']);
+              $youTubeUrl = $youTubeEmbed[1];
+            }
+          ?>
+            <div class="col-sm-3 element-item course-<?= ($course['type']) ? 'paid' : 'free'; ?> cat-<?= $course['category']; ?>" data-category="cat-<?= $course['category']; ?>">
+              <div class="box_cos1">
+                <div class="bors_img">
+                  <?php
+                  if ($course['thumbnail_type'] == 1) {
+                  ?>
+                    <img class="" src="<?= site_url($course['thumbnail']); ?>">
+                  <?php
+                  } else {
+                  ?>
+                    <iframe width="100%" src="https://www.youtube.com/embed/<?= $youTubeUrl; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <?php
+                  }
+                  ?>
+                </div>
+                <div class="conten_b">
+                  <h4><?= $course['title']; ?></h4>
+                  <p>
+                    <?= $course['short_description']; ?>
+                  </p>
+                  <h5>
+                    <span class="or1">Students: <?= $course['students']; ?></span>
+                    <span class="or2">Enrolled: <?= $course['enrolled']; ?></span>
+                  </h5>
+                  <h6>
+                    <span class="or1">Price: $<?= $course['price']; ?></span>
+                    <span class="or2">
+                      <button type="button" onclick="get_course_details(<?= $course['id']; ?>);" class="btn btn_theme2 btn_r">Content </button>
+                    </span>
+                  </h6>
+                </div>
+              </div>
+            </div>
+          <?php
+          }
+          ?>
+        </div>
+      </div>
+    </section>
+<?php
+  }
+?>
 
 <section class="sec_pad sec_5">
   <div class="container">
@@ -356,7 +355,7 @@
           <h1>What is Lorem Ipsum? </h1>
 
           <p>
-            Pls send email to <a href="mailto:<?=$emails['default_email'];?>"><?=$emails['default_email'];?></a> after payment, telling us which Courses you want. You will be given lifetime access to Courses. Use Partial Payment links below in case you need to pay us an arbitrary amount after negotiation.
+            Pls send email to <a href="mailto:<?= $emails['default_email']; ?>"><?= $emails['default_email']; ?></a> after payment, telling us which Courses you want. You will be given lifetime access to Courses. Use Partial Payment links below in case you need to pay us an arbitrary amount after negotiation.
           </p>
         </div>
         <div class="des_c2">
@@ -446,33 +445,33 @@
             </div>
             <div class="col-md-6">
               <!-- <form action="#" method="post" id="myemailform"> -->
-              <form method="post" id="contactForm" onsubmit="send_contact_request(event);" >
+              <form method="post" id="contactForm" onsubmit="send_contact_request(event);">
                 <div class="form-group">
                   <label for="name">Name</label>
                   <div class="ion_in">
                     <i class="fa fa-user-o"></i>
-                    <input type="text" class="form-control" placeholder="Full Name" name="full_name" required="" >
+                    <input type="text" class="form-control" placeholder="Full Name" name="full_name" required="">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="">Phone Number</label>
                   <div class="ion_in">
                     <i class="fa fa-phone"></i>
-                    <input type="text" class="form-control" placeholder="Phone Number" name="phone" required="" >
+                    <input type="text" class="form-control" placeholder="Phone Number" name="phone" required="">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="">Email</label>
                   <div class="ion_in">
                     <i class="fa fa-envelope-o"></i>
-                    <input type="email" class="form-control" placeholder="Email" name="email" required="" >
+                    <input type="email" class="form-control" placeholder="Email" name="email" required="">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="">Subject</label>
                   <div class="ion_in">
                     <i class="fa fa-info-circle"></i>
-                    <input type="text" class="form-control" placeholder="Subject" name="subject" required="" >
+                    <input type="text" class="form-control" placeholder="Subject" name="subject" required="">
                   </div>
                   <p class=" text-danger" style="display:none" id="alte_subject2">Sorry first space is not allowed</p>
                 </div>
@@ -480,7 +479,7 @@
                   <label for="">Leave us a message...</label>
                   <div class="ion_in">
                     <i class="fa fa-edit"></i>
-                    <textarea class="form-control" placeholder="Message" name="message" required="" ></textarea>
+                    <textarea class="form-control" placeholder="Message" name="message" required=""></textarea>
                   </div>
                 </div>
                 <div id="responseMessage"></div>
@@ -496,112 +495,48 @@
   </div>
 </section>
 
-
-
-<section class="sec_pad sec_4 text_monial" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="1000">
-
-
-  <div class="container">
-    <div class="heading text-center">
-      <h1>
-        Users Reviews
-      </h1>
-
-    </div>
-    <div class="slihh_min arrow_set  ">
-      <div class=" slider_arrrw" id="slider3">
-
-        <div class="item">
-          <div class="testimonial2">
-            <div class="testimonial-content2">
-
-              <p class="description">
-
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled.
-              </p>
-            </div>
-            <div class="user_immg">
-              <div class="use_im2a">
-                <img src="<?= site_url('assets/site/'); ?>img/u1.jpg" alt="">
-              </div>
-              <h4>
-
-                Ankita Choudhary
-                <span>Android Developer</span>
-              </h4>
-            </div>
-          </div>
+<?php
+  if(count($reviews)){
+?>
+    <section class="sec_pad sec_4 text_monial" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="1000">
+      <div class="container">
+        <div class="heading text-center">
+          <h1>
+            Users Reviews
+          </h1>
         </div>
-
-        <div class="item">
-          <div class="testimonial2">
-            <div class="testimonial-content2">
-
-              <p class="description">
-
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled.
-              </p>
-            </div>
-            <div class="user_immg">
-              <div class="use_im2a">
-                <img src="<?= site_url('assets/site/'); ?>img/u1.jpg" alt="">
+        <div class="slihh_min arrow_set  ">
+          <div class=" slider_arrrw" id="slider3">
+            <?php
+            foreach ($reviews as $review) {
+            ?>
+              <div class="item">
+                <div class="testimonial2">
+                  <div class="testimonial-content2">
+                    <p class="description">
+                      <?=$review['review'];?>
+                    </p>
+                  </div>
+                  <div class="user_immg">
+                    <div class="use_im2a">
+                      <img src="<?= site_url( ($review['image']) ? $review['image'] : 'assets/site/img/img_3.png'); ?>" alt="<?=$review['name'];?>" >
+                    </div>
+                    <h4>
+                      <?=$review['name'];?><span><?=$review['designation'];?></span>
+                    </h4>
+                  </div>
+                </div>
               </div>
-              <h4>
-
-                Ankita Choudhary
-                <span>Android Developer</span>
-              </h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="testimonial2">
-            <div class="testimonial-content2">
-
-              <p class="description">
-
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled.
-              </p>
-            </div>
-            <div class="user_immg">
-              <div class="use_im2a">
-                <img src="<?= site_url('assets/site/'); ?>img/u1.jpg" alt="">
-              </div>
-              <h4>
-
-                Ankita Choudhary
-                <span>Android Developer</span>
-              </h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="testimonial2">
-            <div class="testimonial-content2">
-
-              <p class="description">
-
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled.
-              </p>
-            </div>
-            <div class="user_immg">
-              <div class="use_im2a">
-                <img src="<?= site_url('assets/site/'); ?>img/u1.jpg" alt="">
-              </div>
-              <h4>
-
-                Ankita Choudhary
-                <span>Android Developer</span>
-              </h4>
-            </div>
+            <?php
+            }
+            ?>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+<?php
+  }
+?>
 <script>
   $('.count').each(function() {
     $(this).prop('Counter', 0).animate({
@@ -633,32 +568,32 @@
   }
 
   function send_contact_request(e) {
-      e.preventDefault();
-      $.ajax({
-         type: 'POST',
-         url: BASE_URL + 'Contact-Request',
-         data: new FormData($('#contactForm')[0]),
-         dataType: 'JSON',
-         processData: false,
-         contentType: false,
-         cache: false,
-         beforeSend: function(xhr) {
-            $(".btn_submit").attr('disabled', true);
-            $(".btn_submit").html(LOADING);
-            $("#responseMessage").html('');
-            $("#responseMessage").hide();
-         },
-         success: function(response) {
-            $(".btn_submit").prop('disabled', false);
-            $(".btn_submit").html(' Send ');
-            $("#responseMessage").html(response.responseMessage);
-            $("#responseMessage").show();
-            if(response.status == 1){
-              $("#contactForm")[0].reset();
-            }
-         }
-      });
-   }
+    e.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: BASE_URL + 'Contact-Request',
+      data: new FormData($('#contactForm')[0]),
+      dataType: 'JSON',
+      processData: false,
+      contentType: false,
+      cache: false,
+      beforeSend: function(xhr) {
+        $(".btn_submit").attr('disabled', true);
+        $(".btn_submit").html(LOADING);
+        $("#responseMessage").html('');
+        $("#responseMessage").hide();
+      },
+      success: function(response) {
+        $(".btn_submit").prop('disabled', false);
+        $(".btn_submit").html(' Send ');
+        $("#responseMessage").html(response.responseMessage);
+        $("#responseMessage").show();
+        if (response.status == 1) {
+          $("#contactForm")[0].reset();
+        }
+      }
+    });
+  }
 </script>
 
 

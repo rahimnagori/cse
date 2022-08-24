@@ -42,6 +42,9 @@
         <a href="<?= site_url('Playlist-Management/1'); ?>"><i class="fa fa-gear"></i> YouTube Playlist </a>
       </li>
       <li>
+        <a href="<?= site_url('Reviews-Management'); ?>"><i class="fa fa-gear"></i> Reviews Management</a>
+      </li>
+      <li>
         <a href="<?= site_url('Admin-Contact'); ?>"><i class="fa fa-gear"></i> User Enquiries</a>
       </li>
       <li>
@@ -49,9 +52,6 @@
       </li>
       <li>
         <a href="<?= site_url('Admin'); ?>"><i class="fa fa-gear"></i> Page Content Management</a>
-      </li>
-      <li>
-        <a href="<?= site_url('Admin'); ?>"><i class="fa fa-gear"></i> Reviews Management</a>
       </li>
     </ul>
   </div>

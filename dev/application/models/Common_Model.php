@@ -163,6 +163,7 @@ class Common_Model extends CI_Model
     $pageData['emails'] = $this->Common_Model->fetch_records('emails', false, false, true);
     $pageData['upcomingCourses'] = $this->Common_Model->fetch_records('upcoming_courses', array('type' => 0));
     $pageData['youtubePlaylists'] = $this->Common_Model->fetch_records('upcoming_courses', array('type' => 1));
+    $pageData['reviews'] = $this->Common_Model->fetch_records('reviews');
     return $pageData;
   }
 }

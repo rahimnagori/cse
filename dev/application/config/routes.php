@@ -101,3 +101,9 @@ $route['Playlist/Get/(:any)'] = 'Admin_Playlist/get/$1';
 $route['Playlist/Update'] = 'Admin_Playlist/update_course';
 
 $route['Admin-Contact'] = 'Admin_Contacts';
+
+$route['Reviews-Management'] = 'Admin_Reviews';
+$route['Reviews/Add'] = 'Admin_Reviews/add_review';
+$route['Reviews/Get/(:any)'] = 'Admin_Reviews/get_review/$1';
+$route['Reviews/Delete'] = 'Admin_Reviews/delete_review';
+$route['Reviews/Update'] = 'Admin_Reviews/update_review';
