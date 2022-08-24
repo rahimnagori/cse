@@ -81,3 +81,9 @@ $route['Admin-Category/Add'] = 'Admin_Courses/add_category';
 $route['Admin-Category/delete'] = 'Admin_Courses/delete_category';
 $route['Admin-Category/Get/(:any)'] = 'Admin_Courses/get_category/$1';
 $route['Admin-Category/Update'] = 'Admin_Courses/update_category';
+
+$route['Admin-News'] = 'Admin_News';
+$route['Admin-News/Get/(:any)'] = 'Admin_News/get_news/$1';
+$route['Admin-News/Add'] = 'Admin_News/add_news';
+$route['Admin-News/delete'] = 'Admin_News/delete_news';
+$route['Admin-News/Update'] = 'Admin_News/update_news';
