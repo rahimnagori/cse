@@ -13,12 +13,13 @@
           <thead>
             <tr>
               <th>S.No.</th>
+              <th>Thumbnail</th>
               <th>Course Type</th>
               <th>Title</th>
               <th>Category</th>
               <th>Short Description</th>
               <th>Detailed Description</th>
-              <th>Students</th>
+              <th>Ratings</th>
               <th>Enrolled</th>
               <th>Price</th>
               <th>Created</th>
@@ -33,6 +34,15 @@
             ?>
               <tr>
                 <td><?= $serialNumber + 1; ?></td>
+                <td>
+                  <?php
+                    if($course['thumbnail_type'] == 1){
+                      echo "image";
+                    }else{
+                      echo "YouTube";
+                    }
+                  ?>
+                </td>
                 <td><?= ($course['type'] == 0) ? 'Free' : 'Paid'; ?></td>
                 <td><?= $course['title']; ?></td>
                 <td><?= $categories[$course['category']]['category_name']; ?></td>
@@ -45,7 +55,7 @@
                     ?>
                   </p>
                 </td>
-                <td><?= $course['students'] ?></td>
+                <td><?= $course['ratings'] ?></td>
                 <td><?= $course['enrolled']; ?></td>
                 <td>$<?= $course['price']; ?></td>
                 <td><?= date("d M, Y", strtotime($course['created'])); ?></td>
@@ -80,6 +90,10 @@
             <div class="form-group">
               <label> Course Title </label>
               <input type="text" name="title" class="form-control" required="" />
+            </div>
+            <div class="form-group">
+                <label> Course Link </label>
+                <input type="text" name="course_link" class="form-control" required="" >
             </div>
             <div class="row">
               <div class="col-sm-4">
@@ -137,8 +151,8 @@
             <div class="row">
               <div class="col-sm-4">
                 <div class="form-group">
-                  <label> Students </label>
-                  <input type="text" name="students" class="form-control" required="" />
+                  <label> Rating </label>
+                  <input type="number" name="ratings" class="form-control" required="" max="5" />
                 </div>
               </div>
               <div class="col-sm-4">
@@ -242,6 +256,8 @@
         $(".btn_submit").prop('disabled', false);
         $(".btn_submit").html(' Add ');
         if (response.status == 1) location.reload();
+        $("#responseMessage").html(response.responseMessage);
+        $("#responseMessage").show();
       }
     });
   }
@@ -311,12 +327,14 @@
         $(".btn_submit").prop('disabled', false);
         $(".btn_submit").html(' Update ');
         if (response.status == 1) location.reload();
+        $("#updateResponseMessage").html(response.responseMessage);
+        $("#updateResponseMessage").show();
       }
     });
   }
 
   function update_thumbnail(inputValue, elementDiv, updateDiv = false) {
-    $("#" + elementDiv).html((inputValue == 1) ? (updateDiv) ? AddFileInput : FileInput : (updateDiv) ? UpdateVideoInput() : AddVideoInput);
+    $("#" + elementDiv).html( updateDiv ? ((inputValue == 1) ? UpdateFileInput : UpdateVideoInput()) : ((inputValue == 1) ? AddFileInput : AddVideoInput ) );
   }
 
   function fetch_youtube_video(videoUrl, elementDiv) {
@@ -356,7 +374,7 @@
   }
 
   const AddFileInput = `<input type="file" name="thumbnail" required="" accept="image/*" onchange="preview_image(this, 'previewAddThumbnail')" />`;
-  const UpdateFileInput = `<input type="file" name="thumbnail" required="" accept="image/*" onchange="preview_image(this, 'previewEditThumbnail')" />`;
+  const UpdateFileInput = `<input type="file" name="thumbnail" accept="image/*" onchange="preview_image(this, 'previewEditThumbnail')" />`;
   const AddVideoInput = `<input type="text" class="form-control" name="thumbnail" placeholder="Paste YouTube URL here" required="" onchange="fetch_youtube_video(this.value, 'previewAddThumbnail');" />`
 
   function UpdateVideoInput() {

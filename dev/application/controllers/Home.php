@@ -16,6 +16,9 @@ class Home extends CI_Controller
     $pageData = $this->Common_Model->get_userdata();
     $pageData['courses'] = $this->Common_Model->fetch_records('courses');
     $pageData['categories'] = $this->Common_Model->fetch_records('categories');
+    $pageData['reviews'] = $this->Common_Model->fetch_records('reviews');
+    $pageData['deals'] = $this->Common_Model->fetch_records('deals');
+    $pageData['newses'] = $this->Common_Model->fetch_records('newses');
 
     $this->load->view('site/include/header', $pageData);
     $this->load->view('site/index', $pageData);
@@ -84,5 +87,10 @@ class Home extends CI_Controller
     }
     $this->session->set_flashdata('responseMessage', $response['responseMessage']);
     echo json_encode($response);
+  }
+
+  public function get_course($id){
+    $pageData['courseDetails'] = $this->Common_Model->fetch_records('courses', array('id' => $id), false, true);
+    $this->load->view('site/include/course_details', $pageData);
   }
 }

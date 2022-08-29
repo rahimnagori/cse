@@ -138,7 +138,7 @@ if (count($courses)) {
                   <?= $course['short_description']; ?>
                 </p>
                 <h5>
-                  <span class="or1">Students: <?= $course['students']; ?></span>
+                  <span class="or1">Students: <?= $course['ratings']; ?></span>
                   <span class="or2">Enrolled: <?= $course['enrolled']; ?></span>
                 </h5>
                 <h6>
@@ -505,25 +505,30 @@ if (count($reviews)) {
 <?php
 }
 ?>
-<script>
-  $('.count').each(function() {
-    $(this).prop('Counter', 0).animate({
-      Counter: $(this).text()
-    }, {
-      duration: 4000,
-      easing: 'swing',
-      step: function(now) {
-        $(this).text(Math.ceil(now));
-      }
-    });
-  });
 
+<!-- modal -->
+<div class="modal fade" id="courseDetailModal" tabindex="-1" role="dialog" aria-labelledby="lab_na1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="lab_na1">Course Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="course-detail"></div>
+    </div>
+  </div>
+</div>
+<!-- modal -->
+
+
+<script>
   function get_course_details(course_id) {
     $.ajax({
-      type: 'POST',
-      url: BASE_URL + 'Message/send',
-      data: new FormData($('#messageForm')[0]),
-      dataType: 'JSON',
+      type: 'GET',
+      url: BASE_URL + 'Course/' + course_id,
+      dataType: 'HTML',
       beforeSend: function(xhr) {
         $(".btn_submit").attr('disabled', true);
         $(".btn_submit").html(LOADING);
@@ -563,20 +568,3 @@ if (count($reviews)) {
     });
   }
 </script>
-
-
-<!-- modal -->
-<div class="modal fade" id="courseDetailModal" tabindex="-1" role="dialog" aria-labelledby="lab_na1" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="lab_na1">Course Details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" id="course-detail"></div>
-    </div>
-  </div>
-</div>
-<!-- modal -->

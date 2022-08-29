@@ -35,19 +35,9 @@ class Admin_Courses extends CI_Controller
     {
         $response['status'] = 0;
         $response['responseMessage'] = $this->Common_Model->error('Something went wrong.');
-        $this->form_validation->set_rules('title', 'title', 'required');
-        $this->form_validation->set_rules('type', 'type', 'required');
-        $this->form_validation->set_rules('category', 'category', 'required');
-        // $this->form_validation->set_rules('thumbnail', 'thumbnail', 'required');
-        $this->form_validation->set_rules('thumbnail_type', 'thumbnail_type', 'required');
-        $this->form_validation->set_rules('short_description', 'short_description', 'required');
-        $this->form_validation->set_rules('detailed_description', 'detailed_description', 'required');
-        $this->form_validation->set_rules('students', 'students', 'required');
-        $this->form_validation->set_rules('enrolled', 'enrolled', 'required');
-        $this->form_validation->set_rules('price', 'price', 'required');
+        $insert['created'] = date('Y-m-d H:i:s');
+        $insert = $this->create_course();
         if ($this->form_validation->run()) {
-            $insert = $this->create_course();
-            $insert['created'] = date('Y-m-d H:i:s');
             if ($insert['thumbnail_type'] == 1) {
                 if ($_FILES['thumbnail']['error'] == 0) {
                     $config['upload_path'] = "assets/site/thumbnails/";
@@ -83,7 +73,17 @@ class Admin_Courses extends CI_Controller
 
     private function create_course()
     {
-        return $insert = [
+        $this->form_validation->set_rules('title', 'title', 'required');
+        $this->form_validation->set_rules('type', 'type', 'required');
+        $this->form_validation->set_rules('category', 'category', 'required');
+        // $this->form_validation->set_rules('thumbnail', 'thumbnail', 'required');
+        $this->form_validation->set_rules('thumbnail_type', 'thumbnail_type', 'required');
+        $this->form_validation->set_rules('short_description', 'short_description', 'required');
+        $this->form_validation->set_rules('detailed_description', 'detailed_description', 'required');
+        $this->form_validation->set_rules('ratings', 'ratings', 'required');
+        $this->form_validation->set_rules('enrolled', 'enrolled', 'required');
+        $this->form_validation->set_rules('price', 'price', 'required');
+        $course = [
             'title' => $this->input->post('title'),
             'type' => $this->input->post('type'),
             'category' => $this->input->post('category'),
@@ -96,6 +96,7 @@ class Admin_Courses extends CI_Controller
             'price' => $this->input->post('price'),
             'updated' => date("Y-m-d H:i:s")
         ];
+        return $course;
     }
 
     public function delete_course()
@@ -139,18 +140,8 @@ class Admin_Courses extends CI_Controller
     {
         $response['status'] = 0;
         $response['responseMessage'] = $this->Common_Model->error('Something went wrong.');
-        $this->form_validation->set_rules('title', 'title', 'required');
-        $this->form_validation->set_rules('type', 'type', 'required');
-        $this->form_validation->set_rules('category', 'category', 'required');
-        $this->form_validation->set_rules('thumbnail', 'thumbnail', 'required');
-        $this->form_validation->set_rules('thumbnail_type', 'thumbnail_type', 'required');
-        $this->form_validation->set_rules('short_description', 'short_description', 'required');
-        $this->form_validation->set_rules('detailed_description', 'detailed_description', 'required');
-        $this->form_validation->set_rules('students', 'students', 'required');
-        $this->form_validation->set_rules('enrolled', 'enrolled', 'required');
-        $this->form_validation->set_rules('price', 'price', 'required');
+        $update = $this->create_course();
         if ($this->form_validation->run()) {
-            $update = $this->create_course();
             $where['id'] = $this->input->post('course_id');
             if ($update['thumbnail_type'] == 1) {
                 if ($_FILES['thumbnail']['error'] == 0) {

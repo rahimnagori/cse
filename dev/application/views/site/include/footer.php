@@ -59,6 +59,17 @@
 <script>
     const BASE_URL = "<?= site_url(); ?>";
     const LOADING = "<i class='fa fa-spin fa-spinner' aria-hidden='true'></i> Processing ... ";
+    $('.count').each(function() {
+        $(this).prop('Counter', 0).animate({
+        Counter: $(this).text()
+        }, {
+        duration: 4000,
+        easing: 'swing',
+        step: function(now) {
+            $(this).text(Math.ceil(now));
+        }
+        });
+    });
     $(document).ready(function() {
         $('a[href^="#"]').on('click', function(e) {
             e.preventDefault();

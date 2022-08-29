@@ -62,6 +62,8 @@ $route['Refund-Policy'] = 'Home/refund';
 $route['Change-Password'] = 'Users/password';
 $route['Logout'] = 'Users/logout';
 
+$route['Course/(:any)'] = 'Home/get_course/$1';
+
 
 $route['Contact-Request'] = 'Home/contact_request';
 
