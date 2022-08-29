@@ -52,22 +52,19 @@
                     <?php
                         if($courseDetails['thumbnail_type'] == 1){
                     ?>
-                            <input type="file" name="thumbnail" accept="image/*" onchange="preview_image(this, 'previewUpdateThumbnail')" />
+                            <input type="file" name="thumbnail" accept="image/*" onchange="preview_image(this, 'previewEditThumbnail')" />
                     <?php
 
                         }else if($courseDetails['thumbnail_type'] == 2){
                     ?>
-                            <input type="text" value="<?=$courseDetails['thumbnail'];?>" class="form-control" name="thumbnail" placeholder="Paste YouTube URL here" required="" onchange="fetch_youtube_video(this.value, 'previewUpdateThumbnail');" />
+                            <input type="text" value="<?=$courseDetails['thumbnail'];?>" class="form-control" name="thumbnail" placeholder="Paste YouTube URL here" required="" onchange="fetch_youtube_video(this.value, 'previewEditThumbnail');" />
                     <?php
                         }
                     ?>
                 </div>
-                <!-- <div id="thumbnail_input_update">
-                    <input type="file" name="thumbnail" accept="image/*" onchange="preview_image(this, 'previewUpdateThumbnail')" />
-                </div> -->
             </div>
         </div>
-        <div class="col-sm-6" id="previewUpdateThumbnail">
+        <div class="col-sm-6" id="previewEditThumbnail">
             <?php
                 if($courseDetails['thumbnail_type'] == 1){
             ?>
@@ -77,7 +74,9 @@
                 }else if($courseDetails['thumbnail_type'] == 2){
                     $youtubeEmbedUrl = explode("v=", $courseDetails['thumbnail']);
             ?>
-                    <iframe width="100%" src="https://www.youtube.com/embed/<?=$youtubeEmbedUrl[1];?>"  ></iframe>
+                    <a href="<?=$courseDetails['thumbnail'];?>" target="_blank" >
+                        <img width="100" alt="thumbnail" src="http://img.youtube.com/vi/<?=$youtubeEmbedUrl[1];?>/default.jpg" width="100" alt="thumbnail"> View
+                    </a>
             <?php
                 }
             ?>

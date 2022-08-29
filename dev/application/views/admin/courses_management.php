@@ -31,15 +31,22 @@
             <?php
             foreach ($courses as $serialNumber => $course) {
               $description = strip_tags(substr($course['detailed_description'], 0, 100));
+              $youtubeEmbedUrl = explode('v=', $course['thumbnail']);
             ?>
               <tr>
                 <td><?= $serialNumber + 1; ?></td>
                 <td>
                   <?php
                     if($course['thumbnail_type'] == 1){
-                      echo "image";
+                  ?>
+                      <img src="<?=$course['thumbnail'];?>" width="100" alt="thumbnail">
+                  <?php
                     }else{
-                      echo "YouTube";
+                  ?>
+                      <a href="<?=$course['thumbnail'];?>" target="_blank" >
+                        <img width="100" alt="thumbnail" src="http://img.youtube.com/vi/<?=$youtubeEmbedUrl[1];?>/default.jpg" width="100" alt="thumbnail">
+                      </a>
+                  <?php
                     }
                   ?>
                 </td>
