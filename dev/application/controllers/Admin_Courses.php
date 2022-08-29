@@ -162,6 +162,11 @@ class Admin_Courses extends CI_Controller
                     unset($update['thumbnail']);
                 }
             } else if ($update['thumbnail_type'] == 2) {
+                $oldThumbnailType = $this->input->post('course_type');
+                $oldThumbnail = $this->input->post('old_thumbnail');
+                if($oldThumbnailType == 1){
+                    if(file_exists($oldThumbnail)) unlink($oldThumbnail);
+                }
                 $update['thumbnail'] = $this->input->post('thumbnail');
             }
             if (array_key_exists('thumbnail', $update) && ($update['thumbnail'] == null && $update['thumbnail'] == '') ) {

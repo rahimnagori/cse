@@ -4,7 +4,7 @@
         <input type="hidden" name="course_id" required="" value="<?= $courseDetails['id']; ?>" />
         <input type="text" name="title" class="form-control" required="" value="<?= $courseDetails['title']; ?>" />
         <input type="hidden" name="course_type" required="" value="<?= $courseDetails['type']; ?>" />
-        <input type="hidden" id="edit-thumbnail" value="<?= $courseDetails['thumbnail']; ?>" />
+        <input type="hidden" id="edit-thumbnail" name="old_thumbnail" value="<?= $courseDetails['thumbnail']; ?>" />
     </div>
     <div class="form-group">
         <label> Course Link </label>
