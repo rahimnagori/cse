@@ -1,7 +1,7 @@
 <?php include 'include/header.php'; ?>
 
 <div class="conten_web">
-  <h4 class="heading">Contact Requests <small>Management</small></h4>
+  <h4 class="heading">Enquiries <small>Management</small></h4>
   <div class="white_box">
     <?= $this->session->flashdata('responseMessage'); ?>
     <div class="card_bodym">

@@ -48,7 +48,7 @@
         <a href="<?= site_url('Admin-Contact'); ?>"><i class="fa fa-gear"></i> User Enquiries</a>
       </li>
       <li>
-        <a href="<?= site_url('Admin'); ?>"><i class="fa fa-gear"></i> Deals Management</a>
+        <a href="<?= site_url('Admin-Deals'); ?>"><i class="fa fa-gear"></i> Deals Management</a>
       </li>
       <li>
         <a href="<?= site_url('Admin'); ?>"><i class="fa fa-gear"></i> Page Content Management</a>

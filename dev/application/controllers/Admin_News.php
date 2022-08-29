@@ -22,7 +22,7 @@ class Admin_News extends CI_Controller
   {
     $pageData = $this->Common_Model->getAdmin($this->session->userdata('id'));
 
-    $pageData['newses']  = $this->Common_Model->fetch_records('newses', array('is_deleted' => 0), false, false, 'id');
+    $pageData['newses']  = $this->Common_Model->fetch_records('newses', false, false, 'id');
     $this->load->view('admin/news_management', $pageData);
   }
 
@@ -42,7 +42,6 @@ class Admin_News extends CI_Controller
     $insert['description'] = $this->input->post('description');
     $insert['link'] = $this->input->post('link');
     $insert['comment'] = $this->input->post('comment');
-    $insert['is_deleted'] = 0;
     $insert['user_id'] = $this->session->userdata('id');
     $insert['created'] = $insert['updated'] = date("Y-m-d H:i:s");
     if ($_FILES['image']['error'] == 0) {
@@ -74,7 +73,6 @@ class Admin_News extends CI_Controller
     if ($newsDetails['image'] != '' || $newsDetails['image'] != null) {
       if (file_exists($newsDetails['image'])) unlink($newsDetails['image']);
     }
-    $update['is_deleted'] = 1;
     if ($this->Common_Model->delete('newses', $where)) {
       $response['status'] = 1;
       $response['responseMessage'] = $this->Common_Model->success('News deleted successfully.');

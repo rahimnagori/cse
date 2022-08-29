@@ -256,13 +256,9 @@ if (count($courses)) {
             <h1>
               Download Full Course PDF/PPT of all courses for Free
             </h1>
-
-
           </div>
-
           <a href="https://csepracticals.teachable.com/p/only-resources" class="btn btn_theme2 btn-lg btn_r " target="_blank">
             <span class="on1">Download </span>
-
           </a>
         </div>
       </div>
@@ -337,83 +333,55 @@ if (count($courses)) {
   </div>
 </section>
 
-<section class="sec_des_h1 pad_t">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="gir_im1">
-          <div class="table_1">
-            <div class="table_2">
-              <img src="<?= site_url('assets/site/'); ?>img/img_24.png" alt="" class="img_r">
+<?php
+  if(count($deals)){
+?>
+    <section class="sec_des_h1 pad_t">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="gir_im1">
+              <div class="table_1">
+                <div class="table_2">
+                  <img src="<?= site_url('assets/site/'); ?>img/img_24.png" alt="" class="img_r">
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="col-md-8">
-        <div class="conten_set">
-          <h4 class="bg_hed">Learn and Earn </h4>
-          <h1>What is Lorem Ipsum? </h1>
-
-          <p>
-            Pls send email to <a href="mailto:<?= $emails['default_email']; ?>"><?= $emails['default_email']; ?></a> after payment, telling us which Courses you want. You will be given lifetime access to Courses. Use Partial Payment links below in case you need to pay us an arbitrary amount after negotiation.
-          </p>
-        </div>
-        <div class="des_c2">
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="rig_icon conten_set">
-                <a href="https://csepracticals.teachable.com/purchase?product_id=4125539" target="_blank"></a>
-                <span><img src="<?= site_url('assets/site/'); ?>img/img_25.png" alt=""></span>
-                <h4>SUPER TWO DEAL </h4>
-                <p>
-                  Buy Any 2 Paid course
-                  for
-                </p>
-                <h2>750 INR | $10</h2>
-              </div>
+          <div class="col-md-8">
+            <div class="conten_set">
+              <h4 class="bg_hed">Learn and Learn </h4>
+              <h1>Interesting packages!!</h1>
+              <p>
+                Pls send email to <a href="mailto:<?= $emails['default_email']; ?>"><?= $emails['default_email']; ?></a> after payment, telling us which Courses you want. You will be given lifetime access to Courses. Use Partial Payment links below in case you need to pay us an arbitrary amount after negotiation.
+              </p>
             </div>
-            <div class="col-sm-6">
-              <div class="rig_icon conten_set">
-                <a href="https://csepracticals.teachable.com/purchase?product_id=4125540" target="_blank"></a>
-                <span><img src="<?= site_url('assets/site/'); ?>img/img_25.png" alt=""></span>
-                <h4>SUPER FOUR DEAL </h4>
-                <p>
-                  Buy Any 4 Paid course
-                  for
-                </p>
-                <h2>1200 INR | $20</h2>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="rig_icon conten_set">
-                <a href="https://csepracticals.teachable.com/purchase?product_id=4125541" target="_blank"></a>
-                <span><img src="<?= site_url('assets/site/'); ?>img/img_25.png" alt=""></span>
-                <h4>SUPER SIX DEAL </h4>
-                <p>
-                  Buy Any 6 Paid course
-                  for
-                </p>
-                <h2>1600 INR | $25</h2>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="rig_icon conten_set">
-                <a href="https://csepracticals.teachable.com/purchase?product_id=4125542" target="_blank"></a>
-                <span><img src="<?= site_url('assets/site/'); ?>img/img_25.png" alt=""></span>
-                <h4>SUPER EIGHT DEAL </h4>
-                <p>
-                  Buy Any 8 Paid course
-                  for
-                </p>
-                <h2>2000 INR | $30</h2>
+            <div class="des_c2">
+              <div class="row">
+                <?php
+                  foreach($deals as $deal){
+                ?>
+                    <div class="col-sm-6">
+                      <div class="rig_icon conten_set">
+                        <a href="<?=$deal['link'];?>" target="_blank"></a>
+                        <span><img src="<?= site_url('assets/site/'); ?>img/img_25.png" alt="<?=$deal['title'];?>"></span>
+                        <h4><?=$deal['title'];?></h4>
+                        <p><?=$deal['description'];?></p>
+                        <h2><?=$deal['price_inr'];?> INR | $<?=$deal['price_dollar'];?></h2>
+                      </div>
+                    </div>
+                <?php
+                  }
+                ?>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+<?php
+  }
+?>
 
 <section class="sec_pad get_in_touch1" id="contact">
   <div class="efff_h effect_cont">

@@ -107,3 +107,9 @@ $route['Reviews/Add'] = 'Admin_Reviews/add_review';
 $route['Reviews/Get/(:any)'] = 'Admin_Reviews/get_review/$1';
 $route['Reviews/Delete'] = 'Admin_Reviews/delete_review';
 $route['Reviews/Update'] = 'Admin_Reviews/update_review';
+
+$route['Admin-Deals'] = 'Admin_Deals';
+$route['Admin-Deals/Get/(:any)'] = 'Admin_Deals/get_deal/$1';
+$route['Admin-Deals/Add'] = 'Admin_Deals/add_deal';
+$route['Admin-Deals/delete'] = 'Admin_Deals/delete_deal';
+$route['Admin-Deals/Update'] = 'Admin_Deals/update_deal';
