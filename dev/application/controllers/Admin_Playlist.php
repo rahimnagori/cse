@@ -62,7 +62,7 @@ class Admin_Playlist extends CI_Controller
   {
     $where['id'] = $id;
     $pageData['courseDetails'] = $this->Common_Model->fetch_records('upcoming_courses', $where, false, true);
-    $this->load->view('admin/include/course_details', $pageData);
+    $this->load->view('admin/include/playlist_details', $pageData);
   }
 
   public function update_course()

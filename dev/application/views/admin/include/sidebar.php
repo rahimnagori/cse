@@ -33,22 +33,22 @@
         <a href="<?= site_url('Admin-Settings'); ?>"><i class="fa fa-gear"></i> Admin Settings</a>
       </li> -->
       <li>
-        <a href="<?= site_url('Emails-Management'); ?>"><i class="fa fa-gear"></i> Emails Management</a>
+        <a href="<?= site_url('Emails-Management'); ?>"><i class="fa fa-envelope" aria-hidden="true"></i> Emails Management</a>
       </li>
       <li>
-        <a href="<?= site_url('Playlist-Management/0'); ?>"><i class="fa fa-gear"></i> Upcoming Courses </a>
+        <a href="<?= site_url('Playlist-Management/0'); ?>"><i class="fa fa-bars" aria-hidden="true"></i> Upcoming Courses </a>
       </li>
       <li>
-        <a href="<?= site_url('Playlist-Management/1'); ?>"><i class="fa fa-gear"></i> YouTube Playlist </a>
+        <a href="<?= site_url('Playlist-Management/1'); ?>"><i class="fa fa-youtube-play" aria-hidden="true"></i> YouTube Playlist </a>
       </li>
       <li>
-        <a href="<?= site_url('Reviews-Management'); ?>"><i class="fa fa-gear"></i> Reviews Management</a>
+        <a href="<?= site_url('Reviews-Management'); ?>"><i class="fa fa-comments" aria-hidden="true"></i> Reviews Management</a>
       </li>
       <li>
-        <a href="<?= site_url('Admin-Contact'); ?>"><i class="fa fa-gear"></i> User Enquiries</a>
+        <a href="<?= site_url('Admin-Contact'); ?>"><i class="fa fa-newspaper-o" aria-hidden="true"></i> User Enquiries</a>
       </li>
       <li>
-        <a href="<?= site_url('Admin-Deals'); ?>"><i class="fa fa-gear"></i> Deals Management</a>
+        <a href="<?= site_url('Admin-Deals'); ?>"><i class="fa fa-gift" aria-hidden="true"></i> Deals Management</a>
       </li>
       <!-- <li>
         <a href="<?= site_url('Admin'); ?>"><i class="fa fa-gear"></i> Page Content Management</a>

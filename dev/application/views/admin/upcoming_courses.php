@@ -75,7 +75,7 @@
             ?>
               <div class="form-group">
                 <label> URL </label>
-                <input type="text" name="url" class="form-control" required="" />
+                <input type="url" name="url" class="form-control" required="" />
               </div>
             <?php
             }
@@ -199,6 +199,8 @@
         $(".btn_submit").prop('disabled', false);
         $(".btn_submit").html(' Yes ');
         if (response.status == 1) location.reload();
+        $("#responseMessage").html(response.responseMessage);
+        $("#responseMessage").show();
       }
     });
   }
@@ -238,6 +240,8 @@
         $(".btn_submit").prop('disabled', false);
         $(".btn_submit").html(' Update ');
         if (response.status == 1) location.reload();
+        $("#updateResponseMessage").html(response.responseMessage);
+        $("#updateResponseMessage").show();
       }
     });
   }
