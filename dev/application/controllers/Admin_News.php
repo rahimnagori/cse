@@ -22,7 +22,7 @@ class Admin_News extends CI_Controller
   {
     $pageData = $this->Common_Model->getAdmin($this->session->userdata('id'));
 
-    $pageData['newses']  = $this->Common_Model->fetch_records('newses', false, false, 'id');
+    $pageData['newses']  = $this->Common_Model->fetch_records('newses', false, false, false, 'id');
     $this->load->view('admin/news_management', $pageData);
   }
 
