@@ -80,13 +80,13 @@
               <a class="nav-link" href="mailto:<?= $emails['contact_email']; ?>">Contact Us</a>
             </li>
             <li class="nav-item btn_login">
-              <a class="nav-link" href="https://sso.teachable.com/secure/368858/identity/login" target="_blank">Login</a>
+              <a class="nav-link" href="<?= $urls['login']; ?>" target="_blank">Login</a>
             </li>
             <li class="nav-item btn_sign_up">
-              <a class="nav-link" href="https://sso.teachable.com/secure/368858/identity/sign_up" target="_blank">Sign Up</a>
+              <a class="nav-link" href="<?= $urls['signup']; ?>" target="_blank">Sign Up</a>
             </li>
             <li class="nav-item btn_book">
-              <a class="nav-link" href="https://www.youtube.com/c/CSEPracticals?sub_confirmation=1" target="_blank"><i class="fa fa-youtube"></i> Subscribe </a>
+              <a class="nav-link" href="<?= $urls['youtube_subscribe']; ?>" target="_blank"><i class="fa fa-youtube"></i> Subscribe </a>
             </li>
             </li>
           </ul>

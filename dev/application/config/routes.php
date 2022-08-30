@@ -115,3 +115,6 @@ $route['Admin-Deals/Get/(:any)'] = 'Admin_Deals/get_deal/$1';
 $route['Admin-Deals/Add'] = 'Admin_Deals/add_deal';
 $route['Admin-Deals/delete'] = 'Admin_Deals/delete_deal';
 $route['Admin-Deals/Update'] = 'Admin_Deals/update_deal';
+
+$route['Admin-Urls'] = 'Admin_Urls';
+$route['Admin-Urls/Update'] = 'Admin_Urls/update_url';

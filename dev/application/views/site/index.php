@@ -257,7 +257,7 @@ if (count($courses)) {
               Download Full Course PDF/PPT of all courses for Free
             </h1>
           </div>
-          <a href="https://csepracticals.teachable.com/p/only-resources" class="btn btn_theme2 btn-lg btn_r " target="_blank">
+          <a href="<?= $urls['download_full_course']; ?>" class="btn btn_theme2 btn-lg btn_r " target="_blank">
             <span class="on1">Download </span>
           </a>
         </div>
@@ -334,53 +334,53 @@ if (count($courses)) {
 </section>
 
 <?php
-  if(count($deals)){
+if (count($deals)) {
 ?>
-    <section class="sec_des_h1 pad_t">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="gir_im1">
-              <div class="table_1">
-                <div class="table_2">
-                  <img src="<?= site_url('assets/site/'); ?>img/img_24.png" alt="" class="img_r">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-8">
-            <div class="conten_set">
-              <h4 class="bg_hed">Learn and Learn </h4>
-              <h1>Interesting packages!!</h1>
-              <p>
-                Pls send email to <a href="mailto:<?= $emails['default_email']; ?>"><?= $emails['default_email']; ?></a> after payment, telling us which Courses you want. You will be given lifetime access to Courses. Use Partial Payment links below in case you need to pay us an arbitrary amount after negotiation.
-              </p>
-            </div>
-            <div class="des_c2">
-              <div class="row">
-                <?php
-                  foreach($deals as $deal){
-                ?>
-                    <div class="col-sm-6">
-                      <div class="rig_icon conten_set">
-                        <a href="<?=$deal['link'];?>" target="_blank"></a>
-                        <span><img src="<?= site_url('assets/site/'); ?>img/img_25.png" alt="<?=$deal['title'];?>"></span>
-                        <h4><?=$deal['title'];?></h4>
-                        <p><?=$deal['description'];?></p>
-                        <h2><?=$deal['price_inr'];?> INR | $<?=$deal['price_dollar'];?></h2>
-                      </div>
-                    </div>
-                <?php
-                  }
-                ?>
+  <section class="sec_des_h1 pad_t">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="gir_im1">
+            <div class="table_1">
+              <div class="table_2">
+                <img src="<?= site_url('assets/site/'); ?>img/img_24.png" alt="" class="img_r">
               </div>
             </div>
           </div>
         </div>
+        <div class="col-md-8">
+          <div class="conten_set">
+            <h4 class="bg_hed">Learn and Learn </h4>
+            <h1>Interesting packages!!</h1>
+            <p>
+              Pls send email to <a href="mailto:<?= $emails['default_email']; ?>"><?= $emails['default_email']; ?></a> after payment, telling us which Courses you want. You will be given lifetime access to Courses. Use Partial Payment links below in case you need to pay us an arbitrary amount after negotiation.
+            </p>
+          </div>
+          <div class="des_c2">
+            <div class="row">
+              <?php
+              foreach ($deals as $deal) {
+              ?>
+                <div class="col-sm-6">
+                  <div class="rig_icon conten_set">
+                    <a href="<?= $deal['link']; ?>" target="_blank"></a>
+                    <span><img src="<?= site_url('assets/site/'); ?>img/img_25.png" alt="<?= $deal['title']; ?>"></span>
+                    <h4><?= $deal['title']; ?></h4>
+                    <p><?= $deal['description']; ?></p>
+                    <h2><?= $deal['price_inr']; ?> INR | $<?= $deal['price_dollar']; ?></h2>
+                  </div>
+                </div>
+              <?php
+              }
+              ?>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 <?php
-  }
+}
 ?>
 
 <section class="sec_pad get_in_touch1" id="contact">

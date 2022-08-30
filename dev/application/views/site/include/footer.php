@@ -25,10 +25,10 @@
                 <div class="col-sm-5">
                     <div class="footer_socc">
                         <ul class="ul_set socila_foo">
-                            <li><a href="https://api.whatsapp.com/send?phone=919686081839" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
-                            <li><a href="https://www.facebook.com/csepracticals/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="https://www.youtube.com/c/CSEPracticals" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
-                            <li><a href="https://t.me/telecsepracticals" target="_blank"><i class="fa fa-telegram"></i></a></li>
+                            <li><a href="<?= $urls['whatsapp']; ?>" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+                            <li><a href="<?= $urls['facebook']; ?>" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="<?= $urls['youtube']; ?>" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+                            <li><a href="<?= $urls['telegram']; ?>" target="_blank"><i class="fa fa-telegram"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -38,10 +38,10 @@
 </footer>
 
 <div class="fixe_socil">
-    <a href="https://api.whatsapp.com/send?phone=919686081839" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s3.png" alt=""></a>
-    <a href="https://www.facebook.com/csepracticals/" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s2.png" alt=""></a>
-    <a href="https://www.youtube.com/c/CSEPracticals" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s1.png" alt=""></a>
-    <a href="https://t.me/telecsepracticals" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s5.png" alt=""></a>
+    <a href="<?= $urls['whatsapp']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s3.png" alt=""></a>
+    <a href="<?= $urls['facebook']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s2.png" alt=""></a>
+    <a href="<?= $urls['youtube']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s1.png" alt=""></a>
+    <a href="<?= $urls['telegram']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s5.png" alt=""></a>
 </div>
 
 
@@ -61,13 +61,13 @@
     const LOADING = "<i class='fa fa-spin fa-spinner' aria-hidden='true'></i> Processing ... ";
     $('.count').each(function() {
         $(this).prop('Counter', 0).animate({
-        Counter: $(this).text()
+            Counter: $(this).text()
         }, {
-        duration: 4000,
-        easing: 'swing',
-        step: function(now) {
-            $(this).text(Math.ceil(now));
-        }
+            duration: 4000,
+            easing: 'swing',
+            step: function(now) {
+                $(this).text(Math.ceil(now));
+            }
         });
     });
     $(document).ready(function() {
