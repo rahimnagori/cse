@@ -118,3 +118,6 @@ $route['Admin-Deals/Update'] = 'Admin_Deals/update_deal';
 
 $route['Admin-Urls'] = 'Admin_Urls';
 $route['Admin-Urls/Update'] = 'Admin_Urls/update_url';
+
+$route['Admin-Highlights'] = 'Admin_Urls/highlights';
+$route['Admin-Highlights/Update'] = 'Admin_Urls/update_highlights';

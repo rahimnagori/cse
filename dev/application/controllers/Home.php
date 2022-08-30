@@ -19,6 +19,7 @@ class Home extends CI_Controller
     $pageData['reviews'] = $this->Common_Model->fetch_records('reviews');
     $pageData['deals'] = $this->Common_Model->fetch_records('deals');
     $pageData['newses'] = $this->Common_Model->fetch_records('newses');
+    $pageData['highlights'] = $this->Common_Model->fetch_records('highlights', false, false, true);
 
     $this->load->view('site/include/header', $pageData);
     $this->load->view('site/index', $pageData);
@@ -89,7 +90,8 @@ class Home extends CI_Controller
     echo json_encode($response);
   }
 
-  public function get_course($id){
+  public function get_course($id)
+  {
     $pageData['courseDetails'] = $this->Common_Model->fetch_records('courses', array('id' => $id), false, true);
     $this->load->view('site/include/course_details', $pageData);
   }

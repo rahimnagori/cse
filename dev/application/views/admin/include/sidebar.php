@@ -50,6 +50,9 @@
       <li>
         <a href="<?= site_url('Admin-Urls'); ?>"><i class="fa fa-edge" aria-hidden="true"></i> Urls Management</a>
       </li>
+      <li>
+        <a href="<?= site_url('Admin-Highlights'); ?>"><i class="fa fa-edge" aria-hidden="true"></i> Highlights Management</a>
+      </li>
       <!-- <li>
         <a href="<?= site_url('Admin'); ?>"><i class="fa fa-gear"></i> Page Content Management</a>
       </li> -->

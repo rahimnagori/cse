@@ -175,7 +175,7 @@ if (count($courses)) {
         <div class="conter_set">
           <img class="img_rat" alt="" src="<?= site_url('assets/site/'); ?>img/COURSES.png">
           <div class="circle">
-            <span class="count">20</span>
+            <span class="count"><?= $highlights['active_courses']; ?></span>
           </div>
 
           <h4>
@@ -187,9 +187,8 @@ if (count($courses)) {
         <div class="conter_set">
           <img class="img_rat" alt="" src="<?= site_url('assets/site/'); ?>img/UPDATE.png">
           <div class="circle2">
-            <span class="count">2022</span>
+            <span class="count"><?= date("Y", strtotime($highlights['last_update'])); ?></span>
           </div>
-
           <h4>
             LAST UPDATE
           </h4>
@@ -199,7 +198,7 @@ if (count($courses)) {
         <div class="conter_set">
           <img class="img_rat" alt="" src="<?= site_url('assets/site/'); ?>img/REVIEWS.png">
           <div class="circle3">
-            <span class="count">2402</span>
+            <span class="count"><?= $highlights['total_reviews']; ?></span>
           </div>
 
           <h4>
@@ -211,7 +210,7 @@ if (count($courses)) {
         <div class="conter_set">
           <img class="img_rat" alt="" src="<?= site_url('assets/site/'); ?>img/RATING.png">
           <div class="circle4">
-            <span class="count">4.55</span>
+            <span class=""><?= $highlights['average_rating']; ?></span>
           </div>
 
           <h4>
@@ -223,7 +222,7 @@ if (count($courses)) {
         <div class="conter_set">
           <img class="img_rat" alt="" src="<?= site_url('assets/site/'); ?>img/STUDENTS.png">
           <div class="circle5">
-            <span class="count">28110</span>
+            <span class="count"><?= $highlights['total_students']; ?></span>
           </div>
 
           <h4>
