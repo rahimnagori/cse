@@ -55,7 +55,8 @@
 <script src="<?= site_url('assets/site/'); ?>js/slick.min.js"></script>
 <script src="<?= site_url('assets/site/'); ?>js/custom.js"></script>
 <script src="<?= site_url('assets/site/'); ?>js/aos.js"></script>
-<!-- <script src="<?= site_url('assets/site/'); ?>js/isotope-docs.min.js"></script> -->
+<!-- Isotope script is for category feature -->
+<script src="<?= site_url('assets/site/'); ?>js/isotope-docs.min.js"></script>
 <script>
     const BASE_URL = "<?= site_url(); ?>";
     const LOADING = "<i class='fa fa-spin fa-spinner' aria-hidden='true'></i> Processing ... ";
