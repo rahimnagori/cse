@@ -14,17 +14,16 @@
             <tr>
               <th>S.No.</th>
               <th>Thumbnail</th>
-              <th>Course Type</th>
+              <th>
+                Course Category (Type)
+              </th>
               <th>Title</th>
-              <th>Category</th>
-              <th>Short Description</th>
-              <th>Detailed Description</th>
+              <th>Description</th>
               <th>Ratings</th>
-              <th>Duration</th>
+              <th>Duration (in hours)</th>
               <th>Enrolled</th>
               <th>Price</th>
-              <th>Created</th>
-              <th>Updated</th>
+              <th>Created | Updated</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -51,24 +50,35 @@
                   }
                   ?>
                 </td>
-                <td><?= ($course['type'] == 0) ? 'Free' : 'Paid'; ?></td>
-                <td><?= $course['title']; ?></td>
-                <td><?= $categories[$course['category']]['category_name']; ?></td>
-                <td><?= $course['short_description']; ?></td>
                 <td>
-                  <p>
-                    <?php
-                    echo $description;
-                    echo (strlen($description) > 100) ? '...' : '';
-                    ?>
-                  </p>
+                  <?= $categories[$course['category']]['category_name']; ?>
+                  (<?= ($course['type'] == 0) ? 'Free' : 'Paid'; ?>)
+                </td>
+                <td><?= $course['title']; ?></td>
+                <td>
+                  <?= $course['short_description']; ?>
+                  <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#descriptionModal_<?= $course['id']; ?>">Detailed Description</button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="descriptionModal_<?= $course['id']; ?>" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="la la-times-circle"></i></span></button>
+                        </div>
+
+                        <div class="modal-body">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Modal close-->
                 </td>
                 <td><?= $course['ratings'] ?></td>
                 <td><?= $course['duration'] ?></td>
                 <td><?= $course['enrolled']; ?></td>
                 <td>$<?= $course['price']; ?></td>
-                <td><?= date("d M, Y", strtotime($course['created'])); ?></td>
-                <td><?= date("d M, Y", strtotime($course['updated'])); ?></td>
+                <td><?= date("d M, Y", strtotime($course['created'])); ?> | <?= date("d M, Y", strtotime($course['updated'])); ?></td>
                 <td>
                   <button onclick="edit_course(<?= $course['id'] ?>)" class="btn btn-info btn-xs">Edit</button>
                   <button class="btn btn-danger btn-xs" onclick="open_delete_modal(<?= $course['id'] ?>)">Delete</button>
