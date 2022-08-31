@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="<?= site_url('assets/site/'); ?>css/font-awesome.min.css">
   <link rel="stylesheet" href="<?= site_url('assets/site/'); ?>css/aos.css" />
   <link rel="stylesheet" href="<?= site_url('assets/site/'); ?>css/effect.css">
-  <link rel="stylesheet" href="<?= site_url('assets/site/'); ?>css/style.css">
+  <link rel="stylesheet" href="<?= site_url('assets/site/'); ?>css/style.css?time=<?=time();?>">
   <link rel="stylesheet" href="<?= site_url('assets/site/'); ?>css/responsive.css">
   <link rel="shortcut icon" type="image/x-icon" href="<?= site_url('assets/site/'); ?>img/favi.png">
   <title><?= $this->config->item('PROJECT'); ?> </title>
