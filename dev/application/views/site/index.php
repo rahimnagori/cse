@@ -130,14 +130,24 @@ if (count($courses)) {
                 }
                 ?>
               </div>
-              <div class="conten_b">
+              <div class="conten_b link_ad">
+                <a href="#"></a>
                 <h4><?= $course['title']; ?></h4>
+                
                 <p>
                   <?= $course['short_description']; ?>
+                  <span class="star_rat">
+                  <span><i class="fa fa-star"></i></span>
+                  <span><i class="fa fa-star"></i></span>
+                  <span><i class="fa fa-star"></i></span>
+                  <span><i class="fa fa-star-o"></i></span>
+                  <span><i class="fa fa-star-o"></i></span>
+                </span>
                 </p>
+                
                 <h5>
-                  <span class="or1">Rating: <?= $course['ratings']; ?></span>
-                  <span class="or2">Enrolled: <?= $course['enrolled']; ?></span>
+                  <!-- <span class="or1">Rating: <?= $course['ratings']; ?></span> -->
+                  <span class="or1">Enrolled: <?= $course['enrolled']; ?></span>
                   <span class="or2">Duration: <?= $course['duration']; ?></span>
                 </h5>
                 <h6>
@@ -483,11 +493,12 @@ if (count($reviews)) {
                   </p>
                 </div>
                 <div class="user_immg">
-                  <div class="use_im2a">
+                  <!-- <div class="use_im2a">
                     <img src="<?= site_url(($review['image']) ? $review['image'] : 'assets/site/img/img_3.png'); ?>" alt="<?= $review['name']; ?>">
-                  </div>
+                  </div> -->
                   <h4>
-                    <?= $review['name']; ?><span><?= $review['designation']; ?></span>
+                    <a href="#"><?= $review['name']; ?></a>
+                    <span><?= $review['designation']; ?></span>
                   </h4>
                 </div>
               </div>
