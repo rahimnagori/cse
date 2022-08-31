@@ -8,11 +8,15 @@
     <input type="text" name="designation" class="form-control" required="" value="<?= $reviewDetails['designation']; ?>">
 </div>
 <div class="form-group">
+    <label> Link </label>
+    <input type="text" name="link" class="form-control" value="<?= $reviewDetails['link']; ?>">
+</div>
+<div class="form-group">
     <label> Review </label>
     <textarea name="review" class="form-control" required=""><?= $reviewDetails['review']; ?></textarea>
 </div>
 <div class="row">
-    <div class="col-sm-8">
+    <!-- <div class="col-sm-8">
         <div class="form-group">
             <label> Image </label>
             <input type="file" name="image" accept="image/*" onchange="preview_image(this, 'update_preview_image');">
@@ -28,7 +32,7 @@
             }
             ?>
         </div>
-    </div>
+    </div> -->
 </div>
 <div class="row">
     <div class="col-sm-12" class="editResponseMessage" id="editResponseMessage"></div>

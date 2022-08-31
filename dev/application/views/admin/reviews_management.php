@@ -15,8 +15,9 @@
               <th>S.No.</th>
               <th>Reviewer</th>
               <th>Designation</th>
+              <th>Link</th>
               <th>Review</th>
-              <th>Image</th>
+              <!-- <th>Image</th> -->
               <th>Created</th>
               <th>Action</th>
             </tr>
@@ -29,10 +30,23 @@
                 <td><?= $serialNumber + 1; ?></td>
                 <td><?= $review['name']; ?></td>
                 <td><?= $review['designation']; ?></td>
-                <td><?= $review['review']; ?></td>
                 <td>
-                  <img src="<?= site_url(($review['image']) ? $review['image'] : 'assets/site/img/img_3.png'); ?>" width="100">
+                  <?php
+                    if(strlen($review['link']) > 0){
+                  ?>
+                      <a href="<?= $review['link']; ?>" target="_blank">View</a>
+                  <?php
+                    }else{
+                      ?>
+                      No Link Added
+                  <?php    
+                    }
+                  ?>  
                 </td>
+                <td><?= $review['review']; ?></td>
+                <!-- <td>
+                  <img src="<?= site_url(($review['image']) ? $review['image'] : 'assets/site/img/img_3.png'); ?>" width="100">
+                </td> -->
                 <td><?= date("d M, Y", strtotime($review['created'])); ?></td>
                 <td>
                   <button onclick="edit_review(<?= $review['id'] ?>)" class="btn btn-info btn-xs">Edit</button>
@@ -70,10 +84,14 @@
               <input type="text" name="designation" class="form-control" required="">
             </div>
             <div class="form-group">
+              <label> Link </label>
+              <input type="url" name="link" class="form-control" >
+            </div>
+            <div class="form-group">
               <label> Review </label>
               <textarea name="review" class="form-control" required=""></textarea>
             </div>
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-sm-8">
                 <div class="form-group">
                   <label> Image </label>
@@ -81,7 +99,7 @@
                 </div>
               </div>
               <div class="col-sm-4" id="preview_image"></div>
-            </div>
+            </div> -->
             <div class="row">
               <div class="col-sm-12" class="responseMessage" id="responseMessage"></div>
             </div>

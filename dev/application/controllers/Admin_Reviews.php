@@ -32,8 +32,9 @@ class Admin_Reviews extends CI_Controller
     $response['responseMessage'] = $this->Common_Model->error('Something went wrong.');
     $insert['name'] = $this->input->post('name');
     $insert['designation'] = $this->input->post('designation');
+    $insert['link'] = (strlen($this->input->post('link')) > 0) ? $this->input->post('link') : null;
     $insert['review'] = $this->input->post('review');
-    if ($_FILES['image']['error'] == 0) {
+    if ( !empty($_FILES) && $_FILES['image']['error'] == 0) {
       $config['upload_path'] = "assets/site/img/reviews/";
       $config['allowed_types'] = 'jpeg|gif|jpg|png';
       $config['encrypt_name'] = true;
@@ -88,9 +89,10 @@ class Admin_Reviews extends CI_Controller
     $response['responseMessage'] = $this->Common_Model->error('Something went wrong.');
     $update['name'] = $this->input->post('name');
     $update['designation'] = $this->input->post('designation');
+    $update['link'] = (strlen($this->input->post('link')) > 0) ? $this->input->post('link') : null;
     $update['review'] = $this->input->post('review');
     $where['id'] = $this->input->post('review_id');
-    if ($_FILES['image']['error'] == 0) {
+    if ( !empty($_FILES) && $_FILES['image']['error'] == 0) {
       $reviewDetails = $this->Common_Model->fetch_records('reviews', $where, false, true);
       $config['upload_path'] = "assets/site/img/reviews/";
       $config['allowed_types'] = 'jpeg|gif|jpg|png';

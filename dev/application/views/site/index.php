@@ -409,7 +409,6 @@ if (count($deals)) {
               </div>
             </div>
             <div class="col-md-6">
-              <!-- <form action="#" method="post" id="myemailform"> -->
               <form method="post" id="contactForm" onsubmit="send_contact_request(event);">
                 <div class="form-group">
                   <label for="name">Name</label>
@@ -422,7 +421,7 @@ if (count($deals)) {
                   <label for="">Phone Number</label>
                   <div class="ion_in">
                     <i class="fa fa-phone"></i>
-                    <input type="text" class="form-control" placeholder="Phone Number" name="phone" required="">
+                    <input type="text" class="form-control" placeholder="Phone Number" name="phone" >
                   </div>
                 </div>
                 <div class="form-group">

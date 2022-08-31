@@ -81,7 +81,7 @@ class Common_Model extends CI_Model
 
   public function send_mail($to, $subject, $body, $bcc = false, $attachments = [])
   {
-    $settings = $this->fetch_records('settings', array('id' => 1), 'smtp_user', true);
+    $settings = $this->fetch_records('emails', array('id' => 1), 'default_email', true);
     $this->load->library('parser');
     $response['status'] = 0;
     $PROJECT = $this->config->item('PROJECT');
@@ -96,10 +96,10 @@ class Common_Model extends CI_Model
     $this->email->initialize($config);
 
     $this->email->set_header("MIME-Version", "1.0");
-    $this->email->set_header("Reply-To", $settings['smtp_user']);
+    $this->email->set_header("Reply-To", $settings['default_email']);
     $this->email->set_header("X-Mailer", "PHP/" . phpversion());
 
-    $this->email->from($settings['smtp_user'], 'Admin');
+    $this->email->from($settings['default_email'], 'Admin');
     $this->email->to($to);
     $this->email->set_crlf("\r\n");
     $this->email->subject($subject);
@@ -166,5 +166,23 @@ class Common_Model extends CI_Model
     $pageData['youtubePlaylists'] = $this->Common_Model->fetch_records('upcoming_courses', array('type' => 1));
     $pageData['urls'] = $this->Common_Model->fetch_records('urls', array('id' => 1), false, true);
     return $pageData;
+  }
+
+  public function send_contact_form_to_admin($id)
+  {
+    $pageData = [];
+    $pageData['userdata'] = $this->fetch_records('contact_requests', array('id' => $id), false, true);
+    $subject = 'Received a new contact request.';
+    $pageData['emailContent'] = "<p>Hello Admin, you have received a new contact request.";
+    $body = $this->load->view('admin/include/contact_form', $pageData, true);
+    $attachments = [];
+    // if ($pageData['userdata']['resume'] != '' || $pageData['userdata']['resume'] != null) {
+    //   $attachments[] = site_url($pageData['userdata']['resume']);
+    // }
+    $settings = $this->fetch_records('emails', array('id' => 1), 'default_email', true);
+    if ($this->config->item('ENVIRONMENT') == 'production') {
+      $this->send_mail($settings['default_email'], $subject, $body, false, $attachments);
+    }
+    /* $this->load->view('site/include/registration_form', $pageData); */
   }
 }

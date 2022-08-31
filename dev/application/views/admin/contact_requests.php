@@ -26,7 +26,21 @@
                 <td><?= $contactRequest['full_name']; ?></td>
                 <td><?= $contactRequest['email'] ?></td>
                 <td><?= $contactRequest['phone']; ?></td>
-                <td><?= $contactRequest['message']; ?></td>
+                <td>
+                  <button class="btn btn_theme2 btn-xs" data-toggle="modal" data-target="#viewMessageModal_<?= $contactRequest['id']; ?>">See Message</button>  
+
+<!-- Modal -->
+<div class="modal fade" id="viewMessageModal_<?= $contactRequest['id']; ?>" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="la la-times-circle"></i></span></button>
+      </div>
+      <div class="modal-body"><?= $contactRequest['message']; ?></td></div>
+    </div>
+  </div>
+</div>
+<!-- Modal close-->
                 <td><?= date("d M, Y", strtotime($contactRequest['created'])); ?></td>
               </tr>
             <?php
