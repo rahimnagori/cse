@@ -13,9 +13,32 @@ class Home extends CI_Controller
 
   public function index()
   {
+    $freeCategory = [
+      'id' => 'free',
+      'category_name' => 'Free Courses',
+      'totalCourses' => 0,
+      'static' => 'true'
+    ];
+    $paidCategory = [
+      'id' => 'paid',
+      'category_name' => 'Paid Courses',
+      'totalCourses' => 0,
+      'static' => 'true'
+    ];
     $pageData = $this->Common_Model->get_userdata();
     $pageData['courses'] = $this->Common_Model->fetch_records('courses');
-    $pageData['categories'] = $this->Common_Model->fetch_records('categories');
+    $dynamicCategories = $this->Common_Model->fetch_records('categories');
+    $staticCategories['free'] = $freeCategory;
+    $staticCategories['paid'] = $paidCategory;
+    foreach($dynamicCategories as $key => $category){
+      $totalCourses = $this->Common_Model->fetch_records('courses', array('category' => $category['id']), 'id, title, type, category');
+      foreach($totalCourses as $singleCourse){
+        $staticCategories['free']['totalCourses'] = ($singleCourse['type'] == 0) ? $staticCategories['free']['totalCourses'] + 1 : $staticCategories['free']['totalCourses'];
+        $staticCategories['paid']['totalCourses'] = ($singleCourse['type'] == 1) ? $staticCategories['paid']['totalCourses'] + 1 : $staticCategories['paid']['totalCourses'];
+      }
+      $dynamicCategories[$key]['totalCourses'] = count($totalCourses);
+    }
+    $pageData['categories'] = array_merge($staticCategories, $dynamicCategories);
     $pageData['reviews'] = $this->Common_Model->fetch_records('reviews');
     $pageData['deals'] = $this->Common_Model->fetch_records('deals');
     $pageData['newses'] = $this->Common_Model->fetch_records('newses');

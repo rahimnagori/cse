@@ -96,13 +96,11 @@ if (count($courses)) {
       </div>
       <div class="fiter_set">
         <ul class="filters  js-radio-button-group ul_set clearfix">
-          <button data-filter="*" class="button is-checked">All</button>
-          <button data-filter=".course-free" class="button">Free Course</button>
-          <button data-filter=".course-paid" class="button">Paid Course</button>
+          <button data-filter="*" class="button is-checked">All (<?=count($courses);?>)</button>
           <?php
           foreach ($categories as $category) {
           ?>
-            <button data-filter=".cat-<?= $category['id']; ?>" class="button"><?= $category['category_name']; ?></button>
+            <button data-filter=".cat-<?= $category['id']; ?>" class="button"><?= $category['category_name']; ?> (<?= $category['totalCourses']; ?>)</button>
           <?php
           }
           ?>
@@ -117,7 +115,7 @@ if (count($courses)) {
             $youTubeUrl = $youTubeEmbed[1];
           }
         ?>
-          <div class="col-sm-3 element-item course-<?= ($course['type']) ? 'paid' : 'free'; ?> cat-<?= $course['category']; ?>" data-category="cat-<?= $course['category']; ?>">
+          <div class="col-sm-3 element-item cat-<?= ($course['type']) ? 'paid' : 'free'; ?> cat-<?= $course['category']; ?>" data-category="cat-<?= $course['category']; ?>">
             <div class="box_cos1">
               <div class="bors_img">
                 <?php
