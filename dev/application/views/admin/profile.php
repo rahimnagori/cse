@@ -99,7 +99,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade " id="Add_polls" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade " id="Add_polls" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
 
   <div class="modal-dialog" role="document">
 

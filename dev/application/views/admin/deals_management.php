@@ -50,7 +50,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="addDealModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="addDealModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog" role="document">
     <form id="addForm" name="addForm" onsubmit="add_deal(event);">
       <div class="modal-content">
@@ -74,7 +74,9 @@
               <input type="url" name="link" class="form-control" required="">
             </div>
             <div class="form-group">
-              <div class="row"><div class="col-sm-12"><label> Price</label></div></div>
+              <div class="row">
+                <div class="col-sm-12"><label> Price</label></div>
+              </div>
               <div class="row">
                 <div class="col-sm-6">
                   <div class="input-group">
@@ -134,7 +136,7 @@
 <!-- Modal close-->
 
 <!-- Modal -->
-<div class="modal fade" id="editDealModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="editDealModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog" role="document">
     <form id="editForm" name="editForm" onsubmit="update_deal(event);">
       <div class="modal-content">

@@ -138,7 +138,7 @@ if (count($courses)) {
                   <?= $course['short_description']; ?>
                 </p>
                 <h5>
-                  <span class="or1">Students: <?= $course['ratings']; ?></span>
+                  <span class="or1">Rating: <?= $course['ratings']; ?></span>
                   <span class="or2">Enrolled: <?= $course['enrolled']; ?></span>
                 </h5>
                 <h6>
@@ -506,7 +506,7 @@ if (count($reviews)) {
 ?>
 
 <!-- modal -->
-<div class="modal fade" id="courseDetailModal" tabindex="-1" role="dialog" aria-labelledby="lab_na1" aria-hidden="true">
+<div class="modal fade" id="courseDetailModal" tabindex="-1" role="dialog" aria-labelledby="lab_na1" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

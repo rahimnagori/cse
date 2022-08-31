@@ -82,6 +82,7 @@ class Admin_Courses extends CI_Controller
         $this->form_validation->set_rules('short_description', 'short_description', 'required');
         $this->form_validation->set_rules('detailed_description', 'detailed_description', 'required');
         $this->form_validation->set_rules('ratings', 'ratings', 'required');
+        $this->form_validation->set_rules('duration', 'duration', 'required');
         $this->form_validation->set_rules('enrolled', 'enrolled', 'required');
         $this->form_validation->set_rules('price', 'price', 'required');
         $course = [
@@ -94,6 +95,7 @@ class Admin_Courses extends CI_Controller
             'short_description' => $this->input->post('short_description'),
             'detailed_description' => $this->input->post('detailed_description'),
             'ratings' => $this->input->post('ratings'),
+            'duration' => $this->input->post('duration'),
             'enrolled' => $this->input->post('enrolled'),
             'price' => $this->input->post('price'),
             'updated' => date("Y-m-d H:i:s")

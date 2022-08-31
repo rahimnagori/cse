@@ -11,7 +11,7 @@
         <input type="text" name="course_link" class="form-control" required="" value="<?= $courseDetails['course_link']; ?>" />
     </div>
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <div class="form-group">
                 <label> Course Type </label>
                 <select class="form-control" name="type" required="">
@@ -20,7 +20,7 @@
                 </select>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <div class="form-group">
                 <label> Category </label>
                 <select class="form-control" name="category" required="">
@@ -34,7 +34,7 @@
                 </select>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <div class="form-group">
                 <label> Thumbnail Type </label>
                 <select class="form-control" name="thumbnail_type" required="" onchange="update_thumbnail(this.value, 'thumbnail_input_update', true);">
@@ -91,19 +91,25 @@
         <textarea name="detailed_description" class="form-control textarea-edit" required=""><?= $courseDetails['detailed_description']; ?></textarea>
     </div>
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <div class="form-group">
                 <label> Rating </label>
-                <input type="number" name="ratings" class="form-control" required="" value="<?= $courseDetails['ratings']; ?>" max="5" />
+                <input type="number" step="0.1" name="ratings" class="form-control" required="" value="<?= $courseDetails['ratings']; ?>" max="5" />
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label> Duration </label>
+                <input type="number" name="duration" class="form-control" required="" value="<?= $courseDetails['duration']; ?>" />
+            </div>
+        </div>
+        <div class="col-sm-3">
             <div class="form-group">
                 <label> Enrolled </label>
                 <input type="text" name="enrolled" class="form-control" required="" value="<?= $courseDetails['enrolled']; ?>" />
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <div class="form-group">
                 <label> Price </label>
                 <input type="text" name="price" class="form-control" required="" value="<?= $courseDetails['price']; ?>" />

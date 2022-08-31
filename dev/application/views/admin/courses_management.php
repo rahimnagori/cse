@@ -20,6 +20,7 @@
               <th>Short Description</th>
               <th>Detailed Description</th>
               <th>Ratings</th>
+              <th>Duration</th>
               <th>Enrolled</th>
               <th>Price</th>
               <th>Created</th>
@@ -37,17 +38,17 @@
                 <td><?= $serialNumber + 1; ?></td>
                 <td>
                   <?php
-                    if($course['thumbnail_type'] == 1){
+                  if ($course['thumbnail_type'] == 1) {
                   ?>
-                      <img src="<?=$course['thumbnail'];?>" width="100" alt="thumbnail">
+                    <img src="<?= $course['thumbnail']; ?>" width="100" alt="thumbnail">
                   <?php
-                    }else{
+                  } else {
                   ?>
-                      <a href="<?=$course['thumbnail'];?>" target="_blank" >
-                        <img width="100" alt="thumbnail" src="http://img.youtube.com/vi/<?=$youtubeEmbedUrl[1];?>/default.jpg" width="100" alt="thumbnail">
-                      </a>
+                    <a href="<?= $course['thumbnail']; ?>" target="_blank">
+                      <img width="100" alt="thumbnail" src="http://img.youtube.com/vi/<?= $youtubeEmbedUrl[1]; ?>/default.jpg" width="100" alt="thumbnail">
+                    </a>
                   <?php
-                    }
+                  }
                   ?>
                 </td>
                 <td><?= ($course['type'] == 0) ? 'Free' : 'Paid'; ?></td>
@@ -63,6 +64,7 @@
                   </p>
                 </td>
                 <td><?= $course['ratings'] ?></td>
+                <td><?= $course['duration'] ?></td>
                 <td><?= $course['enrolled']; ?></td>
                 <td>$<?= $course['price']; ?></td>
                 <td><?= date("d M, Y", strtotime($course['created'])); ?></td>
@@ -83,7 +85,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog" role="document">
     <form id="addForm" name="addForm" onsubmit="add_course(event);">
       <div class="modal-content">
@@ -99,8 +101,8 @@
               <input type="text" name="title" class="form-control" required="" />
             </div>
             <div class="form-group">
-                <label> Course Link </label>
-                <input type="text" name="course_link" class="form-control" required="" >
+              <label> Course Link </label>
+              <input type="text" name="course_link" class="form-control" required="">
             </div>
             <div class="row">
               <div class="col-sm-4">
@@ -156,19 +158,25 @@
               <textarea name="detailed_description" class="form-control textarea" required=""></textarea>
             </div>
             <div class="row">
-              <div class="col-sm-4">
+              <div class="col-sm-3">
                 <div class="form-group">
                   <label> Rating </label>
-                  <input type="number" name="ratings" class="form-control" required="" max="5" />
+                  <input type="number" step="0.1" name="ratings" class="form-control" required="" max="5" />
                 </div>
               </div>
-              <div class="col-sm-4">
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label> Duration (in hrs)</label>
+                  <input type="number" name="duration" class="form-control" required="" />
+                </div>
+              </div>
+              <div class="col-sm-3">
                 <div class="form-group">
                   <label> Enrolled </label>
                   <input type="text" name="enrolled" class="form-control" required="" />
                 </div>
               </div>
-              <div class="col-sm-4">
+              <div class="col-sm-3">
                 <div class="form-group">
                   <label> Price </label>
                   <input type="text" name="price" class="form-control" required="" />
@@ -190,7 +198,7 @@
 <!-- Modal close-->
 
 <!-- Modal -->
-<div class="modal fade" id="deleteCourseModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="deleteCourseModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog" role="document">
     <form id="deleteForm" name="deleteForm" onsubmit="delete_course(event);">
       <div class="modal-content">
@@ -221,7 +229,7 @@
 <!-- Modal close-->
 
 <!-- Modal -->
-<div class="modal fade" id="editJobModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="editJobModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog" role="document">
     <form id="editForm" name="editForm" onsubmit="update_course(event);">
       <div class="modal-content">
@@ -341,7 +349,7 @@
   }
 
   function update_thumbnail(inputValue, elementDiv, updateDiv = false) {
-    $("#" + elementDiv).html( updateDiv ? ((inputValue == 1) ? UpdateFileInput : UpdateVideoInput()) : ((inputValue == 1) ? AddFileInput : AddVideoInput ) );
+    $("#" + elementDiv).html(updateDiv ? ((inputValue == 1) ? UpdateFileInput : UpdateVideoInput()) : ((inputValue == 1) ? AddFileInput : AddVideoInput));
   }
 
   function fetch_youtube_video(videoUrl, elementDiv) {

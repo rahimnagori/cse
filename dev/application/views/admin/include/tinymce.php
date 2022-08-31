@@ -40,4 +40,11 @@
       }
     });
   }
+
+  $(document).on('focusin', function(e) {
+    if ($(e.target).closest(".tox-tinymce-aux, .moxman-window, .tam-assetmanager-root, .tox-dialog").length) {
+      $('.tox-dialog').css('z-index', '2003');
+      e.stopImmediatePropagation();
+    }
+  });
 </script>

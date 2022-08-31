@@ -54,7 +54,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog" role="document">
     <form id="addForm" name="addForm" onsubmit="add_course(event);">
       <div class="modal-content">
@@ -127,7 +127,7 @@
 <!-- Modal close-->
 
 <!-- Modal -->
-<div class="modal fade" id="editJobModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="editJobModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog" role="document">
     <form id="editForm" name="editForm" onsubmit="update_course(event);">
       <div class="modal-content">
