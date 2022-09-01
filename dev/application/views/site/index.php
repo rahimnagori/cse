@@ -136,6 +136,7 @@ if (count($courses)) {
                 <p>
                   <?= $course['short_description']; ?>
                   <span class="star_rat">
+                    <?=$course['ratings'];?>
                     <?php
                       for($i = 1; $i < 6; $i++){
                     ?>
