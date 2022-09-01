@@ -41,13 +41,13 @@ class Admin_Courses extends CI_Controller
             if ($insert['thumbnail_type'] == 1) {
                 if ($_FILES['thumbnail']['error'] == 0) {
                     $config['upload_path'] = "assets/site/thumbnails/";
-                    $config['allowed_types'] = 'jpeg|gif|jpg|png';
+                    $config['allowed_types'] = '*';
                     $config['encrypt_name'] = true;
                     $this->load->library("upload", $config);
                     if ($this->upload->do_upload('thumbnail')) {
-                        $insert['thumbnail'] = $config['upload_path'] . $this->upload->data("file_name");;
+                        $insert['thumbnail'] = $config['upload_path'] . $this->upload->data("file_name");
                     } else {
-                        $response['responseMessage'] = $this->Common_Model->error($this->upload->display_errors());
+                        $response['responseMessage'] = $this->upload->display_errors();
                     }
                 }
             } else if ($insert['thumbnail_type'] == 2) {
@@ -60,7 +60,7 @@ class Admin_Courses extends CI_Controller
                 }
             } else {
                 $response['status'] = 2;
-                $response['responseMessage'] = $this->Common_Model->error('Thumbnail is missing.');
+                $response['responseMessage'] = $this->Common_Model->error($response['responseMessage'] .' or thumbnail is missing.');
             }
         } else {
             $response['status'] = 2;
@@ -152,7 +152,7 @@ class Admin_Courses extends CI_Controller
                     $courseDetails = $this->Common_Model->fetch_records('courses', $where, false, true);
                     if (file_exists($courseDetails['thumbnail'])) unlink($courseDetails['thumbnail']);
                     $config['upload_path'] = "assets/site/thumbnails/";
-                    $config['allowed_types'] = 'jpeg|gif|jpg|png';
+                    $config['allowed_types'] = '*';
                     $config['encrypt_name'] = true;
                     $this->load->library("upload", $config);
                     if ($this->upload->do_upload('thumbnail')) {

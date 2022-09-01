@@ -150,7 +150,7 @@ if (count($courses)) {
                 <h5>
                   <!-- <span class="or1">Rating: <?= $course['ratings']; ?></span> -->
                   <span class="or1">Enrolled: <?= $course['enrolled']; ?></span>
-                  <span class="or2">Duration: <?= $course['duration']; ?></span>
+                  <span class="or2">Duration: <?= $course['duration']; ?> (h)</span>
                 </h5>
                 <h6>
                   <span class="or1">Price: $<?= $course['price']; ?></span>
