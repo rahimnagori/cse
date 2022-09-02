@@ -137,18 +137,11 @@ if (count($courses)) {
                   <?= $course['short_description']; ?>
                   <span class="star_rat">
                     <?=$course['ratings'];?>
-                    <?php
-                      for($i = 1; $i < 6; $i++){
-                    ?>
-                        <span><i class="fa <?= ($course['ratings'] <= $i) ? 'fa-star-o' : 'fa-star'; ?>"></i></span>
-                    <?php
-                      }
-                    ?>
+                    <span><i class="fa fa-star"></i></span>
                   </span>
                 </p>
                 
                 <h5>
-                  <!-- <span class="or1">Rating: <?= $course['ratings']; ?></span> -->
                   <span class="or1">Enrolled: <?= $course['enrolled']; ?></span>
                   <span class="or2">Duration: <?= $course['duration']; ?> (h)</span>
                 </h5>
