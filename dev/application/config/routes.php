@@ -103,6 +103,7 @@ $route['Playlist/Get/(:any)'] = 'Admin_Playlist/get/$1';
 $route['Playlist/Update'] = 'Admin_Playlist/update_course';
 
 $route['Admin-Contact'] = 'Admin_Contacts';
+$route['Admin-Contact/delete'] = 'Admin_Contacts/delete_enquiry';
 
 $route['Reviews-Management'] = 'Admin_Reviews';
 $route['Reviews/Add'] = 'Admin_Reviews/add_review';
