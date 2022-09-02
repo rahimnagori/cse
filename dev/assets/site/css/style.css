@@ -2205,11 +2205,11 @@ transform: rotate(-360deg);
 	overflow-x: hidden;
 }
 
-.link_ad{
+.linkAd{
     position: relative;
     z-index: 1;
 }
-.link_ad > a{
+.linkAd > a{
     position: absolute;
     left: 0;
     right: 0;

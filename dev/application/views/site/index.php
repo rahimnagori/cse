@@ -130,7 +130,7 @@ if (count($courses)) {
                 }
                 ?>
               </div>
-              <div class="conten_b link_ad">
+              <div class="conten_b linkAd">
                 <a href="<?= $course['course_link']; ?>" target="_blank"></a>
                 <h4><?= $course['title']; ?></h4>
                 <p>
