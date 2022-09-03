@@ -10,10 +10,6 @@
   .sec_pad.abhout {
     background: #edebf082;
   }
-
-  .hidden{
-    display:none;
-  }
 </style>
 <div class="tot_had">
   <div class="efff_h">
@@ -98,13 +94,13 @@ if (count($courses)) {
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled.
         </p>
-        <a href="" class="hidden btn btn_theme hidden category-free category-btn">Buy all courses in this category</a>
-        <a href="" class="hidden btn btn_theme hidden category-paid category-btn">Buy all courses in this category</a>
         <?php
         foreach ($categories as $category) {
+          if($category['category_link'] != null){
         ?>
-          <a href="" class="hidden btn btn_theme hidden category-<?=$category['category_name'];?> category-btn">Buy all courses in this category</a>
+            <!-- <a href="<?=$category['category_link'];?>" class="hidden btn btn_theme hidden category-<?=$category['category_name'];?> category-btn">Buy all courses in this category</a> -->
         <?php
+          }
         }
         ?>
       </div>

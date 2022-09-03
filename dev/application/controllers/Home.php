@@ -13,19 +13,21 @@ class Home extends CI_Controller
 
   public function index()
   {
+    $pageData = $this->Common_Model->get_userdata();
     $freeCategory = [
       'id' => 'free',
       'category_name' => 'Free Courses',
       'totalCourses' => 0,
+      'category_link' => $pageData['urls']['free_category_url'],
       'static' => 'true'
     ];
     $paidCategory = [
       'id' => 'paid',
       'category_name' => 'Paid Courses',
       'totalCourses' => 0,
+      'category_link' => $pageData['urls']['paid_category_url'],
       'static' => 'true'
     ];
-    $pageData = $this->Common_Model->get_userdata();
     $pageData['courses'] = $this->Common_Model->fetch_records('courses');
     $dynamicCategories = $this->Common_Model->fetch_records('categories');
     $staticCategories['free'] = $freeCategory;
