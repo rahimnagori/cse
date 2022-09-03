@@ -544,8 +544,7 @@ if (count($reviews)) {
       url: BASE_URL + 'Course/' + course_id,
       dataType: 'HTML',
       beforeSend: function(xhr) {
-        $(".btn_submit").attr('disabled', true);
-        $(".btn_submit").html(LOADING);
+        
       },
       success: function(response) {
         $("#courseDetailModal").modal("show");
