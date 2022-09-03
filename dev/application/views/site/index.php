@@ -10,6 +10,10 @@
   .sec_pad.abhout {
     background: #edebf082;
   }
+
+  .hidden{
+    display:none;
+  }
 </style>
 <div class="tot_had">
   <div class="efff_h">
@@ -43,7 +47,9 @@
           <img src="<?= site_url('assets/site/'); ?>img/img_15.png" alt="" class="img_r">
         </div> -->
         <div class="video_set">
-          <img src="<?= site_url('assets/site/'); ?>img/img_39.png" alt="" class="img_r">
+          <video width="320" height="240" controls>
+            <source src="https://video.wixstatic.com/video/8cccc0_15cae689a97e4a2781b24890abba2073/1080p/mp4/file.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
@@ -66,10 +72,9 @@
             <p>
               Welcome to <?= $this->config->item('PROJECT'); ?>, an Online Course offering Website in the field of Operating Systems, Networking, Linux System Programming and Several Coding Projects. We offer only Development based Projects, no DS/ALGO/CP.
             </p>
-
           </div>
 
-          <a href="javascript:void(0);" class="btn btn_theme2 btn-lg btn_r rad_morre1">
+          <a href="<?=site_url('About');?>" class="btn btn_theme2 btn-lg btn_r rad_morre1">
             <!-- id="rad_morre3" -->
             <span class="on1">Read More <i class="fa fa-long-arrow-right"></i></span>
             <!-- <span class="on2">Read Less <i class="fa fa-long-arrow-right"></i></span> -->
@@ -93,6 +98,15 @@ if (count($courses)) {
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled.
         </p>
+        <a href="" class="hidden btn btn_theme hidden category-free category-btn">Buy all courses in this category</a>
+        <a href="" class="hidden btn btn_theme hidden category-paid category-btn">Buy all courses in this category</a>
+        <?php
+        foreach ($categories as $category) {
+        ?>
+          <a href="" class="hidden btn btn_theme hidden category-<?=$category['category_name'];?> category-btn">Buy all courses in this category</a>
+        <?php
+        }
+        ?>
       </div>
       <div class="fiter_set">
         <ul class="filters  js-radio-button-group ul_set clearfix">
@@ -132,7 +146,7 @@ if (count($courses)) {
               </div>
               <div class="conten_b linkAd">
                 <a href="<?= $course['course_link']; ?>" target="_blank"></a>
-                <h4><?= $course['title']; ?></h4>
+                <h4><?= strlen($course['title']); ?></h4>
                 <p>
                   <?= $course['short_description']; ?>
                   <span class="star_rat">
