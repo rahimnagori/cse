@@ -76,9 +76,20 @@
             <li class="nav-item">
               <a class="nav-link" href="./#OurCourse">Our Course</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="mailto:<?= $emails['contact_email']; ?>">Contact Us</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" 
+              role="button" data-toggle="dropdown" aria-haspopup="true" 
+              aria-expanded="false">Contact Us</a>
+             
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                
+              <a class="dropdown-item" href="mailto:<?= $emails['contact_email']; ?>">Email</a>
+              <a class="dropdown-item" target="_blank" href="https://api.whatsapp.com/send?phone=919686081839">WhatsApp </a>
+              <a class="dropdown-item" target="_blank" href="https://t.me/telecsepracticals">Telegram </a>
+                 
+                </div>
             </li>
+            
             <li class="nav-item btn_login">
               <a class="nav-link" href="<?= $urls['login']; ?>" target="_blank">Login</a>
             </li>
