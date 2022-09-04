@@ -87,6 +87,14 @@ if (count($courses)) {
 ?>
   <section class="sec_pad  sec_3 slide_set" id="OurCourse" data-js="hero-demo">
     <div class="container">
+      <div class="btn_sim">
+      <a href="https://t.me/telecsepracticals" target="_blank" class="btn btn_theme2 btn-lg btn_r rad_morre1">
+            <!-- id="rad_morre3" -->
+            <span class="on1"><img src="<?= site_url('assets/site/'); ?>img/telegram.png" alt="" style="width: 26px;transform: translateX(-10px) translateY(-2px);"> Telegram  <i class="fa fa-long-arrow-right"></i></span>
+            <!-- <span class="on2">Read Less <i class="fa fa-long-arrow-right"></i></span> -->
+
+          </a>
+      </div>
       <div class="heading text-center " data-aos="slide-right" data-aos-duration="1000">
         <h1>
           Best Selling Courses
@@ -94,15 +102,7 @@ if (count($courses)) {
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled.
         </p>
-        <?php
-        foreach ($categories as $category) {
-          if($category['category_link'] != null){
-        ?>
-            <!-- <a href="<?=$category['category_link'];?>" class="hidden btn btn_theme hidden category-<?=$category['category_name'];?> category-btn">Buy all courses in this category</a> -->
-        <?php
-          }
-        }
-        ?>
+        
       </div>
       <div class="fiter_set">
         <ul class="filters  js-radio-button-group ul_set clearfix">
@@ -115,6 +115,17 @@ if (count($courses)) {
           }
           ?>
         </ul>
+      </div>
+      <div class="btn_us_add">
+      <?php
+        foreach ($categories as $category) {
+          if($category['category_link'] != null){
+        ?>
+             <a href="<?=$category['category_link'];?>" class="hidden btn btn_theme hidden category-<?=$category['category_name'];?> category-btn">Buy all courses in this category</a> 
+        <?php
+          }
+        }
+        ?>
       </div>
       <div class="row grid">
         <?php
