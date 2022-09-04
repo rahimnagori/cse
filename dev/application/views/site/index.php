@@ -70,7 +70,7 @@
             </p>
           </div>
 
-          <a href="<?=site_url('About');?>" class="btn btn_theme2 btn-lg btn_r rad_morre1">
+          <a href="<?= site_url('About'); ?>" class="btn btn_theme2 btn-lg btn_r rad_morre1">
             <!-- id="rad_morre3" -->
             <span class="on1">Read More <i class="fa fa-long-arrow-right"></i></span>
             <!-- <span class="on2">Read Less <i class="fa fa-long-arrow-right"></i></span> -->
@@ -88,12 +88,9 @@ if (count($courses)) {
   <section class="sec_pad  sec_3 slide_set" id="OurCourse" data-js="hero-demo">
     <div class="container">
       <div class="btn_sim">
-      <a href="https://t.me/telecsepracticals" target="_blank" class="btn btn_theme2 btn-lg btn_r rad_morre1">
-            <!-- id="rad_morre3" -->
-            <span class="on1"><img src="<?= site_url('assets/site/'); ?>img/telegram.png" alt="" style="width: 26px;transform: translateX(-10px) translateY(-2px);"> Telegram  <i class="fa fa-long-arrow-right"></i></span>
-            <!-- <span class="on2">Read Less <i class="fa fa-long-arrow-right"></i></span> -->
-
-          </a>
+        <a href="<?=$urls['telegram'];?>" target="_blank" class="btn btn_theme2 btn-lg btn_r rad_morre1">
+          <span class="on1"><img src="<?= site_url('assets/site/'); ?>img/telegram.png" alt="" style="width: 26px;transform: translateX(-10px) translateY(-2px);"> Telegram <i class="fa fa-long-arrow-right"></i></span>
+        </a>
       </div>
       <div class="heading text-center " data-aos="slide-right" data-aos-duration="1000">
         <h1>
@@ -102,11 +99,11 @@ if (count($courses)) {
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled.
         </p>
-        
+
       </div>
       <div class="fiter_set">
         <ul class="filters  js-radio-button-group ul_set clearfix">
-          <button data-filter="*" class="button is-checked">All (<?=count($courses);?>)</button>
+          <button data-filter="*" class="button is-checked">All (<?= count($courses); ?>)</button>
           <?php
           foreach ($categories as $category) {
           ?>
@@ -117,11 +114,11 @@ if (count($courses)) {
         </ul>
       </div>
       <div class="btn_us_add">
-      <?php
+        <?php
         foreach ($categories as $category) {
-          if($category['category_link'] != null){
+          if ($category['category_link'] != null) {
         ?>
-             <a href="<?=$category['category_link'];?>" class="hidden btn btn_theme hidden category-<?=$category['category_name'];?> category-btn">Buy all courses in this category</a> 
+            <a href="<?= $category['category_link']; ?>" class="hidden btn btn_theme hidden category-<?= $category['category_name']; ?> category-btn">Buy all courses in this category</a>
         <?php
           }
         }
@@ -157,11 +154,11 @@ if (count($courses)) {
                 <p>
                   <?= $course['short_description']; ?>
                   <span class="star_rat">
-                    <?=$course['ratings'];?>
+                    <?= $course['ratings']; ?>
                     <span><i class="fa fa-star"></i></span>
                   </span>
                 </p>
-                
+
                 <h5>
                   <span class="or1">Enrolled: <?= $course['enrolled']; ?></span>
                   <span class="or2">Duration: <?= $course['duration']; ?> (h)</span>
@@ -448,7 +445,7 @@ if (count($deals)) {
                   <label for="">Phone Number</label>
                   <div class="ion_in">
                     <i class="fa fa-phone"></i>
-                    <input type="text" class="form-control" placeholder="Phone Number" name="phone" >
+                    <input type="text" class="form-control" placeholder="Phone Number" name="phone">
                   </div>
                 </div>
                 <div class="form-group">
@@ -510,7 +507,7 @@ if (count($reviews)) {
                 </div>
                 <div class="user_immg">
                   <h4>
-                    <a href="<?= ($review['link'] != null ? $review['link'] : '#'); ?>" target="_blank" ><?= $review['name']; ?></a>
+                    <a href="<?= ($review['link'] != null ? $review['link'] : '#'); ?>" target="_blank"><?= $review['name']; ?></a>
                     <span><?= $review['designation']; ?></span>
                   </h4>
                 </div>
@@ -551,7 +548,7 @@ if (count($reviews)) {
       url: BASE_URL + 'Course/' + course_id,
       dataType: 'HTML',
       beforeSend: function(xhr) {
-        
+
       },
       success: function(response) {
         $("#courseDetailModal").modal("show");

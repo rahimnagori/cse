@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="<?= site_url('assets/site/'); ?>css/font-awesome.min.css">
   <link rel="stylesheet" href="<?= site_url('assets/site/'); ?>css/aos.css" />
   <link rel="stylesheet" href="<?= site_url('assets/site/'); ?>css/effect.css">
-  <link rel="stylesheet" href="<?= site_url('assets/site/'); ?>css/style.css?time=<?=time();?>">
+  <link rel="stylesheet" href="<?= site_url('assets/site/'); ?>css/style.css">
   <link rel="stylesheet" href="<?= site_url('assets/site/'); ?>css/responsive.css">
   <link rel="shortcut icon" type="image/x-icon" href="<?= site_url('assets/site/'); ?>img/favi.png">
   <title><?= $this->config->item('PROJECT'); ?> </title>
@@ -77,19 +77,15 @@
               <a class="nav-link" href="./#OurCourse">Our Course</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" 
-              role="button" data-toggle="dropdown" aria-haspopup="true" 
-              aria-expanded="false">Contact Us</a>
-             
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact Us</a>
+
               <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                
-              <a class="dropdown-item" href="mailto:<?= $emails['contact_email']; ?>">Email</a>
-              <a class="dropdown-item" target="_blank" href="https://api.whatsapp.com/send?phone=919686081839">WhatsApp </a>
-              <a class="dropdown-item" target="_blank" href="https://t.me/telecsepracticals">Telegram </a>
-                 
-                </div>
+                <a class="dropdown-item" href="mailto:<?= $emails['contact_email']; ?>">Email</a>
+                <a class="dropdown-item" target="_blank" href="<?=$urls['whatsapp'];?>">WhatsApp </a>
+                <a class="dropdown-item" target="_blank" href="<?=$urls['telegram'];?>">Telegram </a>
+              </div>
             </li>
-            
+
             <li class="nav-item btn_login">
               <a class="nav-link" href="<?= $urls['login']; ?>" target="_blank">Login</a>
             </li>
