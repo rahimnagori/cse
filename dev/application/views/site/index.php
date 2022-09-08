@@ -118,7 +118,7 @@ if (count($courses)) {
             $youTubeUrl = $youTubeEmbed[1];
           }
         ?>
-          <div class="col-sm-3 element-item cat-<?= ($course['type']) ? 'paid' : 'free'; ?> cat-<?= $course['category']; ?>" data-category="cat-<?= $course['category']; ?>">
+          <div class="col-sm-3 col-6 element-item cat-<?= ($course['type']) ? 'paid' : 'free'; ?> cat-<?= $course['category']; ?>" data-category="cat-<?= $course['category']; ?>">
             <div class="box_cos1">
               <div class="bors_img">
                 <?php
