@@ -87,6 +87,16 @@ class Home extends CI_Controller
     $this->load->view('site/include/footer', $pageData);
   }
 
+  public function faqs()
+  {
+    $pageData = $this->Common_Model->get_userdata();
+    $pageData['faqs'] = $this->Common_Model->fetch_records('faqs');
+
+    $this->load->view('site/include/header', $pageData);
+    $this->load->view('site/faqs', $pageData);
+    $this->load->view('site/include/footer', $pageData);
+  }
+
   public function contact_request()
   {
     $response['status'] = 0;

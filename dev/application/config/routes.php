@@ -58,6 +58,7 @@ $route['About'] = 'Home/about';
 $route['Terms'] = 'Home/terms';
 $route['Privacy-Policy'] = 'Home/privacy';
 $route['Refund-Policy'] = 'Home/refund';
+$route['Faqs'] = 'Home/faqs';
 
 $route['Change-Password'] = 'Users/password';
 $route['Logout'] = 'Users/logout';
