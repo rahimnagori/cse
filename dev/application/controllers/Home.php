@@ -137,13 +137,13 @@ class Home extends CI_Controller
     if ($id != 'free' && $id != 'paid') {
       $where['id'] = $id;
       $url = $this->Common_Model->fetch_records('categories', $where, 'category_link', true);
-      if ($url['category_link'] != null || $url['category_link'] != 'null') {
+      if ($url['category_link'] != null && $url['category_link'] != 'null') {
         $response['status'] = 1;
         $response['url'] = $url['category_link'];
       }
     } else {
       $url = $this->Common_Model->fetch_records('urls', false, '' . $id . '_category_url', true);
-      if ($url['' . $id . '_category_url'] != null || $url['' . $id . '_category_url'] != 'null') {
+      if ($url['' . $id . '_category_url'] != null && $url['' . $id . '_category_url'] != 'null') {
         $response['status'] = 1;
         $response['url'] = $url['' . $id . '_category_url'];
       }
