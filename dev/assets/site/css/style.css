@@ -2258,3 +2258,86 @@ transform: rotate(-360deg);
 	text-align: center;
 	margin-bottom: 20px;
 }
+
+.faq_us .card.panel-title {
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+    border-left: 4px solid var(--blue)
+  }
+
+  .faq_us .panel-title {
+    font-size: 18px;
+    margin-bottom: 25px
+  }
+
+  .faq_us .panel-title>a {
+    position: relative;
+    color: #000;
+    padding: 15px;
+    display: inline-block;
+    padding-right: 45px;
+    width: 100%;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .faq_us .panel-title>a i {
+    position: absolute;
+    right: 9px;
+    top: 7px;
+    background: var(--blue);
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    color: #fff;
+    line-height: 30px;
+    border-radius: 100%;
+    box-shadow: 0 1px 7px rgba(0, 0, 0, .2) !important
+  }
+
+  .faq_us .card-body {
+    border: none;
+    padding: 15px;
+    padding-top: 0;
+    color: #777;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 400;
+    background: #fff;
+    font-size: 16px
+  }
+
+ 
+
+  .faq_us .card-body br {
+    margin-bottom: 10px
+  }
+
+  .faq_us .panel-title>a i::after {
+    position: absolute;
+    width: 16px;
+    height: 3px;
+    background: #fff;
+    content: "";
+    top: 14px;
+    left: 0;
+    right: 0;
+    margin: 0 auto
+  }
+
+  .faq_us .panel-title>a i::before {
+    position: absolute;
+    width: 3px;
+    height: 16px;
+    background: #fff;
+    content: "";
+    top: 7px;
+    left: 0;
+    right: 0;
+    margin: 0 auto
+  }
+
+  .faq_us .panel-title>a[aria-expanded=true] i::before {
+    transform: rotate(-90deg);
+    opacity: 0
+  }

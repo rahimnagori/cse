@@ -207,6 +207,13 @@ padding-bottom: 73px;
 /* 767px */
 
 @media(max-width:767px) {
+    .faq_us .panel-title {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    .faq_us .card-body {
+        font-size: 14px;
+    }
     .fixe_socil img,
     .fixe_socil
     {
@@ -464,6 +471,62 @@ padding-bottom: 73px;
     body{
         line-height: 27px;
         overflow-x: hidden;
+    }
+    .box_cos1 h4 {
+        font-size: 18px;
+        margin-bottom: 3px;
+    }
+    .box_cos1 p {
+        font-size: 14px;
+    }
+    .star_rat{
+        margin-top: 5px;
+    }
+    .box_cos1 h5, .box_cos1 h6 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    #OurCourse .row {
+        margin: 0 -5px;
+    }
+    #OurCourse .row [class*="col-sm-"] {
+        padding: 0 5px;
+        margin-bottom: 10px;
+    }
+    .bors_img {
+        height: 170px;
+    }
+    .box_cos1 .or1 {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .fiter_set ul button {
+        padding: 2px 10px;
+        font-size: 14px;
+    }
+    .fiter_set ul {
+        background: transparent;
+        box-shadow: none;
+        margin-bottom: 10px;
+    }
+    .btn_us_add .btn {
+        padding: 2px 10px;
+        font-size: 14px;
+        font-family: "RobotR";
+        width: 46%;
+        white-space: normal;
+    }
+    .box_cos1 h6 .btn {
+        padding: 2px 10px;
+        font-size: 14px;
+    }
+    .box_cos1 h6 .or2 {
+        text-align: right;
+        width: 100%;
+        margin-top: 5px;
+    }
+    .conten_b {
+        padding-bottom: 10px;
     }
 }
 
