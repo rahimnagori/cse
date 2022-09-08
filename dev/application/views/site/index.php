@@ -75,7 +75,7 @@ if (count($courses)) {
   <section class="sec_pad  sec_3 slide_set" id="OurCourse" data-js="hero-demo">
     <div class="container">
       <div class="btn_sim">
-        <a href="<?=$urls['telegram'];?>" target="_blank" class="btn btn_theme2 btn-lg btn_r rad_morre1">
+        <a href="<?= $urls['telegram']; ?>" target="_blank" class="btn btn_theme2 btn-lg btn_r rad_morre1">
           <span class="on1"><img src="<?= site_url('assets/site/'); ?>img/telegram.png" alt="" style="width: 26px;transform: translateX(-10px) translateY(-2px);"> Telegram <i class="fa fa-long-arrow-right"></i></span>
         </a>
       </div>
@@ -92,15 +92,17 @@ if (count($courses)) {
           <?php
           foreach ($categories as $category) {
           ?>
-            <button data-filter=".cat-<?= $category['id']; ?>" class="button"><?= $category['category_name']; ?> (<?= $category['totalCourses']; ?>)</button>
+            <button data-filter=".cat-<?= $category['id']; ?>" class="button" type="button" onclick="load_category('<?= $category['id']; ?>');"><?= $category['category_name']; ?> (<?= $category['totalCourses']; ?>)</button>
           <?php
           }
           ?>
         </ul>
       </div>
       <div class="btn_us_add">
+        <span id="all-category-btn"></span>
         <?php
         foreach ($categories as $category) {
+          continue;
           if ($category['category_link'] != null) {
         ?>
             <a href="<?= $category['category_link']; ?>" class="hidden btn btn_theme hidden category-<?= $category['category_name']; ?> category-btn">Buy all courses in this category</a>
@@ -565,5 +567,27 @@ if (count($reviews)) {
         }
       }
     });
+  }
+
+  function load_category(category_id) {
+    $.ajax({
+      type: 'GET',
+      url: BASE_URL + 'Category/' + category_id,
+      dataType: 'json',
+      beforeSend: function(xhr) {
+        $("#all-category-btn").hide();
+        $("#all-category-btn").html('');
+      },
+      success: function(response) {
+        if (response.status == 1) {
+          $("#all-category-btn").html(allCategoryBtn(response.url));
+          $("#all-category-btn").show();
+        }
+      }
+    });
+  }
+
+  const allCategoryBtn = (url) => {
+    return `<a href="${url}" class="btn btn_theme category-btn">Buy all courses in this category</a>`
   }
 </script>

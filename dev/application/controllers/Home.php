@@ -32,9 +32,9 @@ class Home extends CI_Controller
     $dynamicCategories = $this->Common_Model->fetch_records('categories');
     $staticCategories['free'] = $freeCategory;
     $staticCategories['paid'] = $paidCategory;
-    foreach($dynamicCategories as $key => $category){
+    foreach ($dynamicCategories as $key => $category) {
       $totalCourses = $this->Common_Model->fetch_records('courses', array('category' => $category['id']), 'id, title, type, category');
-      foreach($totalCourses as $singleCourse){
+      foreach ($totalCourses as $singleCourse) {
         $staticCategories['free']['totalCourses'] = ($singleCourse['type'] == 0) ? $staticCategories['free']['totalCourses'] + 1 : $staticCategories['free']['totalCourses'];
         $staticCategories['paid']['totalCourses'] = ($singleCourse['type'] == 1) ? $staticCategories['paid']['totalCourses'] + 1 : $staticCategories['paid']['totalCourses'];
       }
@@ -129,5 +129,25 @@ class Home extends CI_Controller
   {
     $pageData['courseDetails'] = $this->Common_Model->fetch_records('courses', array('id' => $id), false, true);
     $this->load->view('site/include/course_details', $pageData);
+  }
+
+  public function get_category($id)
+  {
+    $response['status'] = 0;
+    if ($id != 'free' && $id != 'paid') {
+      $where['id'] = $id;
+      $url = $this->Common_Model->fetch_records('categories', $where, 'category_link', true);
+      if ($url['category_link'] != null || $url['category_link'] != 'null') {
+        $response['status'] = 1;
+        $response['url'] = $url['category_link'];
+      }
+    } else {
+      $url = $this->Common_Model->fetch_records('urls', false, '' . $id . '_category_url', true);
+      if ($url['' . $id . '_category_url'] != null || $url['' . $id . '_category_url'] != 'null') {
+        $response['status'] = 1;
+        $response['url'] = $url['' . $id . '_category_url'];
+      }
+    }
+    echo json_encode($response);
   }
 }
