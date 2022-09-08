@@ -2,7 +2,7 @@
   <div class="container">
     <h1>Terms & Conditions</h1>
     <ul class="ul_set">
-      <li><a href="index.php">Home</a></li>
+      <li><a href="<?=site_url();?>">Home</a></li>
       <li><span>Terms & Conditions</span></li>
     </ul>
   </div>

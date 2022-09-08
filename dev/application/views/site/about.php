@@ -2,7 +2,7 @@
   <div class="container">
     <h1>About Us</h1>
     <ul class="ul_set">
-      <li><a href="index.php">Home</a></li>
+      <li><a href="<?=site_url();?>">Home</a></li>
       <li><span>About Us</span></li>
     </ul>
   </div>

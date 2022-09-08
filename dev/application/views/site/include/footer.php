@@ -8,8 +8,8 @@
                 <li><a href="<?= site_url(); ?>">Home</a></li>
                 <li><a href="<?= site_url('About'); ?>">About Us</a></li>
                 <li><a href="<?= site_url('Terms'); ?>">Terms & Conditions</a></li>
-                <li><a href="<?= site_url('Privacy'); ?>">Privacy Policy</a></li>
-                <li><a href="<?= site_url('Refund'); ?>">Refund Cancellation Policy</a></li>
+                <li><a href="<?= site_url('Privacy-Policy'); ?>">Privacy Policy</a></li>
+                <li><a href="<?= site_url('Refund-Policy'); ?>">Refund Cancellation Policy</a></li>
             </ul>
         </div>
     </div>

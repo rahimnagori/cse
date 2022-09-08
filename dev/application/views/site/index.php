@@ -26,22 +26,16 @@
     <div class="row d_flex a_t">
       <div class="col-sm-6" data-aos="fade-right" data-aos-duration="1000" data-aos-easing="linear">
         <div class="conten_set des_c1">
-          <h4 class="bg_hed">Welcome to <?= $this->config->item('PROJECT'); ?> </h4>
           <h1>
             India's #1 <br>
             Problem Solving <?= $this->config->item('PROJECT'); ?> Professionals
           </h1>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled.
-
+          <p class="text-justified">
+            Welcome to <?= $this->config->item('PROJECT'); ?>, an OnlineCourse offering Website in the field of Operating Systems, Networking, Linux System Programming and Several Coding Projects. We offer only Development based Projects, no DS/ALGO/CP.
           </p>
-          <a href="" class="btn btn_theme2 btn-lg btn_r">Get Started</a>
         </div>
       </div>
       <div class="col-sm-6">
-        <!-- <div class="img_d1">
-          <img src="<?= site_url('assets/site/'); ?>img/img_15.png" alt="" class="img_r">
-        </div> -->
         <div class="video_set">
           <video width="320" height="240" controls>
             <source src="https://video.wixstatic.com/video/8cccc0_15cae689a97e4a2781b24890abba2073/1080p/mp4/file.mp4" type="video/mp4">
@@ -69,13 +63,6 @@
               Welcome to <?= $this->config->item('PROJECT'); ?>, an Online Course offering Website in the field of Operating Systems, Networking, Linux System Programming and Several Coding Projects. We offer only Development based Projects, no DS/ALGO/CP.
             </p>
           </div>
-
-          <a href="<?= site_url('About'); ?>" class="btn btn_theme2 btn-lg btn_r rad_morre1">
-            <!-- id="rad_morre3" -->
-            <span class="on1">Read More <i class="fa fa-long-arrow-right"></i></span>
-            <!-- <span class="on2">Read Less <i class="fa fa-long-arrow-right"></i></span> -->
-
-          </a>
         </div>
       </div>
     </div>
@@ -96,9 +83,7 @@ if (count($courses)) {
         <h1>
           Best Selling Courses
         </h1>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled.
-        </p>
+        <p>We offer 20+ Courses in the field of System Programming, Networking Theory and Development Projects. The Courses are available on Udemy and Teachable Platform with Life-time access.</p>
 
       </div>
       <div class="fiter_set">
@@ -188,9 +173,6 @@ if (count($courses)) {
       <h1>
         <?= $this->config->item('PROJECT'); ?>
       </h1>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled.
-      </p>
     </div>
     <div class="row align-items-center">
       <div class="col-sm-3">
@@ -286,7 +268,7 @@ if (count($courses)) {
     </div>
   </div>
 </section>
-<section class="sec_des_h2 sec_pad">
+<!-- <section class="sec_des_h2 sec_pad">
   <div class="container">
     <div class="heading text-center" data-aos="fade-down" data-aos-duration="1000" data-aos-easing="linear">
       <h1>
@@ -352,7 +334,7 @@ if (count($courses)) {
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <?php
 if (count($deals)) {
