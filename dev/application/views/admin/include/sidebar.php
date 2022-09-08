@@ -53,6 +53,9 @@
       <li>
         <a href="<?= site_url('Admin-Highlights'); ?>"><i class="fa fa-edge" aria-hidden="true"></i> Highlights Management</a>
       </li>
+      <li>
+        <a href="<?= site_url('Faqs-Management'); ?>"><i class="fa fa-edge" aria-hidden="true"></i> FAQs Management</a>
+      </li>
       <!-- <li>
         <a href="<?= site_url('Admin'); ?>"><i class="fa fa-gear"></i> Page Content Management</a>
       </li> -->
