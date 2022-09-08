@@ -588,6 +588,6 @@ if (count($reviews)) {
   }
 
   const allCategoryBtn = (url) => {
-    return `<a href="${url}" class="btn btn_theme category-btn">Buy all courses in this category</a>`
+    return `<a href="${url}" class="btn btn_theme category-btn" target="_blank" >Buy all courses in this category</a>`
   }
 </script>
