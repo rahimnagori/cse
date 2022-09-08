@@ -123,3 +123,9 @@ $route['Admin-Urls/Update'] = 'Admin_Urls/update_url';
 
 $route['Admin-Highlights'] = 'Admin_Urls/highlights';
 $route['Admin-Highlights/Update'] = 'Admin_Urls/update_highlights';
+
+$route['Faqs-Management'] = 'Admin_Faqs';
+$route['Faqs-Management/Add'] = 'Admin_Faqs/add_faq';
+$route['Faqs-Management/delete'] = 'Admin_Faqs/delete_faq';
+$route['Faqs-Management/Get/(:any)'] = 'Admin_Faqs/get_faq/$1';
+$route['Faqs-Management/Update'] = 'Admin_Faqs/update_faq';
