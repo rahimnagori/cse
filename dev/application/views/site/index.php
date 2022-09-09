@@ -590,7 +590,7 @@ if (count($reviews)) {
   const allCategoryBtn = (url, category_price) => {
     let btnTitle = 'Buy all the courses in this category';
     if(category_price && category_price != 0.00){
-      btnTitle = `${btnTitle} (<i class="fa fa-inr" aria-hidden="true"></i> ${category_price})`;
+      btnTitle = `${btnTitle} ($ ${category_price})`;
     }
     return `<a href="${url}" class="btn btn_theme category-btn" target="_blank" >${btnTitle}</a>`
   }
