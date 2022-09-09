@@ -75,7 +75,7 @@ if (count($courses)) {
   <section class="sec_pad  sec_3 slide_set" id="OurCourse" data-js="hero-demo">
     <div class="container">
       <div class="btn_sim">
-        <a href="<?= $urls['telegram']; ?>" target="_blank" class="btn btn_theme2 btn-lg btn_r rad_morre1">
+        <a href="<?= $urls['telegram_url']; ?>" target="_blank" class="btn btn_theme2 btn-lg btn_r rad_morre1">
           <span class="on1"><img src="<?= site_url('assets/site/'); ?>img/telegram.png" alt="" style="width: 26px;transform: translateX(-10px) translateY(-2px);"> Telegram <i class="fa fa-long-arrow-right"></i></span>
         </a>
       </div>
@@ -88,7 +88,7 @@ if (count($courses)) {
       </div>
       <div class="fiter_set">
         <ul class="filters  js-radio-button-group ul_set clearfix">
-          <button data-filter="*" class="button is-checked">All (<?= count($courses); ?>)</button>
+          <button data-filter="*" class="button is-checked" onclick="load_category('all');" >All (<?= count($courses); ?>)</button>
           <?php
           foreach ($categories as $category) {
           ?>
@@ -99,7 +99,15 @@ if (count($courses)) {
         </ul>
       </div>
       <div class="btn_us_add">
-        <span id="all-category-btn"></span>
+        <span id="all-category-btn">
+          <?php
+            if($urls['all_category_url']){
+          ?>
+              <a href="<?=$urls['all_category_url'];?>" class="btn btn_theme category-btn" target="_blank" >Buy all the courses in this category ($ <?=$urls['all_category_price'];?>)</a>
+          <?php
+            }
+          ?>
+        </span>
         <?php
         foreach ($categories as $category) {
           continue;
@@ -262,7 +270,7 @@ if (count($courses)) {
               Download Full Course PDF/PPT of all courses for Free
             </h1>
           </div>
-          <a href="<?= $urls['download_full_course']; ?>" class="btn btn_theme2 btn-lg btn_r " target="_blank">
+          <a href="<?= $urls['download_full_course_url']; ?>" class="btn btn_theme2 btn-lg btn_r " target="_blank">
             <span class="on1">Download </span>
           </a>
         </div>

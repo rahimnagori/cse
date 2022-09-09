@@ -12,16 +12,20 @@
           <?php
           foreach ($urls as $key => $url) {
             if ($key == 'id') continue;
+            $nameInput = explode('_', $key);
+            $nameInputValue = ($nameInput[count($nameInput) - 1] == 'url') ? 'url' : 'number';
           ?>
             <div class="col-sm-6">
               <div class="form-group">
-                <label><strong><?= ucwords(str_replace("_", " ", $key)); ?> URL</strong></label>
-                <input type="url" name="<?= $key; ?>" class="form-control" value="<?= $url; ?>">
+                <label><strong><?= ucwords(str_replace("_", " ", $key)); ?></strong></label>
+                <input type="<?=$nameInputValue;?>" name="<?= $key; ?>" <?= ($nameInputValue == 'number' ? 'step="0.1"' : ''); ?> class="form-control" value="<?= $url; ?>">
               </div>
             </div>
           <?php
           }
           ?>
+        </div>
+        <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
               <button class="btn btn-success btn_submit" type="submit">Update</button>

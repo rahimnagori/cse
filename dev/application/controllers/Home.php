@@ -134,7 +134,7 @@ class Home extends CI_Controller
   public function get_category($id)
   {
     $response['status'] = 0;
-    if ($id != 'free' && $id != 'paid') {
+    if ($id != 'free' && $id != 'paid' && $id != 'all') {
       $where['id'] = $id;
       $url = $this->Common_Model->fetch_records('categories', $where, 'category_link, category_price', true);
       if ($url['category_link'] != null && $url['category_link'] != 'null') {
@@ -143,10 +143,12 @@ class Home extends CI_Controller
         $response['category_price'] = $url['category_price'];
       }
     } else {
-      $url = $this->Common_Model->fetch_records('urls', false, '' . $id . '_category_url', true);
+      $select = '' . $id . '_category_url, ' .$id . '_category_price';
+      $url = $this->Common_Model->fetch_records('urls', false, $select, true);
       if ($url['' . $id . '_category_url'] != null && $url['' . $id . '_category_url'] != 'null') {
         $response['status'] = 1;
         $response['url'] = $url['' . $id . '_category_url'];
+        $response['category_price'] = $url['' . $id . '_category_price'];
       }
     }
     echo json_encode($response);

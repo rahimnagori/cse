@@ -26,10 +26,10 @@
                 <div class="col-sm-5">
                     <div class="footer_socc">
                         <ul class="ul_set socila_foo">
-                            <li><a href="<?= $urls['whatsapp']; ?>" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
-                            <li><a href="<?= $urls['facebook']; ?>" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="<?= $urls['youtube']; ?>" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
-                            <li><a href="<?= $urls['telegram']; ?>" target="_blank"><i class="fa fa-telegram"></i></a></li>
+                            <li><a href="<?= $urls['whatsapp_url']; ?>" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+                            <li><a href="<?= $urls['facebook_url']; ?>" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="<?= $urls['youtube_url']; ?>" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+                            <li><a href="<?= $urls['telegram_url']; ?>" target="_blank"><i class="fa fa-telegram"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -39,10 +39,10 @@
 </footer>
 
 <div class="fixe_socil">
-    <a href="<?= $urls['whatsapp']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s3.png" alt=""></a>
-    <a href="<?= $urls['facebook']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s2.png" alt=""></a>
-    <a href="<?= $urls['youtube']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s1.png" alt=""></a>
-    <a href="<?= $urls['telegram']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s5.png" alt=""></a>
+    <a href="<?= $urls['whatsapp_url']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s3.png" alt=""></a>
+    <a href="<?= $urls['facebook_url']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s2.png" alt=""></a>
+    <a href="<?= $urls['youtube_url']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s1.png" alt=""></a>
+    <a href="<?= $urls['telegram_url']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s5.png" alt=""></a>
 </div>
 
 

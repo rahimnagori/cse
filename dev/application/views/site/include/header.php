@@ -81,19 +81,19 @@
 
               <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
                 <a class="dropdown-item" href="mailto:<?= $emails['contact_email']; ?>">Email</a>
-                <a class="dropdown-item" target="_blank" href="<?=$urls['whatsapp'];?>">WhatsApp </a>
-                <a class="dropdown-item" target="_blank" href="<?=$urls['telegram'];?>">Telegram </a>
+                <a class="dropdown-item" target="_blank" href="<?=$urls['whatsapp_url'];?>">WhatsApp </a>
+                <a class="dropdown-item" target="_blank" href="<?=$urls['telegram_url'];?>">Telegram </a>
               </div>
             </li>
 
             <li class="nav-item btn_login">
-              <a class="nav-link" href="<?= $urls['login']; ?>" target="_blank">Login</a>
+              <a class="nav-link" href="<?= $urls['login_url']; ?>" target="_blank">Login</a>
             </li>
             <li class="nav-item btn_sign_up">
-              <a class="nav-link" href="<?= $urls['signup']; ?>" target="_blank">Sign Up</a>
+              <a class="nav-link" href="<?= $urls['signup_url']; ?>" target="_blank">Sign Up</a>
             </li>
             <li class="nav-item btn_book">
-              <a class="nav-link" href="<?= $urls['youtube_subscribe']; ?>" target="_blank"><i class="fa fa-youtube"></i> Subscribe </a>
+              <a class="nav-link" href="<?= $urls['youtube_subscribe_url']; ?>" target="_blank"><i class="fa fa-youtube"></i> Subscribe </a>
             </li>
             </li>
           </ul>
