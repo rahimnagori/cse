@@ -205,6 +205,7 @@ class Admin_Courses extends CI_Controller
         if ($this->form_validation->run()) {
             $insert['category_name'] = $this->input->post('category_name');
             $insert['category_link'] = $this->input->post('category_link');
+            $insert['category_price'] = $this->input->post('category_price');
             if ($this->Common_Model->insert('categories', $insert)) {
                 $response['status'] = 1;
                 $response['responseMessage'] = $this->Common_Model->success('Category added successfully.');
@@ -256,6 +257,7 @@ class Admin_Courses extends CI_Controller
             $where['id'] = $this->input->post('category_id');
             $update['category_name'] = $this->input->post('category_name');
             $update['category_link'] = $this->input->post('category_link');
+            $update['category_price'] = $this->input->post('category_price');
             if ($this->Common_Model->update('categories', $where, $update)) {
                 $response['status'] = 1;
                 $response['responseMessage'] = $this->Common_Model->success('Category updated successfully.');

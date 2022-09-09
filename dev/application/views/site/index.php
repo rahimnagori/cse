@@ -580,14 +580,18 @@ if (count($reviews)) {
       },
       success: function(response) {
         if (response.status == 1) {
-          $("#all-category-btn").html(allCategoryBtn(response.url));
+          $("#all-category-btn").html(allCategoryBtn(response.url, response.category_price));
           $("#all-category-btn").show();
         }
       }
     });
   }
 
-  const allCategoryBtn = (url) => {
-    return `<a href="${url}" class="btn btn_theme category-btn" target="_blank" >Buy all courses in this category</a>`
+  const allCategoryBtn = (url, category_price) => {
+    let btnTitle = 'Buy all the courses in this category';
+    if(category_price && category_price != 0.00){
+      btnTitle = `${btnTitle} (<i class="fa fa-inr" aria-hidden="true"></i> ${category_price})`;
+    }
+    return `<a href="${url}" class="btn btn_theme category-btn" target="_blank" >${btnTitle}</a>`
   }
 </script>

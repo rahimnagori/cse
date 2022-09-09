@@ -15,6 +15,7 @@
               <th>S.No.</th>
               <th>Category Name</th>
               <th>Category Link</th>
+              <th>Category Price</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -26,6 +27,7 @@
                 <td><?= $serialNumber + 1; ?></td>
                 <td><?= $category['category_name']; ?></td>
                 <td><?= $category['category_link']; ?></td>
+                <td><?= $category['category_price']; ?></td>
                 <td>
                   <button onclick="edit_category(<?= $category['id'] ?>)" class="btn btn-info btn-xs">Edit</button>
                   <button class="btn btn-danger btn-xs" onclick="open_delete_modal(<?= $category['id'] ?>)">Delete</button>
@@ -60,6 +62,10 @@
             <div class="form-group">
               <label> Category Link </label>
               <input type="url" name="category_link" class="form-control" >
+            </div>
+            <div class="form-group">
+              <label> Category Price </label>
+              <input type="number" name="category_price" step="0.1" class="form-control" >
             </div>
             <div class="row">
               <div class="col-sm-12" class="responseMessage" id="responseMessage"></div>
