@@ -24,7 +24,42 @@
     font-family: 'RobotR';
     src: url('../fonts/Roboto-Regular.ttf') format('truetype');
 }
-
+@font-face {
+    font-family: 'f1';
+    src: url('../fonts/font1.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'f2';
+    src: url('../fonts/font2.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'f3';
+    src: url('../fonts/font3.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'f4';
+    src: url('../fonts/font4.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'f5';
+    src: url('../fonts/font5.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'f6';
+    src: url('../fonts/font6.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'f7';
+    src: url('../fonts/font7.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'f8';
+    src: url('../fonts/font8.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'f9';
+    src: url('../fonts/font9.ttf') format('truetype');
+}
 :root {
     --yellow: #f9af00;
     --blue: #3c0008;
@@ -2341,3 +2376,22 @@ transform: rotate(-360deg);
     transform: rotate(-90deg);
     opacity: 0
   }
+
+  h1 .set_colr,
+  h2 .set_colr,
+  h3 .set_colr
+  
+
+  {
+	font-family: "f8";
+	font-weight: 600;
+	/* color: var(--blue); */
+	font-size: 60px;
+}
+
+p .set_colr{
+	font-family: "f1";
+	font-weight: 600;
+	font-size: 18px;
+    color: var(--blue);
+}

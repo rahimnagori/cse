@@ -28,10 +28,10 @@
         <div class="conten_set des_c1">
           <h1>
             India's #1 <br>
-            Problem Solving <?= $this->config->item('PROJECT'); ?> Professionals
+            Problem Solving <span class="set_colr"><?= $this->config->item('PROJECT'); ?></span> Professionals
           </h1>
           <p class="text-justified">
-            Welcome to <?= $this->config->item('PROJECT'); ?>, an OnlineCourse offering Website in the field of Operating Systems, Networking, Linux System Programming and Several Coding Projects. We offer only Development based Projects, no DS/ALGO/CP.
+            Welcome to <span class="set_colr"><?= $this->config->item('PROJECT'); ?></span>, an OnlineCourse offering Website in the field of Operating Systems, Networking, Linux System Programming and Several Coding Projects. We offer only Development based Projects, no DS/ALGO/CP.
           </p>
         </div>
       </div>
@@ -60,7 +60,7 @@
               About Us
             </h1>
             <p>
-              Welcome to <?= $this->config->item('PROJECT'); ?>, an Online Course offering Website in the field of Operating Systems, Networking, Linux System Programming and Several Coding Projects. We offer only Development based Projects, no DS/ALGO/CP.
+              Welcome to <span class="set_colr"><?= $this->config->item('PROJECT'); ?></span>, an Online Course offering Website in the field of Operating Systems, Networking, Linux System Programming and Several Coding Projects. We offer only Development based Projects, no DS/ALGO/CP.
             </p>
           </div>
         </div>
@@ -171,7 +171,7 @@ if (count($courses)) {
   <div class="container">
     <div class="heading text-center">
       <h1>
-        <?= $this->config->item('PROJECT'); ?>
+        <span class="set_colr"><?= $this->config->item('PROJECT'); ?></span>
       </h1>
     </div>
     <div class="row align-items-center">
