@@ -28,10 +28,10 @@
         <div class="conten_set des_c1">
           <h1>
             India's #1 <br>
-            Problem Solving <span class="set_colr"><?= $this->config->item('PROJECT'); ?></span> Professionals
+            Problem Solving <?= $this->config->item('PROJECT'); ?> Professionals
           </h1>
           <p class="text-justified">
-            Welcome to <span class="set_colr"><?= $this->config->item('PROJECT'); ?></span>, an OnlineCourse offering Website in the field of Operating Systems, Networking, Linux System Programming and Several Coding Projects. We offer only Development based Projects, no DS/ALGO/CP.
+            Welcome to <?= $this->config->item('PROJECT'); ?>, an OnlineCourse offering Website in the field of Operating Systems, Networking, Linux System Programming and Several Coding Projects. We offer only Development based Projects, no DS/ALGO/CP.
           </p>
         </div>
       </div>
@@ -60,7 +60,7 @@
               About Us
             </h1>
             <p>
-              Welcome to <span class="set_colr"><?= $this->config->item('PROJECT'); ?></span>, an Online Course offering Website in the field of Operating Systems, Networking, Linux System Programming and Several Coding Projects. We offer only Development based Projects, no DS/ALGO/CP.
+              Welcome to <?= $this->config->item('PROJECT'); ?>, an Online Course offering Website in the field of Operating Systems, Networking, Linux System Programming and Several Coding Projects. We offer only Development based Projects, no DS/ALGO/CP.
             </p>
           </div>
         </div>
@@ -88,7 +88,7 @@ if (count($courses)) {
       </div>
       <div class="fiter_set">
         <ul class="filters  js-radio-button-group ul_set clearfix">
-          <button data-filter="*" class="button is-checked" onclick="load_category('all');" >All (<?= count($courses); ?>)</button>
+          <button data-filter="*" class="button is-checked" onclick="load_category('all');">All (<?= count($courses); ?>)</button>
           <?php
           foreach ($categories as $category) {
           ?>
@@ -101,11 +101,11 @@ if (count($courses)) {
       <div class="btn_us_add">
         <span id="all-category-btn">
           <?php
-            if($urls['all_category_url']){
+          if ($urls['all_category_url']) {
           ?>
-              <a href="<?=$urls['all_category_url'];?>" class="btn btn_theme category-btn" target="_blank" >Buy all the courses in this category ($ <?=$urls['all_category_price'];?>)</a>
+            <a href="<?= $urls['all_category_url']; ?>" class="btn btn_theme category-btn" target="_blank">Buy all the courses in this category ($ <?= $urls['all_category_price']; ?>)</a>
           <?php
-            }
+          }
           ?>
         </span>
         <?php
@@ -177,11 +177,11 @@ if (count($courses)) {
 }
 ?>
 
-<section class="sec_pad sec_5 whi_c" >
+<section class="sec_pad sec_5 whi_c">
   <div class="container">
     <div class="heading text-center">
       <h1>
-        <span class="set_colr"><?= $this->config->item('PROJECT'); ?></span>
+        <?= $this->config->item('PROJECT'); ?>
       </h1>
     </div>
     <div class="row align-items-center">
@@ -597,7 +597,7 @@ if (count($reviews)) {
 
   const allCategoryBtn = (url, category_price) => {
     let btnTitle = 'Buy all the courses in this category';
-    if(category_price && category_price != 0.00){
+    if (category_price && category_price != 0.00) {
       btnTitle = `${btnTitle} ($ ${category_price})`;
     }
     return `<a href="${url}" class="btn btn_theme category-btn" target="_blank" >${btnTitle}</a>`
