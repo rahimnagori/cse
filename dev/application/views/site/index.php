@@ -167,7 +167,7 @@ if (count($courses)) {
 }
 ?>
 
-<section class="sec_pad sec_5">
+<section class="sec_pad sec_5 whi_c" >
   <div class="container">
     <div class="heading text-center">
       <h1>

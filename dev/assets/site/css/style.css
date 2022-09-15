@@ -2385,8 +2385,16 @@ transform: rotate(-360deg);
   {
 	font-family: "f8";
 	font-weight: 600;
-	/* color: var(--blue); */
+	 color: var(--blue);
 	font-size: 60px;
+}
+
+.whi_c h1 .set_colr,
+.whi_c h2 .set_colr,
+.whi_c h3 .set_colr,
+p .set_colr
+{
+color: #fff;
 }
 
 p .set_colr{
