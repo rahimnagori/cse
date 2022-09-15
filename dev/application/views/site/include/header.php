@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="<?= site_url('assets/site/'); ?>css/style.css">
   <link rel="stylesheet" href="<?= site_url('assets/site/'); ?>css/responsive.css">
   <link rel="shortcut icon" type="image/x-icon" href="<?= site_url('assets/site/'); ?>img/favi.png">
-  <title><?= $this->config->item('PROJECT'); ?> </title>
+  <title><?= $this->config->item('TITLE'); ?> </title>
 </head>
 
 <body>
