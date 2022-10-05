@@ -1,916 +1,315 @@
-<?php include('include/header.php'); ?>
-<style>
-  .man_nav {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-  z-index:2;
+<?php
+/**
+ * CodeIgniter
+ *
+ * An open source application development framework for PHP
+ *
+ * This content is released under the MIT License (MIT)
+ *
+ * Copyright (c) 2014 - 2019, British Columbia Institute of Technology
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * @package	CodeIgniter
+ * @author	EllisLab Dev Team
+ * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+ * @copyright	Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/)
+ * @license	https://opensource.org/licenses/MIT	MIT License
+ * @link	https://codeigniter.com
+ * @since	Version 1.0.0
+ * @filesource
+ */
+
+/*
+ *---------------------------------------------------------------
+ * APPLICATION ENVIRONMENT
+ *---------------------------------------------------------------
+ *
+ * You can load different configurations depending on your
+ * current environment. Setting the environment also influences
+ * things like logging and error reporting.
+ *
+ * This can be set to anything, but default usage is:
+ *
+ *     development
+ *     testing
+ *     production
+ *
+ * NOTE: If you change these, also change the error_reporting() code below
+ */
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+
+/*
+ *---------------------------------------------------------------
+ * ERROR REPORTING
+ *---------------------------------------------------------------
+ *
+ * Different environments will require different levels of error reporting.
+ * By default development will show errors but testing and live will hide them.
+ */
+switch (ENVIRONMENT)
+{
+	case 'development':
+		error_reporting(-1);
+		ini_set('display_errors', 1);
+	break;
+
+	case 'testing':
+	case 'production':
+		ini_set('display_errors', 0);
+		if (version_compare(PHP_VERSION, '5.3', '>='))
+		{
+			error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+		}
+		else
+		{
+			error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
+		}
+	break;
+
+	default:
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'The application environment is not set correctly.';
+		exit(1); // EXIT_ERROR
 }
-</style>
-<div class="tot_had">
-<div class="efff_h">
-  
-<div class="purple"></div>
-<div class="medium-blue"></div>
-<div class="light-blue"></div>
-<div class="red1"></div>
-<div class="orange"></div>
-<div class="cyan"></div>
-<div class="lime"></div>
-</div>
-  <div class="container">
-    <div class="row d_flex a_t">
-      <div class="col-sm-6" data-aos="fade-right"  data-aos-duration="1000" data-aos-easing="linear">
-        <div class="conten_set des_c1">
-        <h4 class="bg_hed">Wel come csepracticals </h4>
-        <h1>
-          India's #1 <br>
-         
-          Problem Solving csepracticals  
-          Professionals
-        </h1>
-  <p>
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,  took a galley of type and scrambled. 
 
-</p>
-  <a href="" class="btn btn_theme2 btn-lg btn_r">Get Started</a>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <!-- <div class="img_d1">
-          <img src="img/img_15.png" alt="" class="img_r">
-        </div> -->
-        <div class="video_set">
-          <img src="img/img_39.png" alt="" class="img_r">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="etxrt_1 pad_t">
-  <div class="container">
-  <div class="heading text-center " style="margin: 0;" data-aos="fade-down" data-aos-duration="1000" data-aos-easing="linear">
-      <h1>
-      How It Work 
-      </h1>
-      <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled. 
-      </p>
-    </div>
-  </div>
-</div>
-<section class="sec_des_h4 sec_pad">
- <div class="container">
+/*
+ *---------------------------------------------------------------
+ * SYSTEM DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * This variable must contain the name of your "system" directory.
+ * Set the path if it is not in the same directory as this file.
+ */
+	$system_path = 'system';
 
- <div class="row">
-    <div class="col-sm-4">
-      <div class="des_c3">
-        <div class="img_hexa">
-          <a href="https://sso.teachable.com/secure/368858/identity/login" target="_blank"></a>
-        <svg style=" fill: #ffffff;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4"><path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path></svg>
-       
-          <img src="img/img_3.png" alt="" class="img_r">
-          <h4>Free Login </h4>
-      
-        <div class="number">
-          01
-        </div>
-      </div>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="des_c3">
-        <div class="img_hexa">
-        <a href="https://sso.teachable.com/secure/368858/identity/sign_up" target="_blank"></a>
-        <svg style=" fill: #ffffff;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4"><path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path></svg>
-       
-          <img src="img/img_4.png" alt="" class="img_r">
-          <h4>Free Sign Up </h4>
-      
-        <div class="number">
-         02
-        </div>
-      </div>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="des_c3">
-        <div class="img_hexa">
-        <svg style=" fill: #ffffff;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177.4 197.4"><path d="M0,58.4v79.9c0,6.5,3.5,12.6,9.2,15.8l70.5,40.2c5.6,3.2,12.4,3.2,18,0l70.5-40.2c5.7-3.2,9.2-9.3,9.2-15.8V58.4 c0-6.5-3.5-12.6-9.2-15.8L97.7,2.4c-5.6-3.2-12.4-3.2-18,0L9.2,42.5C3.5,45.8,0,51.8,0,58.4z"></path></svg>
-       
-          <img src="img/img_5.png" alt="" class="img_r">
-          <h4>Online Course </h4>
-      
-        <div class="number">
-          03
-        </div>
-      </div>
-      </div>
-    </div>
+/*
+ *---------------------------------------------------------------
+ * APPLICATION DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * If you want this front controller to use a different "application"
+ * directory than the default one you can set its name here. The directory
+ * can also be renamed or relocated anywhere on your server. If you do,
+ * use an absolute (full) server path.
+ * For more info please see the user guide:
+ *
+ * https://codeigniter.com/user_guide/general/managing_apps.html
+ *
+ * NO TRAILING SLASH!
+ */
+	$application_folder = 'application';
 
-  </div>
- </div>
-</section>
-
-<section class="sec_pad abhout">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md-6" data-aos="zoom-in"  data-aos-duration="2000">
-        <div class="ab_img2 text-center">
-          <img src="img/img_16.png" alt="" class="img_r">
-        </div>
-      </div>
-      <div class="col-md-6" data-aos="zoom-in-up"  data-aos-duration="2000" >
-        <div class="abn_text">
-          <div class="heading">
-            <h1>
-              About Us
-            </h1>
-           <p>
-           Welcome to CSEPracticals, an OnlineCourse offering Website in the field of Operating Systems, Networking, Linux System Programming and Several Coding Projects. We offer only Development based Projects, no DS/ALGO/CP.
-
-           </p>
-
-          </div>
-
-          <a href="javascript:void(0);" class="btn btn_theme2 btn-lg btn_r rad_morre1" > <!-- id="rad_morre3" -->
-            <span class="on1">Read More <i class="fa fa-long-arrow-right"></i></span>
-            <!-- <span class="on2">Read Less <i class="fa fa-long-arrow-right"></i></span> -->
-
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec_pad  sec_3 slide_set" id="OurCourse" data-js="hero-demo">
-  <div class="container">
-    <div class="heading text-center " data-aos="slide-right"  data-aos-duration="1000">
-      <h1>
-        Best Selling Course
-      </h1>
-      <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled. 
-      </p>
-    </div>
-
-    
-   <div class="fiter_set">
-   <ul class="filters  js-radio-button-group ul_set clearfix">
-    <button data-filter="*" class="button is-checked">All</button>
-  <button data-filter=".cat-1" class="button">Free Course</button>
-  <button data-filter=".cat-2" class="button">Piad Course</button>
-</ul>
-   </div>
+/*
+ *---------------------------------------------------------------
+ * VIEW DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * If you want to move the view directory out of the application
+ * directory, set the path to it here. The directory can be renamed
+ * and relocated anywhere on your server. If blank, it will default
+ * to the standard location inside your application directory.
+ * If you do move this, use an absolute (full) server path.
+ *
+ * NO TRAILING SLASH!
+ */
+	$view_folder = '';
 
 
-   <div class="row grid">
-    <div class="col-sm-3 element-item cat-1" data-category="cat-1">
-    <div class="box_cos1">
-          <div class="bors_img">
-          <img class="" src="img/course/img1.webp">
-          </div> 
-         <div class="conten_b">
-         <h4>Operation sys</h4>
-          <p>
-          Linux Inter Process Communication (IPC) from Scratch in C
-          </p>
-          <h5>
-            <span class="or1">Students: 3021</span>
-            <span class="or2">Enrolled: 570</span>
-          </h5>
-          <h6>
-          <span class="or1">Price: $10</span>
-            <span class="or2">
-              <a href="javascript:void(0);" class="btn btn_theme2 btn_r" data-toggle="modal" data-target="#modal1" >Content </a>
-            </span>
-          </h6>
-         </div>
-        </div>
-    </div>
-    
-  <div class="col-sm-3 element-item cat-1" data-category="cat-1">
-  <div class="box_cos1">
-          <div class="bors_img">
-          <img class="" src="img/course/img2.jpg">
-          </div> 
-         <div class="conten_b">
-         <h4>Operation sys</h4>
-          <p>
-          Linux Inter Process Communication (IPC) from Scratch in C
-          </p>
-          <h5>
-            <span class="or1">Students: 3021</span>
-            <span class="or2">Enrolled: 570</span>
-          </h5>
-          <h6>
-          <span class="or1">Price: $10</span>
-            <span class="or2">
-              <a href="javascript:void(0);" class="btn btn_theme2 btn_r" data-toggle="modal" data-target="#modal1" >Content </a>
-            </span>
-          </h6>
-         </div>
-        </div>
-  </div>
-  <div class="col-sm-3 element-item cat-1" data-category="cat-1">
-  <div class="box_cos1">
-          <div class="bors_img">
-          <img class="" src="img/course/img3.webp">
-          </div> 
-         <div class="conten_b">
-         <h4>Operation sys</h4>
-          <p>
-          Linux Inter Process Communication (IPC) from Scratch in C
-          </p>
-          <h5>
-            <span class="or1">Students: 3021</span>
-            <span class="or2">Enrolled: 570</span>
-          </h5>
-          <h6>
-          <span class="or1">Price: $10</span>
-            <span class="or2">
-              <a href="javascript:void(0);" class="btn btn_theme2 btn_r" data-toggle="modal" data-target="#modal1" >Content </a>
-            </span>
-          </h6>
-         </div>
-        </div>
-  </div>
-  <div class="col-sm-3 element-item cat-1" data-category="cat-1">
-  <div class="box_cos1">
-          <div class="bors_img">
-          <img class="" src="img/course/img4.webp">
-          </div> 
-         <div class="conten_b">
-         <h4>Operation sys</h4>
-          <p>
-          Linux Inter Process Communication (IPC) from Scratch in C
-          </p>
-          <h5>
-            <span class="or1">Students: 3021</span>
-            <span class="or2">Enrolled: 570</span>
-          </h5>
-          <h6>
-          <span class="or1">Price: $10</span>
-            <span class="or2">
-              <a href="javascript:void(0);" class="btn btn_theme2 btn_r" data-toggle="modal" data-target="#modal1" >Content </a>
-            </span>
-          </h6>
-         </div>
-        </div>
-  </div>
+/*
+ * --------------------------------------------------------------------
+ * DEFAULT CONTROLLER
+ * --------------------------------------------------------------------
+ *
+ * Normally you will set your default controller in the routes.php file.
+ * You can, however, force a custom routing by hard-coding a
+ * specific controller class/function here. For most applications, you
+ * WILL NOT set your routing here, but it's an option for those
+ * special instances where you might want to override the standard
+ * routing in a specific front controller that shares a common CI installation.
+ *
+ * IMPORTANT: If you set the routing here, NO OTHER controller will be
+ * callable. In essence, this preference limits your application to ONE
+ * specific controller. Leave the function name blank if you need
+ * to call functions dynamically via the URI.
+ *
+ * Un-comment the $routing array below to use this feature
+ */
+	// The directory name, relative to the "controllers" directory.  Leave blank
+	// if your controller is not in a sub-directory within the "controllers" one
+	// $routing['directory'] = '';
 
-  
-  <div class="col-sm-3 element-item cat-2" data-category="cat-2">
-  <div class="box_cos1">
-          <div class="bors_img">
-          <img class="" src="img/course/img4.webp">
-          </div> 
-         <div class="conten_b">
-         <h4>Operation sys1</h4>
-          <p>
-          Linux Inter Process Communication (IPC) from Scratch in C
-          </p>
-          <h5>
-            <span class="or1">Students: 3021</span>
-            <span class="or2">Enrolled: 570</span>
-          </h5>
-          <h6>
-          <span class="or1">Price: $10</span>
-            <span class="or2">
-              <a href="javascript:void(0);" class="btn btn_theme2 btn_r" data-toggle="modal" data-target="#modal1" >Content </a>
-            </span>
-          </h6>
-         </div>
-        </div>
-  </div>
-  <div class="col-sm-3 element-item cat-2" data-category="cat-2">
-  <div class="box_cos1">
-          <div class="bors_img">
-          <img class="" src="img/course/img3.webp">
-          </div> 
-         <div class="conten_b">
-         <h4>Operation sys1</h4>
-          <p>
-          Linux Inter Process Communication (IPC) from Scratch in C
-          </p>
-          <h5>
-            <span class="or1">Students: 3021</span>
-            <span class="or2">Enrolled: 570</span>
-          </h5>
-          <h6>
-          <span class="or1">Price: $10</span>
-            <span class="or2">
-              <a href="javascript:void(0);" class="btn btn_theme2 btn_r" data-toggle="modal" data-target="#modal1" >Content </a>
-            </span>
-          </h6>
-         </div>
-        </div>
-  </div>
-  <div class="col-sm-3 element-item cat-2" data-category="cat-2">
-  <div class="box_cos1">
-          <div class="bors_img">
-          <img class="" src="img/course/img2.jpg">
-          </div> 
-         <div class="conten_b">
-         <h4>Operation sys1</h4>
-          <p>
-          Linux Inter Process Communication (IPC) from Scratch in C
-          </p>
-          <h5>
-            <span class="or1">Students: 3021</span>
-            <span class="or2">Enrolled: 570</span>
-          </h5>
-          <h6>
-          <span class="or1">Price: $10</span>
-            <span class="or2">
-              <a href="javascript:void(0);" class="btn btn_theme2 btn_r" data-toggle="modal" data-target="#modal1" >Content </a>
-            </span>
-          </h6>
-         </div>
-        </div>
-  </div>
-  <div class="col-sm-3 element-item cat-2" data-category="cat-2">
-  <div class="box_cos1">
-          <div class="bors_img">
-          <img class="" src="img/course/img1.webp">
-          </div> 
-         <div class="conten_b">
-         <h4>Operation sys1</h4>
-          <p>
-          Linux Inter Process Communication (IPC) from Scratch in C
-          </p>
-          <h5>
-            <span class="or1">Students: 3021</span>
-            <span class="or2">Enrolled: 570</span>
-          </h5>
-          <h6>
-          <span class="or1">Price: $10</span>
-            <span class="or2">
-              <a href="javascript:void(0);" class="btn btn_theme2 btn_r" data-toggle="modal" data-target="#modal1" >Content </a>
-            </span>
-          </h6>
-         </div>
-        </div>
-  </div>
-   </div>
+	// The controller class file name.  Example:  mycontroller
+	// $routing['controller'] = '';
+
+	// The controller function you wish to be called.
+	// $routing['function']	= '';
 
 
-  
-  </div>
-</section>
-
-<section class="sec_pad sec_5">
-  <div class="container">
-  <div class="heading text-center" >
-      <h1>
-      Abhishek Sagar
-      </h1>
-      <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled. 
-      </p>
-    </div>
-    <div class="row align-items-center">
-     <div class="col-sm-3">
-          <div class="conter_set">
-          <div class="circle" data-value="0.75" data-thickness="09">
-   <span>20</span>
-</div>
-		
-          <h4>
-          ACTIVE COURSES
-          </h4>
-          </div>
-     </div>
-     <div class="col-sm-3">
-          <div class="conter_set">
-          <div class="circle2" data-value="0.75" data-thickness="09">
-   <span>2022</span>
-</div>
-		
-          <h4>
-          LAST UPDATE
-          </h4>
-          </div>
-     </div>
-     <div class="col-sm-3">
-          <div class="conter_set">
-          <div class="circle3" data-value="0.75" data-thickness="09">
-   <span>2402</span>
-</div>
-		
-          <h4>
-          TOTAL REVIEWS
-          </h4>
-          </div>
-     </div>
-     <div class="col-sm-3">
-          <div class="conter_set">
-          <div class="circle4" data-value="0.75" data-thickness="09">
-   <span>4.55</span>
-</div>
-		
-          <h4>
-          AVERAGE RATING
-          </h4>
-          </div>
-     </div>
-     <div class="col-sm-3">
-          <div class="conter_set">
-          <div class="circle5" data-value="0.75" data-thickness="09">
-   <span>28110</span>
-</div>
-		
-          <h4>
-          TOTAL STUDENTS
-          </h4>
-          </div>
-     </div>
-    
-    </div>
-  </div>
-  <div class="download-shape-1">
-    <img src="img/shape_1.png" alt="">
-  </div>
-  <div class="download-shape-2">
-    <img src="img/shape_2.png" alt="">
-  </div>
-  <div class="download-shape-3">
-    <img src="img/shape_3.png" alt="">
-  </div>
-</section>
-
-<section class="sec_des_h2 sec_pad">
-  <div class="container">
-  <div class="heading text-center" data-aos="fade-down"  data-aos-duration="1000" data-aos-easing="linear">
-      <h1>
-      JACKPOT OFFER
-      </h1>
-      <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled. 
-      </p>
-    </div>
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="box_pay conten_set">
-          <h4>
-          Buy Entire Course Bundle
-(20 Courses ) in Just
-          </h4>
-          <img src="img/img_40.png">
-          <h2>~INR 4900 | $65</h2>
-          <p>
-          ​Note  for Jackpot offer : Get Rs 250/$5 off for each paid course you are already enrolled in !
-          </p>
-          <p>
-          Lifetime Access to Udemy + Teachable, and All Future Courses shall be Free !
-          </p>
-          <div class="bntn_get">
-            <a href="#" class="btn btn_theme2 btn-lg btn_r">Get Started</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="box_pay conten_set">
-          <h4>
-          Only System Programmig 12 Courses
-          </h4>
-          <img src="img/img_40.png">
-          <h2>$30 <span class="mmmm">One time </span></h2>
-          <p>
-          LifeTime Access
-on Udemy + Teachable, $30 One time Payment
-          </p>
-         
-          <div class="bntn_get">
-            <a href="#" class="btn btn_theme2 btn-lg btn_r">Get Started</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="box_pay conten_set">
-          <h4>
-          Monthly Subscription
-          </h4>
-          <img src="img/img_40.png">
-          <h2>$10 <span class="mmmm">/Month </span></h2>
-          <p>
-          Access to Teachable Only
-First 7 days is Free, then $10/Month, Cancel Anytime
-          </p>
-          
-          <div class="bntn_get">
-            <a href="#" class="btn btn_theme2 btn-lg btn_r">Get Started</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec_des_h1 pad_t">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-    <div class="gir_im1">
-      <div class="table_1">
-        <div class="table_2">
-        <img src="img/img_24.png" alt="" class="img_r">
-        </div>
-      </div>
-    </div>
-      </div>
-      <div class="col-md-8">
-          <div class="conten_set">
-          <h4 class="bg_hed">Learn and Earn </h4>
-          <h1>What is Lorem Ipsum? </h1>
-         
-          <p>
-          Pls send email to <a href="#">csepracticals@gmail.com</a> after payment, telling us which Courses you want. You will be given lifetime access to Courses. Use Partial Payment links below in case you need to pay us an arbitrary amount after negotiation.
-          </p>
-        </div>
-        <div class="des_c2">
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="rig_icon conten_set">
-                <a href="https://csepracticals.teachable.com/purchase?product_id=4125539" target="_blank"></a>
-                <span><img src="img/img_25.png" alt=""></span>
-                <h4>SUPER TWO DEAL  </h4>
-                <p>
-                Buy Any 2 Paid course
-for
-                </p>
-                <h2>750 INR | $10</h2>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="rig_icon conten_set">
-                <a href="https://csepracticals.teachable.com/purchase?product_id=4125540" target="_blank"></a>
-                <span><img src="img/img_25.png" alt=""></span>
-                <h4>SUPER FOUR DEAL  </h4>
-                <p>
-                Buy Any 4 Paid course
-for
-                </p>
-                <h2>1200 INR | $20</h2>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="rig_icon conten_set">
-                <a href="https://csepracticals.teachable.com/purchase?product_id=4125541" target="_blank"></a>
-                <span><img src="img/img_25.png" alt=""></span>
-                <h4>SUPER SIX DEAL  </h4>
-                <p>
-                Buy Any 6 Paid course
-for
-                </p>
-                <h2>1600 INR | $25</h2>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="rig_icon conten_set">
-                <a href="https://csepracticals.teachable.com/purchase?product_id=4125542" target="_blank"></a>
-                <span><img src="img/img_25.png" alt=""></span>
-                <h4>SUPER EIGHT DEAL  </h4>
-                <p>
-                Buy Any 8 Paid course
-for
-                </p>
-                <h2>2000 INR | $30</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- <section class="sec_pad sec_6">
-<div class="container">
-<div class="heading text-center">
-      <h1>
-      Upcomming Courses
-      </h1>
-      <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled. 
-      </p>
-    </div>
-    <div class="arrow_set">
-    <div id="slider2" class="slider_cou2 ">
-      <div class="items">
-          <div class="box_3 conten_set">
-            <h4>Server designing and implementation</h4>
-          </div>
-      </div>
-      <div class="items">
-          <div class="box_3 conten_set">
-            <h4>Java remote method invocation (rmi)</h4>
-          </div>
-      </div>
-      <div class="items">
-          <div class="box_3 conten_set">
-            <h4>Thread/process synchronization technique</h4>
-          </div>
-      </div>
-      <div class="items">
-          <div class="box_3 conten_set">
-            <h4>Understanding lock free linked list</h4>
-          </div>
-      </div>
-      <div class="items">
-          <div class="box_3 conten_set">
-            <h4>Debugging techniques on linux platform</h4>
-          </div>
-      </div>
-    </div>
-    </div>
-</div>
-</section> -->
-<!-- <section class="sec_pad sec_7">
-<div class="container">
-<div class="heading text-center">
-      <h1>
-      Youtube Playlists
-      </h1>
-      <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, took a galley of type and scrambled. 
-      </p>
-    </div>
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="box_4 box_cos1">
-        <a href="https://www.youtube.com/playlist?list=PLN9r3gitIiJ65fDDtjgKvc2RFqA78OykW" target="_blank">
-            <img src="img/img_41.png" alt="" class="img_r">
-            
-        </a>
-        <div class="conten_b">
-       <a href="https://www.youtube.com/playlist?list=PLN9r3gitIiJ65fDDtjgKvc2RFqA78OykW" target="_blank"> <h4>Linux Timers</h4></a>
-        </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="box_4 box_cos1">
-        <a href="https://www.youtube.com/watch?v=8efVSL835Mc&list=PLN9r3gitIiJ751TwsaWnppSSs93BJDgqR&index=1" target="_blank">
-            <img src="img/img_42.png" alt="" class="img_r">
-            
-        </a>
-        <div class="conten_b">
-       <a href="https://www.youtube.com/watch?v=8efVSL835Mc&list=PLN9r3gitIiJ751TwsaWnppSSs93BJDgqR&index=1" target="_blank"> <h4>Stack Memory</h4></a>
-        </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="box_4 box_cos1">
-        <a href="https://www.youtube.com/watch?v=ckxmM0ZmTrQ&list=PLN9r3gitIiJ6XzyEsmrv34qwSap98TYXf" target="_blank">
-            <img src="img/img_43.png" alt="" class="img_r">
-            
-        </a>
-        <div class="conten_b">
-       <a href="https://www.youtube.com/watch?v=ckxmM0ZmTrQ&list=PLN9r3gitIiJ6XzyEsmrv34qwSap98TYXf" target="_blank"> <h4>Heap Memory Mgmt</h4></a>
-        </div>
-        </div>
-      </div>
-    </div>
-</div>
-</section> -->
+/*
+ * -------------------------------------------------------------------
+ *  CUSTOM CONFIG VALUES
+ * -------------------------------------------------------------------
+ *
+ * The $assign_to_config array below will be passed dynamically to the
+ * config class when initialized. This allows you to set custom config
+ * items or override any default config values found in the config.php file.
+ * This can be handy as it permits you to share one application between
+ * multiple front controller files, with each file containing different
+ * config values.
+ *
+ * Un-comment the $assign_to_config array below to use this feature
+ */
+	// $assign_to_config['name_of_config_item'] = 'value of config item';
 
 
-<section class="sec_pad get_in_touch1" id="contact">
-<div class="efff_h effect_cont">
-  
-<div class="yellow1"></div>
-<div class="light-green"></div>
-<div class="magenta"></div>
-<div class="lightish-red"></div>
-<div class="pink"></div>
-  </div>
-  <div class="container">
 
-    <div class="row justify-content-center">
-      <div class="col-sm-12">
-        <div class="get_in_touch2" >
-          <div class="heading text-center">
-            <h1>
-            Enquiry Form
-            </h1>
-            <p>
-              Leave us a little info, and we’ll be in touch.
-            </p>
-          </div>
-          <div class="row align-items-center">
-            <div class="col-md-6">
-              <div class="img_con">
-                <img src="img/img_21.png" alt="" class="img_r">
-              </div>
-            </div>
-            <div class="col-md-6">
-            <!-- <form action="#" method="post" id="myemailform"> -->
-            <form  method="post" id="myemailform">
-            <div class="form-group">
-                  <label for="name">Name</label>
-                  <div class="ion_in">
-                    <i class="fa fa-user-o"></i>
-                    <input type="text" class="form-control" placeholder="Full Name" name="full_name" id="name">
-                  </div>
-                  <p class=" text-danger" style="display:none" id="alte_name2">Sorry first space is not allowed</p>
-                </div>
-                <div class="form-group">
-                  <label for="">Phone Number</label>
-                  <div class="ion_in">
-                    <i class="fa fa-phone"></i>
-                    <input type="text" class="form-control" placeholder="Phone Number" name="phone" id="phone" maxlength="12">
-                  </div>
-                  <p class=" text-danger" style="display:none" id="alte_phone">ddddddddddd</p>
-                  <p class=" text-danger" style="display:none" id="alte_phone2">Sorry first space is not allowed</p>
-                </div>
-                <div class="form-group">
-                  <label for="">Email</label>
-                  <div class="ion_in">
-                    <i class="fa fa-envelope-o"></i>
-                    <input type="text" class="form-control" placeholder="Email" name="email" id="email">
-                  </div>
-                  <p class=" text-danger" style="display:none" id="alte_email2">Sorry first space is not allowed</p>
-                </div>
-                
-                <div class="form-group">
-                  <label for="">Subject</label>
-                  <div class="ion_in">
-                    <i class="fa fa-info-circle"></i>
-                    <input type="text" class="form-control" placeholder="Subject" name="subject_v" id="subject">
-                  </div>
-                  <p class=" text-danger" style="display:none" id="alte_subject2">Sorry first space is not allowed</p>
-                </div>
-                <div class="form-group">
-              <label for="">Leave us a message...</label>
-              <div class="ion_in">
-                <i class="fa fa-edit"></i>
-                <textarea id="" class="form-control" placeholder="Message" name="description"></textarea>
-              </div>
-            </div>
-            
-            <div class="form-group ">
-              <button class="btn btn_theme2 btn-lg btn_r fb" type="submit">Submit</button>
-            </div>
+// --------------------------------------------------------------------
+// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
+// --------------------------------------------------------------------
 
-            </form>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+/*
+ * ---------------------------------------------------------------
+ *  Resolve the system path for increased reliability
+ * ---------------------------------------------------------------
+ */
 
-<!-- <section class="sec_pad  sec_3">
-  <div class="container">
-    <div class="heading" >
-      <h5 class="bg_hed"> Recent News </h5>
-      <h1>
-        Stay up to date with our news.
-      </h1>
+	// Set the current directory correctly for CLI requests
+	if (defined('STDIN'))
+	{
+		chdir(dirname(__FILE__));
+	}
 
-    </div>
+	if (($_temp = realpath($system_path)) !== FALSE)
+	{
+		$system_path = $_temp.DIRECTORY_SEPARATOR;
+	}
+	else
+	{
+		// Ensure there's a trailing slash
+		$system_path = strtr(
+			rtrim($system_path, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		).DIRECTORY_SEPARATOR;
+	}
 
-    <div class="row" >
+	// Is the system path correct?
+	if ( ! is_dir($system_path))
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your system folder path does not appear to be set correctly. Please open the following file and correct this: '.pathinfo(__FILE__, PATHINFO_BASENAME);
+		exit(3); // EXIT_CONFIG
+	}
 
-      <div class="col-md-4"   >
-        <div class="blog_1">
-          <a href="#" >
-            <img src="img/img_8.jpg">
-            <div class="blog_2">
-              <h5><i class="fa fa-user"></i> Admin <i class="fa fa-calendar"></i>8 Fub 2022</h5>
-              <h4>
-                12 Reasons for not Getting Growth in your Career? </h4>
-              <p>
-                “The world which is an ever-changing changing place, a delicate platform where one is supposed to take risk else he may fail.”
-              </p>
-              <span class="btn btn_theme2">Read More <i class="fa fa-chevron-right"></i></span>
-            </div>
+/*
+ * -------------------------------------------------------------------
+ *  Now that we know the path, set the main path constants
+ * -------------------------------------------------------------------
+ */
+	// The name of THIS file
+	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
 
-          </a>
+	// Path to the system directory
+	define('BASEPATH', $system_path);
 
-        </div>
-      </div>
+	// Path to the front controller (this file) directory
+	define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
 
-      <div class="col-md-4"   >
-        <div class="blog_1">
-          <a href="#" >
-            <img src="img/img_9.jpg">
-            <div class="blog_2">
-              <h5><i class="fa fa-user"></i> Admin <i class="fa fa-calendar"></i>8 Fub 2022</h5>
-              <h4>
-                9 Barricades that are stopping your Professional Growth? </h4>
-              <p>
-                “Success doesn’t come and find you. You have to go out and find it.”
-              </p>
-              <span class="btn btn_theme2">Read More <i class="fa fa-chevron-right"></i></span>
-            </div>
+	// Name of the "system" directory
+	define('SYSDIR', basename(BASEPATH));
 
-          </a>
+	// The path to the "application" directory
+	if (is_dir($application_folder))
+	{
+		if (($_temp = realpath($application_folder)) !== FALSE)
+		{
+			$application_folder = $_temp;
+		}
+		else
+		{
+			$application_folder = strtr(
+				rtrim($application_folder, '/\\'),
+				'/\\',
+				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+			);
+		}
+	}
+	elseif (is_dir(BASEPATH.$application_folder.DIRECTORY_SEPARATOR))
+	{
+		$application_folder = BASEPATH.strtr(
+			trim($application_folder, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		);
+	}
+	else
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your application folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+		exit(3); // EXIT_CONFIG
+	}
 
-        </div>
-      </div>
+	define('APPPATH', $application_folder.DIRECTORY_SEPARATOR);
 
-      <div class="col-md-4"   >
-        <div class="blog_1">
-          <a href="#" >
-            <img src="img/img_14.jpg">
-            <div class="blog_2">
-              <h5><i class="fa fa-user"></i> Admin <i class="fa fa-calendar"></i>24 Aug 2021</h5>
-              <h4> Why do Professionals need  </h4>
-              <p>
-                “Sometimes people find it difficult to get solutions instantly. So apps are introduced to give vision and direction to turn our dreams into reality.”
-              </p>
-              <span class="btn btn_theme2">Read More <i class="fa fa-chevron-right"></i></span>
-            </div>
+	// The path to the "views" directory
+	if ( ! isset($view_folder[0]) && is_dir(APPPATH.'views'.DIRECTORY_SEPARATOR))
+	{
+		$view_folder = APPPATH.'views';
+	}
+	elseif (is_dir($view_folder))
+	{
+		if (($_temp = realpath($view_folder)) !== FALSE)
+		{
+			$view_folder = $_temp;
+		}
+		else
+		{
+			$view_folder = strtr(
+				rtrim($view_folder, '/\\'),
+				'/\\',
+				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+			);
+		}
+	}
+	elseif (is_dir(APPPATH.$view_folder.DIRECTORY_SEPARATOR))
+	{
+		$view_folder = APPPATH.strtr(
+			trim($view_folder, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		);
+	}
+	else
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your view folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+		exit(3); // EXIT_CONFIG
+	}
 
-          </a>
+	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
 
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section> -->
-
-<?php include('include/footer.php'); ?>
-<script src="js/circle-progress.min.js"></script>
-<script>
-  temp = parseInt($(".circle span").text())
-$('.circle').circleProgress({
-    fill: {gradient: ['orange']},
-    startAngle: -Math.PI / 2,
-    size: 133
-  }).on('circle-animation-progress', function(event, progress) {
-    $(this).find('span').html(parseInt(progress*temp));
-});
-</script>
-
-<script>
-  temp2 = parseInt($(".circle2 span").text())
-$('.circle2').circleProgress({
-    fill: {gradient: ['orange']},
-    startAngle: -Math.PI / 2,
-    size: 133
-  }).on('circle-animation-progress', function(event, progress) {
-    $(this).find('span').html(parseInt(progress*temp2));
-});
-</script>
-<script>
-  temp3 = parseInt($(".circle3 span").text())
-$('.circle3').circleProgress({
-    fill: {gradient: ['orange']},
-    startAngle: -Math.PI / 2,
-    size: 133
-  }).on('circle-animation-progress', function(event, progress) {
-    $(this).find('span').html(parseInt(progress*temp3));
-});
-</script>
-<script>
-  temp4 = parseInt($(".circle4 span").text())
-$('.circle4').circleProgress({
-    fill: {gradient: ['orange']},
-    startAngle: -Math.PI / 2,
-    size: 133
-  }).on('circle-animation-progress', function(event, progress) {
-    $(this).find('span').html(parseInt(progress*temp4));
-});
-</script>
-<script>
-  temp5 = parseInt($(".circle5 span").text())
-$('.circle5').circleProgress({
-    fill: {gradient: ['orange']},
-    startAngle: -Math.PI / 2,
-    size: 133
-  }).on('circle-animation-progress', function(event, progress) {
-    $(this).find('span').html(parseInt(progress*temp5));
-});
-</script>
-
-
-  <!-- modal -->
-  <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="lab_na1" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="lab_na1">Details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <div class="conten_set box_5">
-            <h4>Operation sys</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-          </div>
-      </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div> -->
-    </div>
-  </div>
-</div>
-        <!-- modal -->
+/*
+ * --------------------------------------------------------------------
+ * LOAD THE BOOTSTRAP FILE
+ * --------------------------------------------------------------------
+ *
+ * And away we go...
+ */
+require_once BASEPATH.'core/CodeIgniter.php';
