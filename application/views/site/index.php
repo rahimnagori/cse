@@ -27,7 +27,7 @@
       <div class="col-sm-6" data-aos="fade-right" data-aos-duration="1000" data-aos-easing="linear">
         <div class="conten_set des_c1">
           <h1>
-            India's #01 <br>
+            India's #1 <br>
             Problem Solving <?= $this->config->item('PROJECT'); ?> Professionals
           </h1>
           <p class="text-justified">
