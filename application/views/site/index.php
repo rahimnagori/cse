@@ -124,7 +124,7 @@ if (count($courses)) {
           <?php
           if ($urls['all_category_url']) {
           ?>
-            <a href="<?= $urls['all_category_url']; ?>" class="btn btn_theme category-btn" target="_blank">Buy all the courses in this category ($ <?= $urls['all_category_price']; ?>)</a>
+            <a href="<?= $urls['all_category_url']; ?>" class="btn btn_theme2 btn-lg btn_r category-btn" target="_blank">Buy all the courses in this category ($ <?= $urls['all_category_price']; ?>)</a>
           <?php
           }
           ?>
