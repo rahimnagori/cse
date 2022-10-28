@@ -68,6 +68,27 @@
     </div>
   </div>
 </section>
+<section class="sec_pad">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-sm-6">
+        <img class="img_r" src="<?= site_url('assets/site/'); ?>img/img_44.png">
+      </div>
+      <div class="col-sm-6">
+        <div class="abn_text">
+          <div class="heading">
+            <h1>
+              Download Full Course PDF/PPT of all courses for Free
+            </h1>
+          </div>
+          <a href="<?= $urls['download_full_course_url']; ?>" class="btn btn_theme2 btn-lg btn_r " target="_blank">
+            <span class="on1">Download </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <?php
 if (count($courses)) {
@@ -191,7 +212,6 @@ if (count($courses)) {
           <div class="circle">
             <span class="count"><?= $highlights['active_courses']; ?></span>
           </div>
-
           <h4>
             ACTIVE COURSES
           </h4>
@@ -255,27 +275,6 @@ if (count($courses)) {
   </div>
   <div class="download-shape-3">
     <img src="<?= site_url('assets/site/'); ?>img/shape_3.png" alt="">
-  </div>
-</section>
-<section class="sec_pad">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-sm-6">
-        <img class="img_r" src="<?= site_url('assets/site/'); ?>img/img_44.png">
-      </div>
-      <div class="col-sm-6">
-        <div class="abn_text">
-          <div class="heading">
-            <h1>
-              Download Full Course PDF/PPT of all courses for Free
-            </h1>
-          </div>
-          <a href="<?= $urls['download_full_course_url']; ?>" class="btn btn_theme2 btn-lg btn_r " target="_blank">
-            <span class="on1">Download </span>
-          </a>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 <!-- <section class="sec_des_h2 sec_pad">
@@ -347,7 +346,7 @@ if (count($courses)) {
 </section> -->
 
 <?php
-if (count($deals)) {
+if (false && count($deals)) {
 ?>
   <section class="sec_des_h1 pad_t">
     <div class="container">
