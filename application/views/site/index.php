@@ -599,6 +599,6 @@ if (count($reviews)) {
     if (category_price && category_price != 0.00) {
       btnTitle = `${btnTitle} ($ ${category_price})`;
     }
-    return `<a href="${url}" class="btn btn_theme category-btn" target="_blank" >${btnTitle}</a>`
+    return `<a href="${url}" class="btn btn_theme2 btn-lg btn_r category-btn" target="_blank" >${btnTitle}</a>`
   }
 </script>
