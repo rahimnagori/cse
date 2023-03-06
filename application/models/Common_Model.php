@@ -165,6 +165,9 @@ class Common_Model extends CI_Model
     $pageData['upcomingCourses'] = $this->Common_Model->fetch_records('upcoming_courses', array('type' => 0));
     $pageData['youtubePlaylists'] = $this->Common_Model->fetch_records('upcoming_courses', array('type' => 1));
     $pageData['urls'] = $this->Common_Model->fetch_records('urls', array('id' => 1), false, true);
+    $pageData['isFreeCategoryActive'] = $this->Common_Model->fetch_records('urls_new', false, 'input_value', true, false, false, false, 'input_name', 'free_category_active');
+    $pageData['isPaidCategoryActive'] = $this->Common_Model->fetch_records('urls_new', false, 'input_value', true, false, false, false, 'input_name', 'paid_category_active');
+    $pageData['isAllCategoryActive'] = $this->Common_Model->fetch_records('urls_new', false, 'input_value', true, false, false, false, 'input_name', 'all_category_active');
     return $pageData;
   }
 

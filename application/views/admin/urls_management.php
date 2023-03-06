@@ -5,7 +5,6 @@
     Urls <small>Management</small>
   </h4>
   <div class="white_box">
-    <div id="responseMessage"></div>
     <div class="card_bodym">
       <form id="editForm" name="editForm" method="post" onsubmit="update_urls(event);">
         <div class="row">
@@ -25,6 +24,7 @@
           }
           ?>
         </div>
+        <div id="responseMessage"></div>
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">

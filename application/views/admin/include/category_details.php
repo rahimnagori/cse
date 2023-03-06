@@ -5,6 +5,11 @@
         <input type="text" name="category_name" class="form-control" required="" value="<?= $categoryDetails['category_name']; ?>">
     </div>
     <div class="form-group">
+        <label> Active </label><br/>
+        Yes<input type="radio" name="is_active" value="1" <?= ($categoryDetails['is_active'] == 1) ? 'checked' : ''; ?> >
+        No<input type="radio" name="is_active" value="0" <?= ($categoryDetails['is_active'] == 0) ? 'checked' : ''; ?> >
+    </div>
+    <div class="form-group">
         <label> Category Link </label>
         <input type="url" name="category_link" class="form-control" value="<?= $categoryDetails['category_link']; ?>" >
     </div>

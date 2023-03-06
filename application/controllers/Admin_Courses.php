@@ -258,6 +258,7 @@ class Admin_Courses extends CI_Controller
             $update['category_name'] = $this->input->post('category_name');
             $update['category_link'] = $this->input->post('category_link');
             $update['category_price'] = $this->input->post('category_price');
+            $update['is_active'] = $this->input->post('is_active');
             if ($this->Common_Model->update('categories', $where, $update)) {
                 $response['status'] = 1;
                 $response['responseMessage'] = $this->Common_Model->success('Category updated successfully.');

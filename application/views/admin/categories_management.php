@@ -13,6 +13,7 @@
           <thead>
             <tr>
               <th>S.No.</th>
+              <th>Active</th>
               <th>Category Name</th>
               <th>Category Link</th>
               <th>Category Price</th>
@@ -25,6 +26,7 @@
             ?>
               <tr>
                 <td><?= $serialNumber + 1; ?></td>
+                <td><?= ($category['is_active'] == 1) ? 'Yes' : 'No'; ?></td>
                 <td><?= $category['category_name']; ?></td>
                 <td><?= $category['category_link']; ?></td>
                 <td><?= $category['category_price']; ?></td>

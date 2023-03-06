@@ -91,7 +91,7 @@
 </section>
 
 <?php
-if (count($courses)) {
+if (count($courses) && count($categories)) {
 ?>
   <section class="sec_pad  sec_3 slide_set" id="OurCourse" data-js="hero-demo">
     <div class="container">

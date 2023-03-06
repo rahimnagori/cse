@@ -22,8 +22,14 @@ class Admin_Urls extends CI_Controller
   {
     $pageData = $this->Common_Model->getAdmin($this->session->userdata('id'));
 
-    $pageData['urls']  = $this->Common_Model->fetch_records('urls', false, false, true);
-    $this->load->view('admin/urls_management', $pageData);
+    // $pageData['urls']  = $this->Common_Model->fetch_records('urls', false, false, true);
+    $pageData['urls']  = $this->Common_Model->fetch_records('urls_new');
+    if (!count($pageData['urls'])) redirect('Admin');
+    // echo "<pre>";
+    // print_r($pageData['urls']);
+    // die;
+    // $this->load->view('admin/urls_management', $pageData);
+    $this->load->view('admin/new_urls_management', $pageData);
   }
 
   public function update_url()
@@ -45,6 +51,25 @@ class Admin_Urls extends CI_Controller
     } else {
       $response['status'] = 2;
       $response['responseMessage'] = $this->Common_Model->error(validation_errors());
+    }
+
+    echo json_encode($response);
+  }
+
+  public function update_url_new()
+  {
+    $response['debug'] = [];
+    $response['status'] = 0;
+    $response['responseMessage'] = $this->Common_Model->error('Something went wrong.');
+    $urls = $this->Common_Model->fetch_records('urls_new', false, 'id, input_name');
+    foreach ($urls as $url) {
+      $where['id'] = $url['id'];
+      $update['input_value'] = $this->input->post($url['input_name']);
+      $response['debug'][] = "<p>" .$this->db->last_query() ."</p>";
+      if ($this->Common_Model->update('urls_new', $where, $update)) {
+        $response['status'] = 1;
+        $response['responseMessage'] = $this->Common_Model->success('Urls updated successfully.');
+      }
     }
 
     echo json_encode($response);
