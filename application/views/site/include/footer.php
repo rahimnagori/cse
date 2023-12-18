@@ -19,17 +19,21 @@
             <div class="row align-items-center">
                 <div class="col-sm-7">
                     <p>
-                        © Copyright 2022 | <?= $this->config->item('PROJECT'); ?>. | All Rights Reserved
+                        © Copyright <?=date('Y');?> | <?= $this->config->item('PROJECT'); ?>. | All Rights Reserved
 
                     </p>
                 </div>
                 <div class="col-sm-5">
                     <div class="footer_socc">
                         <ul class="ul_set socila_foo">
-                            <li><a href="<?= $urls['whatsapp_url']; ?>" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
-                            <li><a href="<?= $urls['facebook_url']; ?>" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="<?= $urls['youtube_url']; ?>" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
-                            <li><a href="<?= $urls['telegram_url']; ?>" target="_blank"><i class="fa fa-telegram"></i></a></li>
+                            <li><a href="<?= $urls['whatsapp_url']; ?>" target="_blank"><i
+                                        class="fa fa-whatsapp"></i></a></li>
+                            <li><a href="<?= $urls['facebook_url']; ?>" target="_blank"><i
+                                        class="fa fa-facebook"></i></a></li>
+                            <li><a href="<?= $urls['youtube_url']; ?>" target="_blank"><i
+                                        class="fa fa-youtube-play"></i></a></li>
+                            <li><a href="<?= $urls['telegram_url']; ?>" target="_blank"><i
+                                        class="fa fa-telegram"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -39,10 +43,14 @@
 </footer>
 
 <div class="fixe_socil">
-    <a href="<?= $urls['whatsapp_url']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s3.png" alt=""></a>
-    <a href="<?= $urls['facebook_url']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s2.png" alt=""></a>
-    <a href="<?= $urls['youtube_url']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s1.png" alt=""></a>
-    <a href="<?= $urls['telegram_url']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s5.png" alt=""></a>
+    <a href="<?= $urls['whatsapp_url']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s3.png"
+            alt=""></a>
+    <a href="<?= $urls['facebook_url']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s2.png"
+            alt=""></a>
+    <a href="<?= $urls['youtube_url']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s1.png"
+            alt=""></a>
+    <a href="<?= $urls['telegram_url']; ?>" target="_blank"><img src="<?= site_url('assets/site/'); ?>img/s5.png"
+            alt=""></a>
 </div>
 
 
@@ -59,43 +67,46 @@
 <!-- Isotope script is for category feature -->
 <script src="<?= site_url('assets/site/'); ?>js/isotope-docs.min.js"></script>
 <script>
-    const BASE_URL = "<?= site_url(); ?>";
-    const LOADING = "<i class='fa fa-spin fa-spinner' aria-hidden='true'></i> Processing ... ";
-    $('.count').each(function() {
-        $(this).prop('Counter', 0).animate({
-            Counter: $(this).text()
-        }, {
-            duration: 4000,
-            easing: 'swing',
-            step: function(now) {
-                $(this).text(Math.ceil(now));
-            }
-        });
+const BASE_URL = "<?= site_url(); ?>";
+const LOADING = "<i class='fa fa-spin fa-spinner' aria-hidden='true'></i> Processing ... ";
+$('.count').each(function() {
+    $(this).prop('Counter', 0).animate({
+        Counter: $(this).text()
+    }, {
+        duration: 4000,
+        easing: 'swing',
+        step: function(now) {
+            $(this).text(Math.ceil(now));
+        }
     });
-    $(document).ready(function() {
-        $('a[href^="#"]').on('click', function(e) {
-            e.preventDefault();
-            var target = this.hash;
-            var $target = $(target);
-            $('html, body').stop().animate({
-                'scrollTop': $target.offset().top
-            }, 900, 'swing', function() {});
-        });
+});
+$(document).ready(function() {
+    $('a[href^="#"]').on('click', function(e) {
+        e.preventDefault();
+        var target = this.hash;
+        var $target = $(target);
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top
+        }, 900, 'swing', function() {});
     });
+});
 </script>
 <script>
-    AOS.init({
-        easing: 'ease-out-back',
-        duration: 1000
-    });
+AOS.init({
+    easing: 'ease-out-back',
+    duration: 1000
+});
 </script>
 
-  <script>
-    (function(h,e,a,t,m,p) {
-      m=e.createElement(a);m.async=!0;m.src=t;
-      p=e.getElementsByTagName(a)[0];p.parentNode.insertBefore(m,p);
-    })(window,document,'script','https://u.heatmap.it/log.js');
-  </script>
+<script>
+(function(h, e, a, t, m, p) {
+    m = e.createElement(a);
+    m.async = !0;
+    m.src = t;
+    p = e.getElementsByTagName(a)[0];
+    p.parentNode.insertBefore(m, p);
+})(window, document, 'script', 'https://u.heatmap.it/log.js');
+</script>
 </body>
 
 </html>
