@@ -19,8 +19,8 @@
             <div class="row align-items-center">
                 <div class="col-sm-7">
                     <p>
-                        © Copyright <?=date('Y');?> | <?= $this->config->item('PROJECT'); ?>. | All Rights Reserved
-
+                        © Copyright <?=date('Y');?> | <?= $this->config->item('PROJECT'); ?>. | All Rights Reserved |
+                        Bangalore, India - 560103
                     </p>
                 </div>
                 <div class="col-sm-5">
