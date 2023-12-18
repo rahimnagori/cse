@@ -29,6 +29,7 @@ class Home extends CI_Controller
       'static' => 'true'
     ];
     $pageData['courses'] = $this->Common_Model->fetch_records('courses');
+    $pageData['exchangeRate'] = 82;
     $dynamicCategories = $this->Common_Model->fetch_records('categories');
     $staticCategories['free'] = $freeCategory;
     $staticCategories['paid'] = $paidCategory;
