@@ -27,8 +27,8 @@
             <div class="col-sm-6" data-aos="fade-right" data-aos-duration="1000" data-aos-easing="linear">
                 <div class="conten_set des_c1">
                     <h1>
-                        India's #1 <br>
-                        Problem Solving <?= $this->config->item('PROJECT'); ?> Professionals
+                        Computer Science Projects <br>
+                        Problem Solving <?= $this->config->item('PROJECT'); ?> No DS/ALFO, only Projects
                     </h1>
                     <p class="text-justified">
                         Welcome to <?= $this->config->item('PROJECT'); ?>, an OnlineCourse offering Website in the field
@@ -138,8 +138,8 @@ if (count($courses)) {
           if ($urls['all_category_url']) {
           ?>
                 <a href="<?= $urls['all_category_url']; ?>" class="btn btn_theme2 btn-lg btn_r category-btn"
-                    target="_blank">Buy all the courses in this category ($ <?= $urls['all_category_price']; ?> -
-                    <?= $urls['all_category_price'] * $exchangeRate; ?> <i class="fa fa-inr"></i>)</a>
+                    target="_blank">Buy all the courses in this category ($ <?= $urls['all_category_price']; ?> /
+                    <i class="fa fa-inr"><?= $urls['all_category_price'] * $exchangeRate; ?></i>)</a>
                 <?php
           }
           ?>
