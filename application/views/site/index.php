@@ -67,8 +67,8 @@
                             Welcome to <?= $this->config->item('PROJECT'); ?>, an Online Course offering Website in the
                             field of Operating Systems, Networking, Linux System Programming and Several Coding
                             Projects. We offer only Development based Projects, no DS/ALGO/CP.
-                            <br><br>
-                            <h3><a href = "https://www.youtube.com/watch?v=h84iyzqa8Sc" target="_blank">New : I want to Join as Affiliate</a></h3>
+                           <!-- <br><br>
+                            <h3><a href = "https://www.youtube.com/watch?v=h84iyzqa8Sc" target="_blank">New : I want to Join as Affiliate</a></h3>  -->
                         </p>
                     </div>
                 </div>
