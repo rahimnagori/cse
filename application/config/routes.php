@@ -130,3 +130,5 @@ $route['Faqs-Management/Add'] = 'Admin_Faqs/add_faq';
 $route['Faqs-Management/delete'] = 'Admin_Faqs/delete_faq';
 $route['Faqs-Management/Get/(:any)'] = 'Admin_Faqs/get_faq/$1';
 $route['Faqs-Management/Update'] = 'Admin_Faqs/update_faq';
+$route['frontend-setting'] = 'Setting';
+
