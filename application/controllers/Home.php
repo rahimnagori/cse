@@ -46,7 +46,8 @@ class Home extends CI_Controller
     $pageData['deals'] = $this->Common_Model->fetch_records('deals');
     $pageData['newses'] = $this->Common_Model->fetch_records('newses');
     $pageData['highlights'] = $this->Common_Model->fetch_records('highlights', false, false, true);
-
+    $where['id']=1;
+    $pageData['adminData'] = $this->Common_Model->fetch_records('setting', $where, false, true);
     $this->load->view('site/include/header', $pageData);
     $this->load->view('site/index', $pageData);
     $this->load->view('site/include/footer', $pageData);
