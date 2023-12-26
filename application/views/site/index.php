@@ -10,6 +10,22 @@
 .sec_pad.abhout {
     background: #edebf082;
 }
+@media (max-width: 767px) {
+ 
+ /* ... */
+
+ .top-content .carousel-control-prev, 
+ .top-content .carousel-control-next { display: none; }
+ .top-content .carousel-indicators li { margin-left: 10px; margin-right: 10px; }
+
+ /* ... */
+
+}
+.carousel-control-next, .carousel-control-prev {
+  position: absolute;
+  top: 45%;
+  bottom: inherit;
+}
 </style>
 <div class="tot_had">
     <div class="efff_h">
@@ -22,18 +38,130 @@
         <div class="cyan"></div>
         <div class="lime"></div>
     </div>
+    <div class="container-fluid">
+
+<div class="row" style="justify-content: center;">
+<!-- Top content -->
+<div class="top-content" style="width: 80%;">
+  
+        <!-- End title and description row -->
+        <!-- Carousel row -->
+        <div class="row">
+            <div class="col-sm-12 " style="padding: 0;">
+                <!-- Carousel -->
+                <div id="carousel-example" class="carousel slide">
+                    <ol class="carousel-indicators">
+                        <?php if(!empty($adminData['video_link1'])){ ?>
+                        <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+                        <?php } ?>
+                        <?php if(!empty($adminData['video_link2'])){ ?>
+                        <li data-target="#carousel-example" data-slide-to="1"></li>
+                        <?php } ?>
+                        <?php if(!empty($adminData['video_link3'])){ ?>
+                        <li data-target="#carousel-example" data-slide-to="2"></li>
+                        <?php } ?>
+                        <?php if(!empty($adminData['video_link4'])){ ?>
+                        <li data-target="#carousel-example" data-slide-to="4"></li>
+                        <?php } ?>
+                        <?php if(!empty($adminData['video_link5'])){ ?>
+                        <li data-target="#carousel-example" data-slide-to="5"></li>
+                        <?php } ?>
+                        
+                    </ol>
+                    <div class="carousel-inner">
+                        <?php
+                                if(!empty($adminData['video_link1'])){
+                                        ?>
+                                             <div class="carousel-item active">
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="<?=  $adminData['video_link1']?>" allowfullscreen id="player-1"></iframe>
+                                                </div>
+                                            </div>
+
+                                        <?php
+                                }
+                                if(!empty($adminData['video_link2'])){
+                                    ?>
+                                         <div class="carousel-item">
+                                            <div class="embed-responsive embed-responsive-16by9">
+                                                <iframe class="embed-responsive-item" src="<?=  $adminData['video_link2']?>" allowfullscreen id="player-2"></iframe>
+                                            </div>
+                                        </div>
+
+                                    <?php
+                            }
+                            if(!empty($adminData['video_link3'])){
+                                ?>
+                                     <div class="carousel-item">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" src="<?=  $adminData['video_link3']?>" allowfullscreen  id="player-3"></iframe>
+                                        </div>
+                                    </div>
+
+                                <?php
+                        }
+                        if(!empty($adminData['video_link4'])){
+                                ?>
+                                     <div class="carousel-item">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" src="<?=  $adminData['video_link4']?>" allowfullscreen  id="player-4"></iframe>
+                                        </div>
+                                    </div>
+
+                                <?php
+                        }if(!empty($adminData['video_link5'])){
+                                ?>
+                                     <div class="carousel-item">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" src="<?=  $adminData['video_link5']?>" allowfullscreen  id="player-5"></iframe>
+                                        </div>
+                                    </div>
+
+                                <?php
+                        }
+
+                        ?>
+                    </div>
+                    <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <!-- End carousel -->
+            </div>
+        </div>
+        <!-- End carousel row -->
+    </div>
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
     <div class="container">
+
         <div class="row d_flex a_t">
             <div class="col-sm-6" data-aos="fade-right" data-aos-duration="1000" data-aos-easing="linear">
                 <div class="conten_set des_c1">
                     <h1>
-                        India's #1 <br>
-                        Problem Solving <?= $this->config->item('PROJECT'); ?> Professionals
+                        Computer Science Projects <br>
+                        Problem Solving <?= $this->config->item('PROJECT'); ?> No DS/ALGO/CP, only Projects
                     </h1>
                     <p class="text-justified">
                         Welcome to <?= $this->config->item('PROJECT'); ?>, an OnlineCourse offering Website in the field
                         of Operating Systems, Networking, Linux System Programming and Several Coding Projects. We offer
-                        only Development based Projects, no DS/ALGO/CP.
+                        only Development based Projects and Courses, no DS/ALGO/CP.
                     </p>
                 </div>
             </div>
@@ -67,6 +195,8 @@
                             Welcome to <?= $this->config->item('PROJECT'); ?>, an Online Course offering Website in the
                             field of Operating Systems, Networking, Linux System Programming and Several Coding
                             Projects. We offer only Development based Projects, no DS/ALGO/CP.
+                           <!-- <br><br>
+                            <h3><a href = "https://www.youtube.com/watch?v=h84iyzqa8Sc" target="_blank">New : I want to Join as Affiliate</a></h3>  -->
                         </p>
                     </div>
                 </div>
@@ -138,8 +268,8 @@ if (count($courses)) {
           if ($urls['all_category_url']) {
           ?>
                 <a href="<?= $urls['all_category_url']; ?>" class="btn btn_theme2 btn-lg btn_r category-btn"
-                    target="_blank">Buy all the courses in this category ($ <?= $urls['all_category_price']; ?> -
-                    <?= $urls['all_category_price'] * $exchangeRate; ?> <i class="fa fa-inr"></i>)</a>
+                    target="_blank">Buy all the courses in this category ($ <?= $urls['all_category_price']; ?> /
+                    <i class="fa fa-inr"><?= $urls['all_category_price'] * $exchangeRate; ?></i>)</a>
                 <?php
           }
           ?>
@@ -565,9 +695,60 @@ if (count($reviews)) {
     </div>
 </div>
 <!-- modal -->
-
-
+<script src="https://www.youtube.com/iframe_api"></script>
 <script>
+//   // This variable will hold the YouTube player instances.
+//  var tag = document.createElement('script');
+// tag.src = "//www.youtube.com/iframe_api";
+// var firstScriptTag = document.getElementsByTagName('script')[0];
+// firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// // Create YouTube player(s) after the API code downloads.
+// var player1;
+// var player2;
+// var player3;
+// var player4;
+// var player5;
+//  var players = {};
+
+//   // This function gets called when the YouTube IFrame API is ready.
+//   function onYouTubeIframeAPIReady() {
+//     // For each iframe on the page, create a new YouTube player instance.
+//     $('iframe.embed-responsive-item').each(function(index) {
+//       var frameID = $(this).attr('id');
+//       players[frameID] = new YT.Player(frameID);
+//     });
+//      player1.stopVideo();
+//         player2.stopVideo();
+//         player3.stopVideo();
+//         player4.stopVideo();
+//         player5.stopVideo();
+//   }
+// function onYouTubeIframeAPIReady() {
+//     player1 = new YT.Player('player-1');
+//     player2 = new YT.Player('player-2');
+//     player3 = new YT.Player('player-3');
+//     player4 = new YT.Player('player-4');
+//     player5 = new YT.Player('player-5');
+// }
+//   $(".carousel-control-next,.carousel-control-prev").click(function () {
+//         player1.stopVideo();
+//         player2.stopVideo();
+//         player3.stopVideo();
+//         player4.stopVideo();
+//         player5.stopVideo();
+//     });
+
+  // Load the IFrame Player API code asynchronously.
+setTimeout(function() {
+        'use strict';
+        var overlay = document.getElementsByClassName("ytp-pause-overlay ytp-scroll-min");
+        if (overlay.length > 0) {
+            overlay[0].remove();
+        }
+    }, 3000); //
+    
+    
 function get_course_details(course_id) {
     $.ajax({
         type: 'GET',
