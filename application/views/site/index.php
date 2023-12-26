@@ -1,126 +1,294 @@
 <style>
-  .man_nav {
+.man_nav {
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     z-index: 2;
-  }
+}
 
-  .sec_pad.abhout {
+.sec_pad.abhout {
     background: #edebf082;
-  }
+}
+@media (max-width: 767px) {
+ 
+ /* ... */
+
+ .top-content .carousel-control-prev, 
+ .top-content .carousel-control-next { display: none; }
+ .top-content .carousel-indicators li { margin-left: 10px; margin-right: 10px; }
+
+ /* ... */
+
+}
+.carousel-control-next, .carousel-control-prev {
+  position: absolute;
+  top: 45%;
+  bottom: inherit;
+}
 </style>
 <div class="tot_had">
-  <div class="efff_h">
+    <div class="efff_h">
 
-    <div class="purple"></div>
-    <div class="medium-blue"></div>
-    <div class="light-blue"></div>
-    <div class="red1"></div>
-    <div class="orange"></div>
-    <div class="cyan"></div>
-    <div class="lime"></div>
-  </div>
-  <div class="container">
-    <div class="row d_flex a_t">
-      <div class="col-sm-6" data-aos="fade-right" data-aos-duration="1000" data-aos-easing="linear">
-        <div class="conten_set des_c1">
-          <h1>
-            India's #1 <br>
-            Problem Solving <?= $this->config->item('PROJECT'); ?> Professionals
-          </h1>
-          <p class="text-justified">
-            Welcome to <?= $this->config->item('PROJECT'); ?>, an OnlineCourse offering Website in the field of Operating Systems, Networking, Linux System Programming and Several Coding Projects. We offer only Development based Projects, no DS/ALGO/CP.
-          </p>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="video_set">
-          <video width="320" height="240" controls>
-            <source src="https://video.wixstatic.com/video/8cccc0_15cae689a97e4a2781b24890abba2073/1080p/mp4/file.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
+        <div class="purple"></div>
+        <div class="medium-blue"></div>
+        <div class="light-blue"></div>
+        <div class="red1"></div>
+        <div class="orange"></div>
+        <div class="cyan"></div>
+        <div class="lime"></div>
     </div>
-  </div>
+    <div class="container-fluid">
+
+<div class="row" style="justify-content: center;">
+<!-- Top content -->
+<div class="top-content" style="width: 80%;">
+  
+        <!-- End title and description row -->
+        <!-- Carousel row -->
+        <div class="row">
+            <div class="col-sm-12 " style="padding: 0;">
+                <!-- Carousel -->
+                <div id="carousel-example" class="carousel slide">
+                    <ol class="carousel-indicators">
+                        <?php if(!empty($adminData['video_link1'])){ ?>
+                        <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+                        <?php } ?>
+                        <?php if(!empty($adminData['video_link2'])){ ?>
+                        <li data-target="#carousel-example" data-slide-to="1"></li>
+                        <?php } ?>
+                        <?php if(!empty($adminData['video_link3'])){ ?>
+                        <li data-target="#carousel-example" data-slide-to="2"></li>
+                        <?php } ?>
+                        <?php if(!empty($adminData['video_link4'])){ ?>
+                        <li data-target="#carousel-example" data-slide-to="4"></li>
+                        <?php } ?>
+                        <?php if(!empty($adminData['video_link5'])){ ?>
+                        <li data-target="#carousel-example" data-slide-to="5"></li>
+                        <?php } ?>
+                        
+                    </ol>
+                    <div class="carousel-inner">
+                        <?php
+                                if(!empty($adminData['video_link1'])){
+                                        ?>
+                                             <div class="carousel-item active">
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="<?=  $adminData['video_link1']?>" allowfullscreen id="player-1"></iframe>
+                                                </div>
+                                            </div>
+
+                                        <?php
+                                }
+                                if(!empty($adminData['video_link2'])){
+                                    ?>
+                                         <div class="carousel-item">
+                                            <div class="embed-responsive embed-responsive-16by9">
+                                                <iframe class="embed-responsive-item" src="<?=  $adminData['video_link2']?>" allowfullscreen id="player-2"></iframe>
+                                            </div>
+                                        </div>
+
+                                    <?php
+                            }
+                            if(!empty($adminData['video_link3'])){
+                                ?>
+                                     <div class="carousel-item">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" src="<?=  $adminData['video_link3']?>" allowfullscreen  id="player-3"></iframe>
+                                        </div>
+                                    </div>
+
+                                <?php
+                        }
+                        if(!empty($adminData['video_link4'])){
+                                ?>
+                                     <div class="carousel-item">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" src="<?=  $adminData['video_link4']?>" allowfullscreen  id="player-4"></iframe>
+                                        </div>
+                                    </div>
+
+                                <?php
+                        }if(!empty($adminData['video_link5'])){
+                                ?>
+                                     <div class="carousel-item">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" src="<?=  $adminData['video_link5']?>" allowfullscreen  id="player-5"></iframe>
+                                        </div>
+                                    </div>
+
+                                <?php
+                        }
+
+                        ?>
+                    </div>
+                    <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <!-- End carousel -->
+            </div>
+        </div>
+        <!-- End carousel row -->
+    </div>
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+    <div class="container">
+
+        <div class="row d_flex a_t">
+            <div class="col-sm-6" data-aos="fade-right" data-aos-duration="1000" data-aos-easing="linear">
+                <div class="conten_set des_c1">
+                    <h1>
+                        Computer Science Projects <br>
+                        Problem Solving <?= $this->config->item('PROJECT'); ?> No DS/ALGO/CP, only Projects
+                    </h1>
+                    <p class="text-justified">
+                        Welcome to <?= $this->config->item('PROJECT'); ?>, an OnlineCourse offering Website in the field
+                        of Operating Systems, Networking, Linux System Programming and Several Coding Projects. We offer
+                        only Development based Projects and Courses, no DS/ALGO/CP.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="video_set">
+                    <video width="320" height="240" controls>
+                        <source
+                            src="https://video.wixstatic.com/video/8cccc0_15cae689a97e4a2781b24890abba2073/1080p/mp4/file.mp4"
+                            type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <section class="sec_pad abhout">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md-6" data-aos="zoom-in" data-aos-duration="2000">
-        <div class="ab_img2 text-center">
-          <img src="<?= site_url('assets/site/'); ?>img/img_16.png" alt="" class="img_r">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6" data-aos="zoom-in" data-aos-duration="2000">
+                <div class="ab_img2 text-center">
+                    <img src="<?= site_url('assets/site/'); ?>img/img_16.png" alt="" class="img_r">
+                </div>
+            </div>
+            <div class="col-md-6" data-aos="zoom-in-up" data-aos-duration="2000">
+                <div class="abn_text">
+                    <div class="heading">
+                        <h1>
+                            About Us
+                        </h1>
+                        <p>
+                            Welcome to <?= $this->config->item('PROJECT'); ?>, an Online Course offering Website in the
+                            field of Operating Systems, Networking, Linux System Programming and Several Coding
+                            Projects. We offer only Development based Projects, no DS/ALGO/CP.
+                           <!-- <br><br>
+                            <h3><a href = "https://www.youtube.com/watch?v=h84iyzqa8Sc" target="_blank">New : I want to Join as Affiliate</a></h3>  -->
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-md-6" data-aos="zoom-in-up" data-aos-duration="2000">
-        <div class="abn_text">
-          <div class="heading">
-            <h1>
-              About Us
-            </h1>
-            <p>
-              Welcome to <?= $this->config->item('PROJECT'); ?>, an Online Course offering Website in the field of Operating Systems, Networking, Linux System Programming and Several Coding Projects. We offer only Development based Projects, no DS/ALGO/CP.
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
+</section>
+<section class="sec_pad">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <img class="img_r" src="<?= site_url('assets/site/'); ?>img/img_44.png">
+            </div>
+            <div class="col-sm-6">
+                <div class="abn_text">
+                    <div class="heading">
+                        <h1>
+                            Download Full Course PDF/PPT of all courses for Free
+                        </h1>
+                    </div>
+                    <a href="<?= $urls['download_full_course_url']; ?>" class="btn btn_theme2 btn-lg btn_r "
+                        target="_blank">
+                        <span class="on1">Download </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <?php
 if (count($courses)) {
 ?>
-  <section class="sec_pad  sec_3 slide_set" id="OurCourse" data-js="hero-demo">
+<section class="sec_pad  sec_3 slide_set" id="OurCourse" data-js="hero-demo">
     <div class="container">
-      <div class="btn_sim">
-        <a href="<?= $urls['telegram_url']; ?>" target="_blank" class="btn btn_theme2 btn-lg btn_r rad_morre1">
-          <span class="on1"><img src="<?= site_url('assets/site/'); ?>img/telegram.png" alt="" style="width: 26px;transform: translateX(-10px) translateY(-2px);"> Telegram <i class="fa fa-long-arrow-right"></i></span>
-        </a>
-      </div>
-      <div class="heading text-center " data-aos="slide-right" data-aos-duration="1000">
-        <h1>
-          Best Selling Courses
-        </h1>
-        <p>We offer 20+ Courses in the field of System Programming, Networking Theory and Development Projects. The Courses are available on Udemy and Teachable Platform with Life-time access.</p>
+        <div class="btn_sim">
+            <a href="<?= $urls['telegram_url']; ?>" target="_blank" class="btn btn_theme2 btn-lg btn_r rad_morre1">
+                <span class="on1"><img src="<?= site_url('assets/site/'); ?>img/telegram.png" alt=""
+                        style="width: 26px;transform: translateX(-10px) translateY(-2px);"> Telegram <i
+                        class="fa fa-long-arrow-right"></i></span>
+            </a>
+        </div>
+        <div class="heading text-center " data-aos="slide-right" data-aos-duration="1000">
+            <h1>
+                Best Selling Courses
+            </h1>
+            <p>We offer 20+ Courses in the field of System Programming, Networking Theory and Development Projects. The
+                Courses are available on Udemy and Teachable Platform with Life-time access.</p>
 
-      </div>
-      <div class="fiter_set">
-        <ul class="filters  js-radio-button-group ul_set clearfix">
-          <button data-filter="*" class="button is-checked" onclick="load_category('all');">All (<?= count($courses); ?>)</button>
-          <?php
+        </div>
+        <div class="fiter_set">
+            <ul class="filters  js-radio-button-group ul_set clearfix">
+                <button data-filter="*" class="button is-checked" onclick="load_category('all');">All
+                    (<?= count($courses); ?>)</button>
+                <?php
           foreach ($categories as $category) {
           ?>
-            <button data-filter=".cat-<?= $category['id']; ?>" class="button" type="button" onclick="load_category('<?= $category['id']; ?>');"><?= $category['category_name']; ?> (<?= $category['totalCourses']; ?>)</button>
-          <?php
+                <button data-filter=".cat-<?= $category['id']; ?>" class="button" type="button"
+                    onclick="load_category('<?= $category['id']; ?>');"><?= $category['category_name']; ?>
+                    (<?= $category['totalCourses']; ?>)</button>
+                <?php
           }
           ?>
-        </ul>
-      </div>
-      <div class="btn_us_add">
-        <span id="all-category-btn">
-          <?php
+            </ul>
+        </div>
+        <div class="btn_us_add">
+            <span id="all-category-btn">
+                <?php
           if ($urls['all_category_url']) {
           ?>
-            <a href="<?= $urls['all_category_url']; ?>" class="btn btn_theme category-btn" target="_blank">Buy all the courses in this category ($ <?= $urls['all_category_price']; ?>)</a>
-          <?php
+                <a href="<?= $urls['all_category_url']; ?>" class="btn btn_theme2 btn-lg btn_r category-btn"
+                    target="_blank">Buy all the courses in this category ($ <?= $urls['all_category_price']; ?> /
+                    <i class="fa fa-inr"><?= $urls['all_category_price'] * $exchangeRate; ?></i>)</a>
+                <?php
           }
           ?>
-        </span>
-        <?php
+            </span>
+            <?php
         foreach ($categories as $category) {
           continue;
           if ($category['category_link'] != null) {
         ?>
-            <a href="<?= $category['category_link']; ?>" class="hidden btn btn_theme hidden category-<?= $category['category_name']; ?> category-btn">Buy all courses in this category</a>
-        <?php
+            <a href="<?= $category['category_link']; ?>"
+                class="hidden btn btn_theme hidden category-<?= $category['category_name']; ?> category-btn">Buy all
+                courses in this category</a>
+            <?php
           }
         }
         ?>
-      </div>
-      <div class="row grid">
-        <?php
+        </div>
+        <div class="row grid">
+            <?php
         foreach ($courses as $course) {
           $youTubeUrl = '';
           if ($course['thumbnail_type'] == 2) {
@@ -128,155 +296,139 @@ if (count($courses)) {
             $youTubeUrl = $youTubeEmbed[1];
           }
         ?>
-          <div class="col-sm-3 col-6 element-item cat-<?= ($course['type']) ? 'paid' : 'free'; ?> cat-<?= $course['category']; ?>" data-category="cat-<?= $course['category']; ?>">
-            <div class="box_cos1">
-              <div class="bors_img">
-                <?php
+            <div class="col-sm-3 col-6 element-item cat-<?= ($course['type']) ? 'paid' : 'free'; ?> cat-<?= $course['category']; ?>"
+                data-category="cat-<?= $course['category']; ?>">
+                <div class="box_cos1">
+                    <div class="bors_img">
+                        <?php
                 if ($course['thumbnail_type'] == 1) {
                 ?>
-                  <img class="" src="<?= site_url($course['thumbnail']); ?>">
-                <?php
+                        <img class="" src="<?= site_url($course['thumbnail']); ?>">
+                        <?php
                 } else {
                 ?>
-                  <iframe width="100%" src="https://www.youtube.com/embed/<?= $youTubeUrl; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <?php
+                        <iframe width="100%" src="https://www.youtube.com/embed/<?= $youTubeUrl; ?>"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                        <?php
                 }
                 ?>
-              </div>
-              <div class="conten_b linkAd">
-                <a href="<?= $course['course_link']; ?>" target="_blank"></a>
-                <h4><?= $course['title']; ?></h4>
-                <p>
-                  <?= $course['short_description']; ?>
-                  <span class="star_rat">
-                    <?= $course['ratings']; ?>
-                    <span><i class="fa fa-star"></i></span>
-                  </span>
-                </p>
+                    </div>
+                    <div class="conten_b linkAd">
+                        <a href="<?= $course['course_link']; ?>" target="_blank"></a>
+                        <h4><?= $course['title']; ?></h4>
+                        <p>
+                            <?= $course['short_description']; ?>
+                            <span class="star_rat">
+                                <?= $course['ratings']; ?>
+                                <span><i class="fa fa-star"></i></span>
+                            </span>
+                        </p>
 
-                <h5>
-                  <span class="or1">Enrolled: <?= $course['enrolled']; ?></span>
-                  <span class="or2">Duration: <?= $course['duration']; ?> (h)</span>
-                </h5>
-                <h6>
-                  <span class="or1">Price: $<?= $course['price']; ?></span>
-                  <span class="or2">
-                    <button type="button" onclick="get_course_details(<?= $course['id']; ?>);" class="btn btn_theme2 btn_r">Content </button>
-                  </span>
-                </h6>
-              </div>
+                        <h5>
+                            <span class="or1">Enrolled: <?= $course['enrolled']; ?></span>
+                            <span class="or2">Duration: <?= $course['duration']; ?> (h)</span>
+                        </h5>
+                        <h6>
+                            <span class="or1">Price: $<?= $course['price']; ?> -
+                                <?= $course['price'] *  $exchangeRate ; ?> <i class="fa fa-inr"></i> </span>
+                            <span class="or2">
+                                <button type="button" onclick="get_course_details(<?= $course['id']; ?>);"
+                                    class="btn btn_theme2 btn_r">Content </button>
+                            </span>
+                        </h6>
+                    </div>
+                </div>
             </div>
-          </div>
-        <?php
+            <?php
         }
         ?>
-      </div>
+        </div>
     </div>
-  </section>
+</section>
 <?php
 }
 ?>
 
 <section class="sec_pad sec_5 whi_c">
-  <div class="container">
-    <div class="heading text-center">
-      <h1>
-        <?= $this->config->item('PROJECT'); ?>
-      </h1>
-    </div>
-    <div class="row align-items-center">
-      <div class="col-sm-3">
-        <div class="conter_set">
-          <img class="img_rat" alt="" src="<?= site_url('assets/site/'); ?>img/COURSES.png">
-          <div class="circle">
-            <span class="count"><?= $highlights['active_courses']; ?></span>
-          </div>
-
-          <h4>
-            ACTIVE COURSES
-          </h4>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="conter_set">
-          <img class="img_rat" alt="" src="<?= site_url('assets/site/'); ?>img/UPDATE.png">
-          <div class="circle2">
-            <span class="count"><?= date("Y", strtotime($highlights['last_update'])); ?></span>
-          </div>
-          <h4>
-            LAST UPDATE
-          </h4>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="conter_set">
-          <img class="img_rat" alt="" src="<?= site_url('assets/site/'); ?>img/REVIEWS.png">
-          <div class="circle3">
-            <span class="count"><?= $highlights['total_reviews']; ?></span>
-          </div>
-
-          <h4>
-            TOTAL REVIEWS
-          </h4>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="conter_set">
-          <img class="img_rat" alt="" src="<?= site_url('assets/site/'); ?>img/RATING.png">
-          <div class="circle4">
-            <span class=""><?= $highlights['average_rating']; ?></span>
-          </div>
-
-          <h4>
-            AVERAGE RATING
-          </h4>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="conter_set">
-          <img class="img_rat" alt="" src="<?= site_url('assets/site/'); ?>img/STUDENTS.png">
-          <div class="circle5">
-            <span class="count"><?= $highlights['total_students']; ?></span>
-          </div>
-
-          <h4>
-            TOTAL STUDENTS
-          </h4>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  <div class="download-shape-1">
-    <img src="<?= site_url('assets/site/'); ?>img/shape_1.png" alt="">
-  </div>
-  <div class="download-shape-2">
-    <img src="<?= site_url('assets/site/'); ?>img/shape_2.png" alt="">
-  </div>
-  <div class="download-shape-3">
-    <img src="<?= site_url('assets/site/'); ?>img/shape_3.png" alt="">
-  </div>
-</section>
-<section class="sec_pad">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-sm-6">
-        <img class="img_r" src="<?= site_url('assets/site/'); ?>img/img_44.png">
-      </div>
-      <div class="col-sm-6">
-        <div class="abn_text">
-          <div class="heading">
+    <div class="container">
+        <div class="heading text-center">
             <h1>
-              Download Full Course PDF/PPT of all courses for Free
+                <?= $this->config->item('PROJECT'); ?>
             </h1>
-          </div>
-          <a href="<?= $urls['download_full_course_url']; ?>" class="btn btn_theme2 btn-lg btn_r " target="_blank">
-            <span class="on1">Download </span>
-          </a>
         </div>
-      </div>
+        <div class="row align-items-center">
+            <div class="col-sm-3">
+                <div class="conter_set">
+                    <img class="img_rat" alt="" src="<?= site_url('assets/site/'); ?>img/COURSES.png">
+                    <div class="circle">
+                        <span class="count"><?= $highlights['active_courses']; ?></span>
+                    </div>
+                    <h4>
+                        ACTIVE COURSES
+                    </h4>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="conter_set">
+                    <img class="img_rat" alt="" src="<?= site_url('assets/site/'); ?>img/UPDATE.png">
+                    <div class="circle2">
+                        <span class="count"><?= date("Y", strtotime($highlights['last_update'])); ?></span>
+                    </div>
+                    <h4>
+                        LAST UPDATE
+                    </h4>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="conter_set">
+                    <img class="img_rat" alt="" src="<?= site_url('assets/site/'); ?>img/REVIEWS.png">
+                    <div class="circle3">
+                        <span class="count"><?= $highlights['total_reviews']; ?></span>
+                    </div>
+
+                    <h4>
+                        TOTAL REVIEWS
+                    </h4>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="conter_set">
+                    <img class="img_rat" alt="" src="<?= site_url('assets/site/'); ?>img/RATING.png">
+                    <div class="circle4">
+                        <span class=""><?= $highlights['average_rating']; ?></span>
+                    </div>
+
+                    <h4>
+                        AVERAGE RATING
+                    </h4>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="conter_set">
+                    <img class="img_rat" alt="" src="<?= site_url('assets/site/'); ?>img/STUDENTS.png">
+                    <div class="circle5">
+                        <span class="count"><?= $highlights['total_students']; ?></span>
+                    </div>
+
+                    <h4>
+                        TOTAL STUDENTS
+                    </h4>
+                </div>
+            </div>
+
+        </div>
     </div>
-  </div>
+    <div class="download-shape-1">
+        <img src="<?= site_url('assets/site/'); ?>img/shape_1.png" alt="">
+    </div>
+    <div class="download-shape-2">
+        <img src="<?= site_url('assets/site/'); ?>img/shape_2.png" alt="">
+    </div>
+    <div class="download-shape-3">
+        <img src="<?= site_url('assets/site/'); ?>img/shape_3.png" alt="">
+    </div>
 </section>
 <!-- <section class="sec_des_h2 sec_pad">
   <div class="container">
@@ -347,259 +499,324 @@ if (count($courses)) {
 </section> -->
 
 <?php
-if (count($deals)) {
+if (false && count($deals)) {
 ?>
-  <section class="sec_des_h1 pad_t">
+<section class="sec_des_h1 pad_t">
     <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="gir_im1">
-            <div class="table_1">
-              <div class="table_2">
-                <img src="<?= site_url('assets/site/'); ?>img/img_24.png" alt="" class="img_r">
-              </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="gir_im1">
+                    <div class="table_1">
+                        <div class="table_2">
+                            <img src="<?= site_url('assets/site/'); ?>img/img_24.png" alt="" class="img_r">
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-8">
-          <div class="conten_set">
-            <h4 class="bg_hed">Learn and Learn </h4>
-            <h1>Interesting packages!!</h1>
-            <p>
-              Pls send email to <a href="mailto:<?= $emails['default_email']; ?>"><?= $emails['default_email']; ?></a> after payment, telling us which Courses you want. You will be given lifetime access to Courses. Use Partial Payment links below in case you need to pay us an arbitrary amount after negotiation.
-            </p>
-          </div>
-          <div class="des_c2">
-            <div class="row">
-              <?php
+            <div class="col-md-8">
+                <div class="conten_set">
+                    <h4 class="bg_hed">Learn and Learn </h4>
+                    <h1>Interesting packages!!</h1>
+                    <p>
+                        Pls send email to <a
+                            href="mailto:<?= $emails['default_email']; ?>"><?= $emails['default_email']; ?></a> after
+                        payment, telling us which Courses you want. You will be given lifetime access to Courses. Use
+                        Partial Payment links below in case you need to pay us an arbitrary amount after negotiation.
+                    </p>
+                </div>
+                <div class="des_c2">
+                    <div class="row">
+                        <?php
               foreach ($deals as $deal) {
               ?>
-                <div class="col-sm-6">
-                  <div class="rig_icon conten_set">
-                    <a href="<?= $deal['link']; ?>" target="_blank"></a>
-                    <span><img src="<?= site_url('assets/site/'); ?>img/img_25.png" alt="<?= $deal['title']; ?>"></span>
-                    <h4><?= $deal['title']; ?></h4>
-                    <p><?= $deal['description']; ?></p>
-                    <h2><?= $deal['price_inr']; ?> INR | $<?= $deal['price_dollar']; ?></h2>
-                  </div>
-                </div>
-              <?php
+                        <div class="col-sm-6">
+                            <div class="rig_icon conten_set">
+                                <a href="<?= $deal['link']; ?>" target="_blank"></a>
+                                <span><img src="<?= site_url('assets/site/'); ?>img/img_25.png"
+                                        alt="<?= $deal['title']; ?>"></span>
+                                <h4><?= $deal['title']; ?></h4>
+                                <p><?= $deal['description']; ?></p>
+                                <h2><?= $deal['price_inr']; ?> INR | $<?= $deal['price_dollar']; ?></h2>
+                            </div>
+                        </div>
+                        <?php
               }
               ?>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </section>
+</section>
 <?php
 }
 ?>
 
 <section class="sec_pad get_in_touch1" id="contact">
-  <div class="efff_h effect_cont">
+    <div class="efff_h effect_cont">
 
-    <div class="yellow1"></div>
-    <div class="light-green"></div>
-    <div class="magenta"></div>
-    <div class="lightish-red"></div>
-    <div class="pink"></div>
-  </div>
-  <div class="container">
-
-    <div class="row justify-content-center">
-      <div class="col-sm-12">
-        <div class="get_in_touch2">
-          <div class="heading text-center">
-            <h1>
-              Enquiry Form
-            </h1>
-            <p>
-              Leave us a little info, and we’ll be in touch.
-            </p>
-          </div>
-          <div class="row align-items-center">
-            <div class="col-md-6">
-              <div class="img_con">
-                <img src="<?= site_url('assets/site/'); ?>img/img_21.png" alt="" class="img_r">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <form method="post" id="contactForm" onsubmit="send_contact_request(event);">
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <div class="ion_in">
-                    <i class="fa fa-user-o"></i>
-                    <input type="text" class="form-control" placeholder="Full Name" name="full_name" required="">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="">Phone Number</label>
-                  <div class="ion_in">
-                    <i class="fa fa-phone"></i>
-                    <input type="text" class="form-control" placeholder="Phone Number" name="phone">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="">Email</label>
-                  <div class="ion_in">
-                    <i class="fa fa-envelope-o"></i>
-                    <input type="email" class="form-control" placeholder="Email" name="email" required="">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="">Subject</label>
-                  <div class="ion_in">
-                    <i class="fa fa-info-circle"></i>
-                    <input type="text" class="form-control" placeholder="Subject" name="subject" required="">
-                  </div>
-                  <p class=" text-danger" style="display:none" id="alte_subject2">Sorry first space is not allowed</p>
-                </div>
-                <div class="form-group">
-                  <label for="">Leave us a message...</label>
-                  <div class="ion_in">
-                    <i class="fa fa-edit"></i>
-                    <textarea class="form-control" placeholder="Message" name="message" required=""></textarea>
-                  </div>
-                </div>
-                <div id="responseMessage"></div>
-                <div class="form-group ">
-                  <button type="submit" class="btn btn_theme2 btn-lg btn_r fb btn_submit" type="submit">Submit</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+        <div class="yellow1"></div>
+        <div class="light-green"></div>
+        <div class="magenta"></div>
+        <div class="lightish-red"></div>
+        <div class="pink"></div>
     </div>
-  </div>
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-sm-12">
+                <div class="get_in_touch2">
+                    <div class="heading text-center">
+                        <h1>
+                            Enquiry Form
+                        </h1>
+                        <p>
+                            Leave us a little info, and we’ll be in touch.
+                        </p>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="img_con">
+                                <img src="<?= site_url('assets/site/'); ?>img/img_21.png" alt="" class="img_r">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <form method="post" id="contactForm" onsubmit="send_contact_request(event);">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <div class="ion_in">
+                                        <i class="fa fa-user-o"></i>
+                                        <input type="text" class="form-control" placeholder="Full Name" name="full_name"
+                                            required="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Phone Number</label>
+                                    <div class="ion_in">
+                                        <i class="fa fa-phone"></i>
+                                        <input type="text" class="form-control" placeholder="Phone Number" name="phone">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Email</label>
+                                    <div class="ion_in">
+                                        <i class="fa fa-envelope-o"></i>
+                                        <input type="email" class="form-control" placeholder="Email" name="email"
+                                            required="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Subject</label>
+                                    <div class="ion_in">
+                                        <i class="fa fa-info-circle"></i>
+                                        <input type="text" class="form-control" placeholder="Subject" name="subject"
+                                            required="">
+                                    </div>
+                                    <p class=" text-danger" style="display:none" id="alte_subject2">Sorry first space is
+                                        not allowed</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Leave us a message...</label>
+                                    <div class="ion_in">
+                                        <i class="fa fa-edit"></i>
+                                        <textarea class="form-control" placeholder="Message" name="message"
+                                            required=""></textarea>
+                                    </div>
+                                </div>
+                                <div id="responseMessage"></div>
+                                <div class="form-group ">
+                                    <button type="submit" class="btn btn_theme2 btn-lg btn_r fb btn_submit"
+                                        type="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <?php
 if (count($reviews)) {
 ?>
-  <section class="sec_pad sec_4 text_monial" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="1000">
+<section class="sec_pad sec_4 text_monial" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="1000">
     <div class="container">
-      <div class="heading text-center">
-        <h1>
-          Users Reviews
-        </h1>
-      </div>
-      <div class="slihh_min arrow_set  ">
-        <div class=" slider_arrrw" id="slider3">
-          <?php
+        <div class="heading text-center">
+            <h1>
+                Users Reviews
+            </h1>
+        </div>
+        <div class="slihh_min arrow_set  ">
+            <div class=" slider_arrrw" id="slider3">
+                <?php
           foreach ($reviews as $review) {
           ?>
-            <div class="item">
-              <div class="testimonial2">
-                <div class="testimonial-content2">
-                  <p class="description">
-                    <?= $review['review']; ?>
-                  </p>
+                <div class="item">
+                    <div class="testimonial2">
+                        <div class="testimonial-content2">
+                            <p class="description">
+                                <?= $review['review']; ?>
+                            </p>
+                        </div>
+                        <div class="user_immg">
+                            <h4>
+                                <a href="<?= ($review['link'] != null ? $review['link'] : '#'); ?>"
+                                    target="_blank"><?= $review['name']; ?></a>
+                                <span><?= $review['designation']; ?></span>
+                            </h4>
+                        </div>
+                    </div>
                 </div>
-                <div class="user_immg">
-                  <h4>
-                    <a href="<?= ($review['link'] != null ? $review['link'] : '#'); ?>" target="_blank"><?= $review['name']; ?></a>
-                    <span><?= $review['designation']; ?></span>
-                  </h4>
-                </div>
-              </div>
-            </div>
-          <?php
+                <?php
           }
           ?>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
+</section>
 <?php
 }
 ?>
 
 <!-- modal -->
-<div class="modal fade" id="courseDetailModal" tabindex="-1" role="dialog" aria-labelledby="lab_na1" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="lab_na1">Course Details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" id="course-detail"></div>
+<div class="modal fade" id="courseDetailModal" tabindex="-1" role="dialog" aria-labelledby="lab_na1" aria-hidden="true"
+    data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="lab_na1">Course Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="course-detail"></div>
+        </div>
     </div>
-  </div>
 </div>
 <!-- modal -->
-
-
+<script src="https://www.youtube.com/iframe_api"></script>
 <script>
-  function get_course_details(course_id) {
+//   // This variable will hold the YouTube player instances.
+//  var tag = document.createElement('script');
+// tag.src = "//www.youtube.com/iframe_api";
+// var firstScriptTag = document.getElementsByTagName('script')[0];
+// firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// // Create YouTube player(s) after the API code downloads.
+// var player1;
+// var player2;
+// var player3;
+// var player4;
+// var player5;
+//  var players = {};
+
+//   // This function gets called when the YouTube IFrame API is ready.
+//   function onYouTubeIframeAPIReady() {
+//     // For each iframe on the page, create a new YouTube player instance.
+//     $('iframe.embed-responsive-item').each(function(index) {
+//       var frameID = $(this).attr('id');
+//       players[frameID] = new YT.Player(frameID);
+//     });
+//      player1.stopVideo();
+//         player2.stopVideo();
+//         player3.stopVideo();
+//         player4.stopVideo();
+//         player5.stopVideo();
+//   }
+// function onYouTubeIframeAPIReady() {
+//     player1 = new YT.Player('player-1');
+//     player2 = new YT.Player('player-2');
+//     player3 = new YT.Player('player-3');
+//     player4 = new YT.Player('player-4');
+//     player5 = new YT.Player('player-5');
+// }
+//   $(".carousel-control-next,.carousel-control-prev").click(function () {
+//         player1.stopVideo();
+//         player2.stopVideo();
+//         player3.stopVideo();
+//         player4.stopVideo();
+//         player5.stopVideo();
+//     });
+
+  // Load the IFrame Player API code asynchronously.
+setTimeout(function() {
+        'use strict';
+        var overlay = document.getElementsByClassName("ytp-pause-overlay ytp-scroll-min");
+        if (overlay.length > 0) {
+            overlay[0].remove();
+        }
+    }, 3000); //
+    
+    
+function get_course_details(course_id) {
     $.ajax({
-      type: 'GET',
-      url: BASE_URL + 'Course/' + course_id,
-      dataType: 'HTML',
-      beforeSend: function(xhr) {
+        type: 'GET',
+        url: BASE_URL + 'Course/' + course_id,
+        dataType: 'HTML',
+        beforeSend: function(xhr) {
 
-      },
-      success: function(response) {
-        $("#courseDetailModal").modal("show");
-        $("#course-detail").html(response);
-      }
+        },
+        success: function(response) {
+            $("#courseDetailModal").modal("show");
+            $("#course-detail").html(response);
+        }
     });
-  }
+}
 
-  function send_contact_request(e) {
+function send_contact_request(e) {
     e.preventDefault();
     $.ajax({
-      type: 'POST',
-      url: BASE_URL + 'Contact-Request',
-      data: new FormData($('#contactForm')[0]),
-      dataType: 'JSON',
-      processData: false,
-      contentType: false,
-      cache: false,
-      beforeSend: function(xhr) {
-        $(".btn_submit").attr('disabled', true);
-        $(".btn_submit").html(LOADING);
-        $("#responseMessage").html('');
-        $("#responseMessage").hide();
-      },
-      success: function(response) {
-        $(".btn_submit").prop('disabled', false);
-        $(".btn_submit").html(' Send ');
-        $("#responseMessage").html(response.responseMessage);
-        $("#responseMessage").show();
-        if (response.status == 1) {
-          $("#contactForm")[0].reset();
+        type: 'POST',
+        url: BASE_URL + 'Contact-Request',
+        data: new FormData($('#contactForm')[0]),
+        dataType: 'JSON',
+        processData: false,
+        contentType: false,
+        cache: false,
+        beforeSend: function(xhr) {
+            $(".btn_submit").attr('disabled', true);
+            $(".btn_submit").html(LOADING);
+            $("#responseMessage").html('');
+            $("#responseMessage").hide();
+        },
+        success: function(response) {
+            $(".btn_submit").prop('disabled', false);
+            $(".btn_submit").html(' Send ');
+            $("#responseMessage").html(response.responseMessage);
+            $("#responseMessage").show();
+            if (response.status == 1) {
+                $("#contactForm")[0].reset();
+            }
         }
-      }
     });
-  }
+}
 
-  function load_category(category_id) {
+function load_category(category_id) {
     $.ajax({
-      type: 'GET',
-      url: BASE_URL + 'Category/' + category_id,
-      dataType: 'json',
-      beforeSend: function(xhr) {
-        $("#all-category-btn").hide();
-        $("#all-category-btn").html('');
-      },
-      success: function(response) {
-        if (response.status == 1) {
-          $("#all-category-btn").html(allCategoryBtn(response.url, response.category_price));
-          $("#all-category-btn").show();
+        type: 'GET',
+        url: BASE_URL + 'Category/' + category_id,
+        dataType: 'json',
+        beforeSend: function(xhr) {
+            $("#all-category-btn").hide();
+            $("#all-category-btn").html('');
+        },
+        success: function(response) {
+            if (response.status == 1) {
+                $("#all-category-btn").html(allCategoryBtn(response.url, response.category_price));
+                $("#all-category-btn").show();
+            }
         }
-      }
     });
-  }
+}
 
-  const allCategoryBtn = (url, category_price) => {
+const allCategoryBtn = (url, category_price) => {
     let btnTitle = 'Buy all the courses in this category';
+    let exchangeRate = <?=$exchangeRate ; ?>;
     if (category_price && category_price != 0.00) {
-      btnTitle = `${btnTitle} ($ ${category_price})`;
+        btnTitle =
+            `${btnTitle} ($ ${category_price}) - ${category_price * exchangeRate} <i class="fa fa-inr"></i>`;
     }
-    return `<a href="${url}" class="btn btn_theme category-btn" target="_blank" >${btnTitle}</a>`
-  }
+    return `<a href="${url}" class="btn btn_theme2 btn-lg btn_r category-btn" target="_blank" >${btnTitle}</a>`
+}
 </script>

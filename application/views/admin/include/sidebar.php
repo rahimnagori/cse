@@ -56,6 +56,9 @@
       <li>
         <a href="<?= site_url('Faqs-Management'); ?>"><i class="fa fa-edge" aria-hidden="true"></i> FAQs Management</a>
       </li>
+      <li>
+        <a href="<?= site_url('frontend-setting'); ?>"><i class="fa fa-edge" aria-hidden="true"></i> Frontend Setting</a>
+      </li>
       <!-- <li>
         <a href="<?= site_url('Admin'); ?>"><i class="fa fa-gear"></i> Page Content Management</a>
       </li> -->
