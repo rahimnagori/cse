@@ -1,4 +1,7 @@
 <style>
+.ifrme_width_slider {
+    width: 60%;
+}
 .man_nav {
     position: absolute;
     left: 0;
@@ -42,7 +45,7 @@
 
 <div class="row" style="justify-content: center;">
 <!-- Top content -->
-<div class="top-content" style="width: 80%;">
+<div class="top-content .ifrme_width_slider">
   
         <!-- End title and description row -->
         <!-- Carousel row -->
