@@ -32,6 +32,7 @@ class Setting extends CI_Controller
         'video_link3' => $this->input->post('videoLink3'),
         'video_link4' => $this->input->post('videoLink4'),
         'video_link5' => $this->input->post('videoLink5'),
+        //'video_link6' => $this->input->post('videoLink6'),
         'audio_control' => $this->input->post('audioControl') ? 1 : 0,
         'video_control' => $this->input->post('videoControl') ? 1 : 0
     );
