@@ -45,7 +45,7 @@
 
 <div class="row" style="justify-content: center;">
 <!-- Top content -->
-<div class="top-content .ifrme_width_slider">
+<div class="top-content ifrme_width_slider">
   
         <!-- End title and description row -->
         <!-- Carousel row -->
