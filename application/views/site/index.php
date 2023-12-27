@@ -169,7 +169,7 @@
                 <div class="conten_set des_c1">
                     <h1>
                         Computer Science Projects <br>
-                        Problem Solving <?= $this->config->item('PROJECT'); ?> No DS/ALGO/CP, only Projects
+                        And Courses  <?= $this->config->item('PROJECT'); ?> No DS/ALGO/CP, only Projects
                     </h1>
                     <p class="text-justified">
                         Welcome to <?= $this->config->item('PROJECT'); ?>, an OnlineCourse offering Website in the field
