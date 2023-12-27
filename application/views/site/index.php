@@ -119,6 +119,16 @@
 
                                 <?php
                         }
+                        // if(!empty($adminData['video_link6'])){
+                        //         ?>
+                        //              <div class="carousel-item">
+                        //                 <div class="embed-responsive embed-responsive-16by9">
+                        //                     <iframe class="embed-responsive-item" src="<?=  $adminData['video_link6']?>" allowfullscreen  id="player-6"></iframe>
+                        //                 </div>
+                        //             </div>
+
+                        //         <?php
+                        // }
 
                         ?>
                     </div>
