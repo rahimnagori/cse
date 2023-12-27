@@ -43,6 +43,13 @@
                             <label for="videoLink3">Video Link 5:</label>
                             <input type="url" class="form-control" id="videoLink3" name="videoLink5"  value="<?= $settingData['video_link5'] ?>"  >
                         </div>
+
+                      <!-- <div class="form-group">
+                            <label for="videoLink3">Video Link 5:</label>
+                            <input type="url" class="form-control" id="videoLink3" name="videoLink6"  value="<?= $settingData['video_link6'] ?>"  >
+                        </div> -->
+
+
                         <!-- Add a -->
                         <!-- Slider Controls -->
                         <div class="form-group form-check">
