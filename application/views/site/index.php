@@ -168,8 +168,8 @@
             <div class="col-sm-6" data-aos="fade-right" data-aos-duration="1000" data-aos-easing="linear">
                 <div class="conten_set des_c1">
                     <h1>
-                        Computer Science Projects <br>
-                        And Courses  <?= $this->config->item('PROJECT'); ?> No DS/ALGO/CP, only Projects
+                        Computer Science Courses <br>
+                        And Projects  <?= $this->config->item('PROJECT'); ?> No DS/ALGO/CP, only Projects
                     </h1>
                     <p class="text-justified">
                         Welcome to <?= $this->config->item('PROJECT'); ?>, an OnlineCourse offering Website in the field
