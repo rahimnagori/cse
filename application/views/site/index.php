@@ -240,42 +240,6 @@
     </div>
 </section>
 
-<!-- 
-    I want to display below text here 
-
-    What you will learn:
-
-🎯 Advance C/C++ Programming Concepts
-
-🎯 Understand Linux User space programming skills
-
-🎯 System Programming Concepts, System Calls, Socket Programming
-
-🎯 Advance debugging, Deep M/W packet inspection using debuggers,
-
-🎯 Asynchronous programming, Write Parsers, Memory Manager, Memory Leak Detectors, Garbage Collector for C
-
-🎯 Writing Makefiles, Linking, Schedulers
-
-🎯Encoding and Decoding Network Packets, Parsing Network Packets
-
-🎯 Build Network Emulator and build you own TCP/IP Stack Layer on top of it
-
-🎯 Build Multithreaded Applications, Event Loops
-
-🎯 Advance Data Structures such as Longest prefix match enabled IPV4 Routing tables, Access control list, bitmap arrays, Circular Buffers
-
-🎯 Build your own Network protocol ( such as OSPF ) in C from scratch
-
-🎯 Build your own Thread Synchronization tools such as Wait Queues, Assembly line, read-write locks.
-
-🎯 Understand TCP Internals in detail
-
-🎯 Write Parsers and RDBMS Dev from Scratch
-
-🎯 Network Concepts ( Theoretical )
-
---> 
 <?php if (count($courses)) { ?>
 <section class="sec_pad">
     <div class="container">
@@ -283,23 +247,23 @@
             <div class="col-sm-12">
                 <div class="course_description">
                 <h2 style="color: #FF0000; font-weight: bold;">What you will learn:</h2>
-                    <ul>
-                        <li style="color: #00FF00;">Advance C/C++ Programming Concepts</li>
-                        <li style="color: #0000FF;">Understand Linux User space programming skills</li>
-                        <li style="color: #FF00FF;">System Programming Concepts, System Calls, Socket Programming</li>
-                        <li style="color: #FFFF00;">Advance debugging, Deep M/W packet inspection using debuggers</li>
-                        <li style="color: #00FFFF;">Asynchronous programming, Write Parsers, Memory Manager, Memory Leak Detectors, Garbage Collector for C</li>
-                        <li style="color: #FFA500;">Writing Makefiles, Linking, Schedulers</li>
-                        <li style="color: #800080;">Encoding and Decoding Network Packets, Parsing Network Packets</li>
-                        <li style="color: #008000;">Build Network Emulator and build your own TCP/IP Stack Layer on top of it</li>
-                        <li style="color: #FF1493;">Build Multithreaded Applications, Event Loops</li>
-                        <li style="color: #FF4500;">Advance Data Structures such as Longest prefix match enabled IPV4 Routing tables, Access control list, bitmap arrays, Circular Buffers</li>
-                        <li style="color: #800000;">Build your own Network protocol (such as OSPF) in C from scratch</li>
-                        <li style="color: #FF69B4;">Build your own Thread Synchronization tools such as Wait Queues, Assembly line, read-write locks</li>
-                        <li style="color: #000080;">Understand TCP Internals in detail</li>
-                        <li style="color: #FF8C00;">Write Parsers and RDBMS Dev from Scratch</li>
-                        <li style="color: #008080;">Network Concepts (Theoretical)</li>
-                    </ul>
+                <ul>
+                    <li style="color: #000000; font-weight: bold;">Advance C/C++ Programming Concepts</li>
+                    <li style="color: #000000; font-weight: bold;">Understand Linux User space programming skills</li>
+                    <li style="color: #000000; font-weight: bold;">System Programming Concepts, System Calls, Socket Programming</li>
+                    <li style="color: #000000; font-weight: bold;">Advance debugging, Deep M/W packet inspection using debuggers</li>
+                    <li style="color: #000000; font-weight: bold;">Asynchronous programming, Write Parsers, Memory Manager, Memory Leak Detectors, Garbage Collector for C</li>
+                    <li style="color: #000000; font-weight: bold;">Writing Makefiles, Linking, Schedulers</li>
+                    <li style="color: #000000; font-weight: bold;">Encoding and Decoding Network Packets, Parsing Network Packets</li>
+                    <li style="color: #000000; font-weight: bold;">Build Network Emulator and build your own TCP/IP Stack Layer on top of it</li>
+                    <li style="color: #000000; font-weight: bold;">Build Multithreaded Applications, Event Loops</li>
+                    <li style="color: #000000; font-weight: bold;">Advance Data Structures such as Longest prefix match enabled IPV4 Routing tables, Access control list, bitmap arrays, Circular Buffers</li>
+                    <li style="color: #000000; font-weight: bold;">Build your own Network protocol (such as OSPF) in C from scratch</li>
+                    <li style="color: #000000; font-weight: bold;">Build your own Thread Synchronization tools such as Wait Queues, Assembly line, read-write locks</li>
+                    <li style="color: #000000; font-weight: bold;">Understand TCP Internals in detail</li>
+                    <li style="color: #000000; font-weight: bold;">Write Parsers and RDBMS Dev from Scratch</li>
+                    <li style="color: #000000; font-weight: bold;">Network Concepts (Theoretical - L2 and L3 routing complete )</li>
+                </ul>
                 </div>
             </div>
         </div>
