@@ -250,23 +250,23 @@
                 <ul>
                     <li style="color: #000000; font-weight: bold;">Advance C/C++ Programming Concepts</li>
                     <li style="color: #000000; font-weight: bold;">Understand Linux User space programming skills</li>
-                    <li style="color: #000000; font-weight: bold;">System Programming Concepts, System Calls, Socket Programming</li>
+                    <li style="color: #000000; font-weight: bold;">System Programming Concepts, System Calls, Socket Programming, Signals </li>
                     <li style="color: #000000; font-weight: bold;">Advance debugging, Deep Network packet inspection (DPI) using debuggers</li>
                     <li style="color: #000000; font-weight: bold;">Write your own Packet Capture Tool like Wireshark</li>
-                    <li style="color: #000000; font-weight: bold;">Asynchronous programming - Event Loops, Semaphores </li>
+                    <li style="color: #000000; font-weight: bold;">Asynchronous programming - Event Loops, Semaphores, Wait n Signals </li>
                     <li style="color: #000000; font-weight: bold;">Implement Heap Memory Manager, Memory Leak Detectors, Garbage Collector in C</li>
                     <li style="color: #000000; font-weight: bold;">Writing Makefiles, Linking, Schedulers</li>
                     <li style="color: #000000; font-weight: bold;">Learn and Implement Inter-process communication methods ( IPCs ), Remote Procedure Calls ( RPCs) </li>
-                    <li style="color: #000000; font-weight: bold;">Implement Timer library from scratch in C/C++ </li>
-                    <li style="color: #000000; font-weight: bold;">Encoding and Decoding Network Packets, Parsing Network Packets</li>
+                    <li style="color: #000000; font-weight: bold;">Implement Timer library (WheelTimers, Hierarchical Timers) from scratch in C/C++ </li>
+                    <li style="color: #000000; font-weight: bold;">Encoding and Decoding Network Packets, Parsing Network Packets, Data (De)Serialization, TLVs</li>
                     <li style="color: #000000; font-weight: bold;">Build Network Simulator and build your own TCP/IP Stack Layer on top of it</li>
-                    <li style="color: #000000; font-weight: bold;">Build Multithreaded Applications, Event Loops</li>
                     <li style="color: #000000; font-weight: bold;">Advance Data Structures such as Longest prefix match enabled IPV4 Routing tables, Access control list, bitmap arrays, Circular Buffers</li>
                     <li style="color: #000000; font-weight: bold;">Build your own Network protocol (such as OSPF) in C from scratch</li>
                     <li style="color: #000000; font-weight: bold;">Build your own Thread Synchronization tools such as Wait Queues, Assembly line, read-write locks</li>
+                    <li style="color: #000000; font-weight: bold;">Learn Multi-Threading Design Patterns ( POSIX )</li>
                     <li style="color: #000000; font-weight: bold;">Implement Stateful Algorithms, use to implement State machine driven problems </li>
-                    <li style="color: #000000; font-weight: bold;">Understand TCP Internals in detail - </li>
-                    <li style="color: #000000; font-weight: bold;">Write Parsers and Implement Relational DBMS from Scratch</li>
+                    <li style="color: #000000; font-weight: bold;">Understand TCP Internals in detail - 3way handshake, connection mgmt, Window mgmt, Congestion Control </li>
+                    <li style="color: #000000; font-weight: bold;">Write Parsers and Implement Relational DBMS from Scratch in C/C++</li>
                     <li style="color: #000000; font-weight: bold;">Network Concepts (Theoretical - L2 and L3 routing complete )</li>
                 </ul>
                 </div>
