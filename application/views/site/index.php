@@ -240,6 +240,76 @@
     </div>
 </section>
 
+<!-- 
+    I want to display below text here 
+
+    What you will learn:
+
+🎯 Advance C/C++ Programming Concepts
+
+🎯 Understand Linux User space programming skills
+
+🎯 System Programming Concepts, System Calls, Socket Programming
+
+🎯 Advance debugging, Deep M/W packet inspection using debuggers,
+
+🎯 Asynchronous programming, Write Parsers, Memory Manager, Memory Leak Detectors, Garbage Collector for C
+
+🎯 Writing Makefiles, Linking, Schedulers
+
+🎯Encoding and Decoding Network Packets, Parsing Network Packets
+
+🎯 Build Network Emulator and build you own TCP/IP Stack Layer on top of it
+
+🎯 Build Multithreaded Applications, Event Loops
+
+🎯 Advance Data Structures such as Longest prefix match enabled IPV4 Routing tables, Access control list, bitmap arrays, Circular Buffers
+
+🎯 Build your own Network protocol ( such as OSPF ) in C from scratch
+
+🎯 Build your own Thread Synchronization tools such as Wait Queues, Assembly line, read-write locks.
+
+🎯 Understand TCP Internals in detail
+
+🎯 Write Parsers and RDBMS Dev from Scratch
+
+🎯 Network Concepts ( Theoretical )
+
+--> 
+
+<?php if (count($courses)) { ?>
+<section class="sec_pad">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="course_description">
+                    <h2>What you will learn:</h2>
+                    <ul>
+                        <li>Advance C/C++ Programming Concepts</li>
+                        <li>Understand Linux User space programming skills</li>
+                        <li>System Programming Concepts, System Calls, Socket Programming</li>
+                        <li>Advance debugging, Deep M/W packet inspection using debuggers</li>
+                        <li>Asynchronous programming, Write Parsers, Memory Manager, Memory Leak Detectors, Garbage Collector for C</li>
+                        <li>Writing Makefiles, Linking, Schedulers</li>
+                        <li>Encoding and Decoding Network Packets, Parsing Network Packets</li>
+                        <li>Build Network Emulator and build your own TCP/IP Stack Layer on top of it</li>
+                        <li>Build Multithreaded Applications, Event Loops</li>
+                        <li>Advance Data Structures such as Longest prefix match enabled IPV4 Routing tables, Access control list, bitmap arrays, Circular Buffers</li>
+                        <li>Build your own Network protocol (such as OSPF) in C from scratch</li>
+                        <li>Build your own Thread Synchronization tools such as Wait Queues, Assembly line, read-write locks</li>
+                        <li>Understand TCP Internals in detail</li>
+                        <li>Write Parsers and RDBMS Dev from Scratch</li>
+                        <li>Network Concepts (Theoretical)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<?php } ?>
+
+
+
 <?php
 if (count($courses)) {
 ?>
