@@ -15,9 +15,12 @@
         <div class="conten_set ">
           <p>
             Welcome to <?= $this->config->item('PROJECT'); ?>, an OnlineCourse offering Website in the field of Operating Systems, Networking, Linux System Programming and Several Coding Projects. We offer only Development based Projects, no DS/ALGO/CP.
-            <br>
-            Operational Address : <?= $this->config->item('ADDRESS'); ?>
-            <br>
+            <br><br>
+              Operational Address : <br>
+              Sterling Ascentia Apartmane, T5133
+              Outer Ring Road, Bellundar
+              Bangalore, Karnataka, India - 560103
+            <br><br>
             Business Name : SAGAR HUF
           </p>
         </div>
